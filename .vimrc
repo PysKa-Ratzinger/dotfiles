@@ -10,18 +10,24 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'scrooloose/nerdtree'
-Plugin 'valloric/youcompleteme'
-Plugin 'rdnetto/YCM-Generator'
+Plugin 'TroyFletcher/vim-colors-synthwave'
+Plugin 'alvan/vim-closetag'
+Plugin 'agude/vim-eldar'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'embear/vim-localvimrc'
 Plugin 'enricobacis/vim-airline-clock'
 Plugin 'jelera/vim-javascript-syntax'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'pangloss/vim-javascript'
 Plugin 'koirand/tokyo-metro.vim'
-Plugin 'alvan/vim-closetag'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'moll/vim-node'
+Plugin 'pangloss/vim-javascript'
+Plugin 'rdnetto/YCM-Generator'
+Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive'
+Plugin 'valloric/youcompleteme'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'vim-scripts/DoxygenToolkit.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -45,6 +51,8 @@ set shiftwidth=8
 set hidden
 set number
 set t_Co=256
+
+set foldopen-=block
 
 if exists('+colorcolumn')
   set colorcolumn=80
@@ -71,9 +79,9 @@ let g:airline_theme='badcat'
 let g:Powerline_symbols = 'fancy'
 let g:airline#extensions#tabline#enabled = 1
 
-let g:ycm_path_to_python_interpreter = '/usr/bin/python3'
-let g:ycm_python_binary_path = '/usr/bin/python3'
-let g:ycm_server_python_interpreter = '/usr/bin/python3'
+let g:ycm_path_to_python_interpreter = '/usr/bin/python2'
+let g:ycm_python_binary_path = '/usr/bin/python2'
+let g:ycm_server_python_interpreter = '/usr/bin/python2'
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:SuperTabClosePreviewOnPopupClose = 1
 
@@ -96,11 +104,47 @@ let g:jedi#usages_command = "<leader>n"
 let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "<leader>r"
 
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
-let g:closetag_filetypes = 'html,xhtml,phtml'
-let g:closetag_xhtml_filetypes = 'xhtml,jsx'
-let g:closetag_emptyTags_caseSensitive = 1
-let g:closetag_shortcut = '>'
-let g:closetag_close_shortcut = '<leader>>'
+set cinoptions=:0,t0
+
+" Fix up indent issues - I can't stand wasting an indent because
+" I'm in a namespace. If you don't like this then just comment
+" this line out.
+setlocal indentexpr=GetCppIndentNoNamespace(v:lnum)
+
+"
+" GetCppIndentNoNamespace()
+"
+" This little function calculates the indent level for C++ and
+" treats the namespace differently than usual - we ignore it. The
+" indent level is the for a given line is the same as it would
+" be were the namespace not event there.
+"
+" This function is rather crude but it works.
+"
+function! GetCppIndentNoNamespace(lnum)
+	let nsLineNum = search('^\s*\\s\+\S\+', 'bnW')
+	if nsLineNum == 0
+		return cindent(a:lnum)
+	else
+		let incomment = 0
+		for n in range(nsLineNum + 1, a:lnum - 1)
+			let cline = getline(n)
+			if cline =~ '^\s*/\*'
+				let incomment = 1
+			elseif cline =~ '^.*\*/'
+				let incomment = 0
+			elseif incomment
+				== 0
+				if cline
+					=~
+					'^\s*\S\+'
+					return
+					cindent(a:lnum)
+				endif
+			endif
+		endfor
+		return
+		cindent(nsLineNum)
+	endif
+endfunction
 
