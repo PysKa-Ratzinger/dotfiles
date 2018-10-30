@@ -28,6 +28,7 @@ Plugin 'valloric/youcompleteme'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
+Plugin 'fatih/vim-go'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -67,12 +68,12 @@ set completeopt-=preview
 :command YcmStop call youcompleteme#DisableCursorMovedAutocommands()
 :command YcmResume call youcompleteme#EnableCursorMovedAutocommands()
 
-:imap <buffer> ;struct <C-O>mzstruct %%% {<CR>%%%<CR><BS><BS>};<C-O>'z;;
-:imap <buffer> ;main <C-O>mzint main (int argc, char* argv[]) {<CR>%%%<CR><BS><BS>}<C-O>'z;;
-:imap <buffer> ;wh <C-O>mzwhile (%%%) {<CR>%%%<CR><BS><BS>}<C-O>'z;;
-:imap <buffer> ;fo <C-O>mzfor (%%%; %%%; %%%) {<CR>%%%<CR><BS><BS>}<C-O>'z;;
-:imap <buffer> ;; <C-O>/%%%<CR><C-O>c3l
-:nmap <buffer> ;; /%%%<CR>c3l
+:imap ;struct <C-O>mzstruct %%% {<CR>%%%<CR><BS><BS>};<C-O>'z;;
+:imap ;main <C-O>mzint main (int argc, char* argv[]) {<CR>%%%<CR><BS><BS>}<C-O>'z;;
+:imap ;wh <C-O>mzwhile (%%%) {<CR>%%%<CR><BS><BS>}<C-O>'z;;
+:imap ;fo <C-O>mzfor (%%%; %%%; %%%) {<CR>%%%<CR><BS><BS>}<C-O>'z;;
+:imap ;; <C-O>/%%%<CR><C-O>c3l
+:nmap ;; /%%%<CR>c3l
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme='badcat'
@@ -103,6 +104,8 @@ let g:jedi#documentation_command = "K"
 let g:jedi#usages_command = "<leader>n"
 let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "<leader>r"
+
+let g:go_version_warning = 0
 
 set cinoptions=:0,t0
 
