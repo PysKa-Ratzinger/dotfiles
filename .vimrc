@@ -20,6 +20,8 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'pangloss/vim-javascript'
+Plugin 'koirand/tokyo-metro.vim'
+Plugin 'alvan/vim-closetag'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -49,13 +51,20 @@ if exists('+colorcolumn')
 endif
 syntax on
 
-colorscheme molokai
+colorscheme tokyo-metro
 
 set completeopt-=preview
 
 :command Bclose bp|bd#
 :command YcmStop call youcompleteme#DisableCursorMovedAutocommands()
 :command YcmResume call youcompleteme#EnableCursorMovedAutocommands()
+
+:imap <buffer> ;struct <C-O>mzstruct %%% {<CR>%%%<CR><BS><BS>};<C-O>'z;;
+:imap <buffer> ;main <C-O>mzint main (int argc, char* argv[]) {<CR>%%%<CR><BS><BS>}<C-O>'z;;
+:imap <buffer> ;wh <C-O>mzwhile (%%%) {<CR>%%%<CR><BS><BS>}<C-O>'z;;
+:imap <buffer> ;fo <C-O>mzfor (%%%; %%%; %%%) {<CR>%%%<CR><BS><BS>}<C-O>'z;;
+:imap <buffer> ;; <C-O>/%%%<CR><C-O>c3l
+:nmap <buffer> ;; /%%%<CR>c3l
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme='badcat'
@@ -86,4 +95,12 @@ let g:jedi#documentation_command = "K"
 let g:jedi#usages_command = "<leader>n"
 let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "<leader>r"
+
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+let g:closetag_filetypes = 'html,xhtml,phtml'
+let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+let g:closetag_emptyTags_caseSensitive = 1
+let g:closetag_shortcut = '>'
+let g:closetag_close_shortcut = '<leader>>'
 
