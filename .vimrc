@@ -11,15 +11,17 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'TroyFletcher/vim-colors-synthwave'
-Plugin 'alvan/vim-closetag'
 Plugin 'agude/vim-eldar'
+Plugin 'alvan/vim-closetag'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'embear/vim-localvimrc'
 Plugin 'enricobacis/vim-airline-clock'
+Plugin 'fatih/vim-go'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'koirand/tokyo-metro.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'moll/vim-node'
+Plugin 'nsf/gocode'
 Plugin 'pangloss/vim-javascript'
 Plugin 'rdnetto/YCM-Generator'
 Plugin 'scrooloose/nerdtree'
@@ -28,7 +30,7 @@ Plugin 'valloric/youcompleteme'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
-Plugin 'fatih/vim-go'
+Plugin 'flazz/vim-colorschemes'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -60,7 +62,7 @@ if exists('+colorcolumn')
 endif
 syntax on
 
-colorscheme tokyo-metro
+colorscheme Benokai
 
 set completeopt-=preview
 
@@ -68,6 +70,7 @@ set completeopt-=preview
 :command YcmStop call youcompleteme#DisableCursorMovedAutocommands()
 :command YcmResume call youcompleteme#EnableCursorMovedAutocommands()
 
+:imap ;guard <C-O>mz#ifndef %%%<CR>#define %%%<CR>#endif  // %%%<CR><C-O>'z;;
 :imap ;struct <C-O>mzstruct %%% {<CR>%%%<CR><BS><BS>};<C-O>'z;;
 :imap ;main <C-O>mzint main (int argc, char* argv[]) {<CR>%%%<CR><BS><BS>}<C-O>'z;;
 :imap ;wh <C-O>mzwhile (%%%) {<CR>%%%<CR><BS><BS>}<C-O>'z;;
