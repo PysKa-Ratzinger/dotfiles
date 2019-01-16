@@ -20,8 +20,6 @@ set $right l
 # SETTINGS
 ###########################################################
 
-gaps inner 8
-gaps outer 8
 workspace_auto_back_and_forth yes
 popup_during_fullscreen smart
 focus_follows_mouse yes
@@ -49,7 +47,7 @@ exec_always bash ~/.config/i3/element
 # FONTS & COLORS & FRAME
 ###########################################################
 
-font pango:Gohu Gohufont Regular 12
+font pango:Gohu Gohufont Regular 10
 
 set $black				#1b1b1b
 set $grey				#474B51
@@ -122,16 +120,16 @@ bindsym $alt+Shift+Right resize grow width 10 px or 10 ppt
 # WORKSPACES
 ###########################################################
 
-set $ws1 "I"
-set $ws2 "II"
-set $ws3 "III"
-set $ws4 "IV"
-set $ws5 "V"
-set $ws6 "VI"
-set $ws7 "VII"
-set $ws8 "VIII"
-set $ws9 "IX"
-set $ws10 "X"
+set $ws1 "1:I"
+set $ws2 "2:II"
+set $ws3 "3:III"
+set $ws4 "4:IV"
+set $ws5 "5:V"
+set $ws6 "6:VI"
+set $ws7 "7:VII"
+set $ws8 "8:VIII"
+set $ws9 "9:IX"
+set $ws10 "10:X"
 
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
@@ -181,10 +179,10 @@ bindsym XF86MonBrightnessDown exec --no-startup-id "light -U 5"
 
 bar {
 	status_command i3status
-		strip_workspace_numbers no
-		tray_output primary
-		mode dock
-		position top
-		height 24
+	strip_workspace_numbers yes
+	tray_output primary
+	mode dock
+	position top
+	height 24
 }
 
