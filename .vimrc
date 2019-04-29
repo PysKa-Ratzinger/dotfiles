@@ -21,7 +21,6 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'koirand/tokyo-metro.vim'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'moll/vim-node'
-Plugin 'nsf/gocode'
 Plugin 'pangloss/vim-javascript'
 Plugin 'rdnetto/YCM-Generator'
 Plugin 'scrooloose/nerdtree'
@@ -31,6 +30,19 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
 Plugin 'flazz/vim-colorschemes'
+
+" Snippets plugin
+Plugin 'SirVer/ultisnips'
+
+" Plugins added for work with PHP (still ended up using phpstorm :P )
+Plugin 'shawncplus/phpcomplete.vim'
+Plugin 'mhinz/vim-startify'
+Plugin 'StanAngeloff/php.vim'
+Plugin 'neomake/neomake'
+Plugin 'adoy/vim-php-refactoring-toolbox'
+Plugin 'tobyS/vmustache'
+Plugin 'tobyS/pdv'
+Plugin 'nrocco/vim-phplint'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -47,13 +59,16 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-map <C-n> :NERDTreeToggle<CR>
+noremap <C-n> :NERDTreeToggle<CR>
+
+let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
+noremap <C-p> :call pdv#DocumentWithSnip()<CR>
+noremap <C-l> :Phplint<CR>
 
 set tabstop=8
 set shiftwidth=8
 set hidden
 set number
-set t_Co=256
 
 set foldopen-=block
 
@@ -62,7 +77,22 @@ if exists('+colorcolumn')
 endif
 syntax on
 
-colorscheme Benokai
+set t_Co=256
+set background=dark
+hi Normal guibg=NONE ctermbg=NONE
+
+" colorscheme xoria256
+" colorscheme SerialExperimentsLain
+" colorscheme gruvbox
+" colorscheme molokai_dark
+" colorscheme apprentice
+" colorscheme desertink
+colorscheme 256_noir
+
+" Set background transparent
+"hi Normal guibg=NONE ctermbg=NONE
+"highlight Normal ctermbg=NONE
+"highlight nonText ctermbg=NONE
 
 set completeopt-=preview
 
@@ -78,16 +108,24 @@ set completeopt-=preview
 :imap ;; <C-O>/%%%<CR><C-O>c3l
 :nmap ;; /%%%<CR>c3l
 
+map <C-t><up> :tabr<cr>
+map <C-t><down> :tabl<cr>
+map <C-t><left> :tabp<cr>
+map <C-t><right> :tabn<cr>
+
 let g:airline_powerline_fonts = 1
-let g:airline_theme='badcat'
+let g:airline_theme='deus'
 let g:Powerline_symbols = 'fancy'
 let g:airline#extensions#tabline#enabled = 1
 
+let g:SuperTabClosePreviewOnPopupClose = 1
+
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_complete_in_comments = 1
+let g:ycm_complete_in_strings = 1
 let g:ycm_path_to_python_interpreter = '/usr/bin/python2'
 let g:ycm_python_binary_path = '/usr/bin/python2'
 let g:ycm_server_python_interpreter = '/usr/bin/python2'
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:SuperTabClosePreviewOnPopupClose = 1
 
 let g:molokai_original = 1
 let g:javascript_plugin_jsoc = 1
@@ -107,6 +145,8 @@ let g:jedi#documentation_command = "K"
 let g:jedi#usages_command = "<leader>n"
 let g:jedi#completions_command = "<C-Space>"
 let g:jedi#rename_command = "<leader>r"
+
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php'
 
 let g:go_version_warning = 0
 
