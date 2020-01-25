@@ -11,15 +11,15 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'TroyFletcher/vim-colors-synthwave'
-Plugin 'agude/vim-eldar'
-Plugin 'alvan/vim-closetag'
+"Plugin 'agude/vim-eldar'
+"Plugin 'alvan/vim-closetag'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'embear/vim-localvimrc'
 Plugin 'enricobacis/vim-airline-clock'
 Plugin 'fatih/vim-go'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'koirand/tokyo-metro.vim'
-Plugin 'leafgarland/typescript-vim'
+"Plugin 'leafgarland/typescript-vim'
 Plugin 'moll/vim-node'
 Plugin 'pangloss/vim-javascript'
 Plugin 'rdnetto/YCM-Generator'
@@ -32,17 +32,17 @@ Plugin 'vim-scripts/DoxygenToolkit.vim'
 Plugin 'flazz/vim-colorschemes'
 
 " Snippets plugin
-Plugin 'SirVer/ultisnips'
+"Plugin 'SirVer/ultisnips'
 
 " Plugins added for work with PHP (still ended up using phpstorm :P )
-Plugin 'shawncplus/phpcomplete.vim'
+"Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'mhinz/vim-startify'
-Plugin 'StanAngeloff/php.vim'
-Plugin 'neomake/neomake'
-Plugin 'adoy/vim-php-refactoring-toolbox'
-Plugin 'tobyS/vmustache'
-Plugin 'tobyS/pdv'
-Plugin 'nrocco/vim-phplint'
+"Plugin 'StanAngeloff/php.vim'
+"Plugin 'neomake/neomake'
+"Plugin 'adoy/vim-php-refactoring-toolbox'
+"Plugin 'tobyS/vmustache'
+"Plugin 'tobyS/pdv'
+"Plugin 'nrocco/vim-phplint'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -60,10 +60,6 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 
 noremap <C-n> :NERDTreeToggle<CR>
-
-let g:pdv_template_dir = $HOME ."/.vim/bundle/pdv/templates_snip"
-noremap <C-p> :call pdv#DocumentWithSnip()<CR>
-noremap <C-l> :Phplint<CR>
 
 set tabstop=8
 set shiftwidth=8
@@ -87,10 +83,17 @@ hi Normal guibg=NONE ctermbg=NONE
 " colorscheme molokai_dark
 " colorscheme apprentice
 " colorscheme desertink
-colorscheme 256_noir
+" colorscheme 256_noir
+" colorscheme badwolf
+" colorscheme happy_hacking
+" colorscheme blackboard
+" colorscheme abyss
+" colorscheme behelit
+" colorscheme gotham256
+colorscheme monokai-phoenix
 
 " Set background transparent
-"hi Normal guibg=NONE ctermbg=NONE
+hi Normal guibg=NONE ctermbg=NONE
 "highlight Normal ctermbg=NONE
 "highlight nonText ctermbg=NONE
 
@@ -114,7 +117,7 @@ map <C-t><left> :tabp<cr>
 map <C-t><right> :tabn<cr>
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme='deus'
+let g:airline_theme='ayu_mirage'
 let g:Powerline_symbols = 'fancy'
 let g:airline#extensions#tabline#enabled = 1
 
@@ -123,9 +126,9 @@ let g:SuperTabClosePreviewOnPopupClose = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
-let g:ycm_path_to_python_interpreter = '/usr/bin/python2'
-let g:ycm_python_binary_path = '/usr/bin/python2'
-let g:ycm_server_python_interpreter = '/usr/bin/python2'
+let g:ycm_path_to_python_interpreter = '/usr/bin/python3'
+let g:ycm_python_binary_path = '/usr/bin/python3'
+let g:ycm_server_python_interpreter = '/usr/bin/python3'
 
 let g:molokai_original = 1
 let g:javascript_plugin_jsoc = 1

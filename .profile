@@ -21,7 +21,6 @@ export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/ssl/lib
 
-export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
-export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export PATH=$PATH:$GOPATH/bin
 
