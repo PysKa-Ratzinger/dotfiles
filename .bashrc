@@ -2,6 +2,9 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+source /usr/share/git/completion/git-completion.bash
+source /usr/share/git/completion/git-prompt.sh
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -26,6 +29,9 @@ shopt -s checkwinsize
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
 #shopt -s globstar
+
+# Removes some "smart" completions
+shopt -u progcomp
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -58,10 +64,27 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-PS1="\[\033[0;31m\]\342\224\214\342\224\200[\[\033[0m\]\[\e[01;33m\]\!\[\033[0;31m\]]\342\224\200\$([[ \$? != 0 ]] && echo \"[\[\033[0;31m\]\342\234\227\[\033[0;37m\]]\342\224\200\")[$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;31m\]root\[\033[01;33m\]@\[\033[01;96m\]\h'; else echo '\[\033[0;39m\]\u\[\033[01;33m\]@\[\033[01;96m\]\h'; fi)\[\033[0;31m\]]\342\224\200[\[\033[0;32m\]\w\[\033[0;31m\]]\n\[\033[0;31m\]\342\224\224\342\224\200\342\224\200\342\225\274 \[\033[0m\]\[\e[01;33m\]\\$\[\e[0m\]"
+C_RST="\[\033[0m\]"
+C_RED="\[\033[0;31m\]"
+C_GREEN="\[\033[0;32m\]"
+C_YELLOW="\[\033[1;33m\]"
+C_NORMAL="\[\033[0;39m\]"
+C_CYAN="\[\033[01;96m\]"
+
+if [[ ${EUID} == 0 ]]; then
+	USER_PROMPT="${C_RED}root"
+else
+	USER_PROMPT="${C_NORMAL}\u"
+fi
+
+GIT_PROMPT="\$(__git_ps1 \" $C_GREEN(%s)\")"
+
+PS1=" \$([[ \$? != 0 ]] && echo \"${C_RED}✘ \" || echo \"${C_GREEN}✔ \")$C_RST"
+PS1="$PS1$USER_PROMPT:$C_CYAN\W$C_NORMAL$GIT_PROMPT"
+PS1="$PS1 $C_YELLOW$ $C_NORMAL"
 
 #if [ "$color_prompt" = yes ]; then
-	#PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+	#PS1='${debian_chroot:+($debian_chroot)}\e[01;32m\]\u@\h\e[00m\]:\e[01;34m\]\w\e[00m\]\$ '
 #else
 	#PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 #fi

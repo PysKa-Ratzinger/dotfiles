@@ -30,19 +30,14 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
 Plugin 'flazz/vim-colorschemes'
+Plugin 'rafi/awesome-vim-colorschemes'
 
 " Snippets plugin
 "Plugin 'SirVer/ultisnips'
 
 " Plugins added for work with PHP (still ended up using phpstorm :P )
-"Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'mhinz/vim-startify'
-"Plugin 'StanAngeloff/php.vim'
-"Plugin 'neomake/neomake'
-"Plugin 'adoy/vim-php-refactoring-toolbox'
 "Plugin 'tobyS/vmustache'
-"Plugin 'tobyS/pdv'
-"Plugin 'nrocco/vim-phplint'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -61,8 +56,8 @@ filetype plugin indent on    " required
 
 noremap <C-n> :NERDTreeToggle<CR>
 
-set tabstop=8
-set shiftwidth=8
+set tabstop=4
+set shiftwidth=4
 set hidden
 set number
 
@@ -74,8 +69,6 @@ endif
 syntax on
 
 set t_Co=256
-set background=dark
-hi Normal guibg=NONE ctermbg=NONE
 
 " colorscheme xoria256
 " colorscheme SerialExperimentsLain
@@ -90,12 +83,13 @@ hi Normal guibg=NONE ctermbg=NONE
 " colorscheme abyss
 " colorscheme behelit
 " colorscheme gotham256
-colorscheme monokai-phoenix
-
-" Set background transparent
-hi Normal guibg=NONE ctermbg=NONE
-"highlight Normal ctermbg=NONE
-"highlight nonText ctermbg=NONE
+" colorscheme monokai-phoenix
+" colorscheme tender
+" colorscheme brogrammer
+" colorscheme dosbox-black
+" colorscheme badwolf
+" colorscheme greens
+colorscheme PaperColor
 
 set completeopt-=preview
 
@@ -116,8 +110,8 @@ map <C-t><down> :tabl<cr>
 map <C-t><left> :tabp<cr>
 map <C-t><right> :tabn<cr>
 
-let g:airline_powerline_fonts = 1
-let g:airline_theme='ayu_mirage'
+let g:airline_powerline_fonts = 0
+let g:airline_theme='base16_summerfruit'
 let g:Powerline_symbols = 'fancy'
 let g:airline#extensions#tabline#enabled = 1
 
@@ -182,13 +176,9 @@ function! GetCppIndentNoNamespace(lnum)
 				let incomment = 1
 			elseif cline =~ '^.*\*/'
 				let incomment = 0
-			elseif incomment
-				== 0
-				if cline
-					=~
-					'^\s*\S\+'
-					return
-					cindent(a:lnum)
+			elseif incomment == 0
+				if cline =~ '^\s*\S\+'
+					return cindent(a:lnum)
 				endif
 			endif
 		endfor
