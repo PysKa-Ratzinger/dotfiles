@@ -1,5 +1,6 @@
 set nocompatible
 filetype off
+set encoding=utf8
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -60,6 +61,7 @@ set tabstop=4
 set shiftwidth=4
 set hidden
 set number
+set backspace=indent,eol,start " Allow backspacing over everything in insert mode
 
 set foldopen-=block
 
