@@ -2,7 +2,6 @@
 alias defcon-start='nohup mplayer -playlist http://somafm.com/defcon130.pls > /dev/null 1>&2 &'
 alias dnb-start='nohup mplayer http://source.dnbradio.com:8000/dnbradio_main.mp3 > /dev/null \>&2 &'
 alias radio-stop='killall mplayer'
-alias fit='git'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
