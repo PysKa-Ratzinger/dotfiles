@@ -4,6 +4,7 @@
 
 source /usr/share/git/completion/git-completion.bash
 source /usr/share/git/completion/git-prompt.sh
+source /usr/share/bash-completion/bash_completion
 
 # If not running interactively, don't do anything
 case $- in
@@ -70,16 +71,19 @@ C_GREEN="\[\033[0;32m\]"
 C_YELLOW="\[\033[1;33m\]"
 C_NORMAL="\[\033[0;39m\]"
 C_CYAN="\[\033[01;96m\]"
+C_PURPLE="\[\033[01;35m\]"
+C_BLUE="\[\033[01;34m\]"
 
 if [[ ${EUID} == 0 ]]; then
 	USER_PROMPT="${C_RED}root"
 else
-	USER_PROMPT="${C_NORMAL}\u"
+	USER_PROMPT="${C_RST}\u"
 fi
+USER_PROMPT="$USER_PROMPT${C_GREEN}@${C_RST}\h"
 
 GIT_PROMPT="\$(__git_ps1 \" $C_GREEN(%s)\")"
 
-PS1=" \$([[ \$? != 0 ]] && echo \"${C_RED}✘ \" || echo \"${C_GREEN}✔ \")$C_RST"
+PS1=" \$([[ \$? != 0 ]] && echo \"${C_RED}NOK\" || echo \"${C_GREEN} OK\")$C_RST "
 PS1="$PS1$USER_PROMPT:$C_CYAN\W$C_NORMAL$GIT_PROMPT"
 PS1="$PS1 $C_YELLOW$ $C_NORMAL"
 

@@ -12,7 +12,7 @@ Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'TroyFletcher/vim-colors-synthwave'
 "Plugin 'agude/vim-eldar'
-"Plugin 'alvan/vim-closetag'
+Plugin 'alvan/vim-closetag'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'embear/vim-localvimrc'
 Plugin 'enricobacis/vim-airline-clock'
