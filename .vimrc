@@ -103,6 +103,7 @@ set completeopt-=preview
 :imap ;struct <C-O>mzstruct %%% {<CR>%%%<CR><BS><BS>};<C-O>'z;;
 :imap ;main <C-O>mzint main (int argc, char* argv[]) {<CR>%%%<CR><BS><BS>}<C-O>'z;;
 :imap ;wh <C-O>mzwhile (%%%) {<CR>%%%<CR><BS><BS>}<C-O>'z;;
+:imap ;nm <C-O>mznamespace %%% {<CR><CR>} // namespace %%%<CR><C-O>'z;;
 :imap ;fo <C-O>mzfor (%%%; %%%; %%%) {<CR>%%%<CR><BS><BS>}<C-O>'z;;
 :imap ;; <C-O>/%%%<CR><C-O>c3l
 :nmap ;; /%%%<CR>c3l
@@ -112,7 +113,7 @@ map <C-t><down> :tabl<cr>
 map <C-t><left> :tabp<cr>
 map <C-t><right> :tabn<cr>
 
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
 let g:airline_theme='base16_summerfruit'
 let g:Powerline_symbols = 'fancy'
 let g:airline#extensions#tabline#enabled = 1
