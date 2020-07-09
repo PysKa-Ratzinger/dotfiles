@@ -32,6 +32,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'rafi/awesome-vim-colorschemes'
+Plugin 'petrbroz/vim-glsl'
 
 " Snippets plugin
 "Plugin 'SirVer/ultisnips'
