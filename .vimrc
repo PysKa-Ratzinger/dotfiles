@@ -32,7 +32,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/DoxygenToolkit.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'rafi/awesome-vim-colorschemes'
-Plugin 'petrbroz/vim-glsl'
+Plugin 'tikhomirov/vim-glsl'
 
 " Snippets plugin
 "Plugin 'SirVer/ultisnips'
@@ -65,6 +65,8 @@ set number
 set backspace=indent,eol,start " Allow backspacing over everything in insert mode
 
 set foldopen-=block
+set foldmethod=indent
+set foldlevelstart=0
 
 if exists('+colorcolumn')
   set colorcolumn=80
@@ -73,26 +75,11 @@ syntax on
 
 set t_Co=256
 
-" colorscheme xoria256
+set bg=dark
+" colorscheme Tomorrow-Night
+" colorscheme tokyo-metro
 " colorscheme SerialExperimentsLain
-" colorscheme gruvbox
-" colorscheme molokai_dark
-" colorscheme apprentice
-" colorscheme desertink
-" colorscheme 256_noir
-" colorscheme badwolf
-" colorscheme happy_hacking
-" colorscheme blackboard
-" colorscheme abyss
-" colorscheme behelit
-" colorscheme gotham256
-" colorscheme monokai-phoenix
-" colorscheme tender
-" colorscheme brogrammer
-" colorscheme dosbox-black
-" colorscheme badwolf
-" colorscheme greens
-colorscheme PaperColor
+colorscheme monokai-phoenix
 
 set completeopt-=preview
 
@@ -115,7 +102,7 @@ map <C-t><left> :tabp<cr>
 map <C-t><right> :tabn<cr>
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme='base16_summerfruit'
+let g:airline_theme='tokyometro'
 let g:Powerline_symbols = 'fancy'
 let g:airline#extensions#tabline#enabled = 1
 

@@ -2,9 +2,10 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-source /usr/share/git/completion/git-completion.bash
-source /usr/share/git/completion/git-prompt.sh
+source /home/pyska/dotfiles/completion/git-completion.bash
+source /home/pyska/dotfiles/completion/git-prompt.sh
 source /usr/share/bash-completion/bash_completion
+. /home/pyska/.local/share/lscolors.sh
 
 # If not running interactively, don't do anything
 case $- in
@@ -124,6 +125,12 @@ if ! shopt -oq posix; then
 	fi
 fi
 
+export LESS="-R"
+
+[[ -f ~/.LESS_TERMCAP ]] && . ~/.LESS_TERMCAP
+
 export EDITOR=vim
 export LANG="en_US.UTF-8"
+export PATH="$HOME/.local/bin/:$PATH"
+export VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json
 
