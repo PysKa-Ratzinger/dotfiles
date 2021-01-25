@@ -79,7 +79,8 @@ set bg=dark
 " colorscheme Tomorrow-Night
 " colorscheme tokyo-metro
 " colorscheme SerialExperimentsLain
-colorscheme monokai-phoenix
+" colorscheme monokai-phoenix
+colorscheme Benokai
 
 set completeopt-=preview
 

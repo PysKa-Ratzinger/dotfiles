@@ -22,7 +22,12 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias dd='dd status=progress'
 alias vim='nvim'
+alias _='sudo'
+alias _i='sudo -i'
+alias please='sudo'
+alias fucking='sudo'
 
 # Shakespearean style exiting :P
 alias exunt='exit'
