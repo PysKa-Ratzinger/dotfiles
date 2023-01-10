@@ -2,92 +2,104 @@ set nocompatible
 filetype off
 set encoding=UTF-8
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" We are patient in this house (timeout for Plug increased from 60 to 600)
+let g:plug_timeout = 600
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin()
+" The default plugin directory will be as follows:
+"   - Vim (Linux/macOS): '~/.vim/plugged'
+"   - Vim (Windows): '~/vimfiles/plugged'
+"   - Neovim (Linux/macOS/Windows): stdpath('data') . '/plugged'
+" You can specify a custom plugin directory by passing it as the argument
+"   - e.g. `call plug#begin('~/.vim/plugged')`
+"   - Avoid using standard Vim directory names like 'plugin'
 
-Plugin 'TroyFletcher/vim-colors-synthwave'
-"Plugin 'agude/vim-eldar'
-Plugin 'alvan/vim-closetag'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'embear/vim-localvimrc'
-Plugin 'enricobacis/vim-airline-clock'
-Plugin 'fatih/vim-go'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'koirand/tokyo-metro.vim'
-"Plugin 'leafgarland/typescript-vim'
-Plugin 'moll/vim-node'
-Plugin 'pangloss/vim-javascript'
-Plugin 'rdnetto/YCM-Generator'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-fugitive'
-Plugin 'valloric/youcompleteme'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'vim-scripts/DoxygenToolkit.vim'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'rafi/awesome-vim-colorschemes'
-Plugin 'tikhomirov/vim-glsl'
-Plugin 'jmcantrell/vim-virtualenv'
-Plugin 'huyvohcmc/atlas.vim'
-Plugin 'iamcco/markdown-preview.nvim'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'bfrg/vim-cpp-modern'
-Plugin 'dylanaraps/wal.vim'
+" Make sure you use single quotes
+
+Plug 'TroyFletcher/vim-colors-synthwave'
+"Plug 'agude/vim-eldar'
+Plug 'alvan/vim-closetag'
+Plug 'davidhalter/jedi-vim'
+Plug 'embear/vim-localvimrc'
+Plug 'enricobacis/vim-airline-clock'
+Plug 'fatih/vim-go'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'koirand/tokyo-metro.vim'
+"Plug 'leafgarland/typescript-vim'
+Plug 'moll/vim-node'
+Plug 'pangloss/vim-javascript'
+"Plug 'rdnetto/YCM-Generator'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'tpope/vim-fugitive'
+"Plug 'valloric/youcompleteme'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-scripts/DoxygenToolkit.vim'
+Plug 'flazz/vim-colorschemes'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'tikhomirov/vim-glsl'
+Plug 'jmcantrell/vim-virtualenv'
+Plug 'huyvohcmc/atlas.vim'
+Plug 'iamcco/markdown-preview.nvim'
+Plug 'ryanoasis/vim-devicons'
+"Plug 'bfrg/vim-cpp-modern'
+Plug 'dylanaraps/wal.vim'
+"Plug 'shawncplus/phpcomplete.vim'
+
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+"Plug 'keremc/asyncomplete-clang.vim'
+"Plug 'laixintao/asyncomplete-gitcommit'
+Plug 'wellle/tmux-complete.vim'
 
 " Snippets plugin
-"Plugin 'SirVer/ultisnips'
+"Plug 'SirVer/ultisnips'
 
 " Plugins added for work with PHP (still ended up using phpstorm :P )
-Plugin 'mhinz/vim-startify'
-"Plugin 'tobyS/vmustache'
+Plug 'mhinz/vim-startify'
+"Plug 'tobyS/vmustache'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+" Initialize plugin system
+" - Automatically executes `filetype plugin indent on` and `syntax enable`.
+call plug#end()
+" You can revert the settings after the call like so:
+"   filetype indent off   " Disable file-type-specific indentation
+"   syntax off            " Disable syntax highlighting
 
-noremap <C-n> :NERDTreeToggle <CR>
-noremap <F5>  :!make -j4      <CR>
-noremap <F6>  :!make -j4 run  <CR>
+" ============================================================================
 
-set tabstop=8
-set shiftwidth=8
+" CUSTOM OPTIONS
+set tabstop=4
+set shiftwidth=4
 set hidden
 set number
 set backspace=indent,eol,start " Allow backspacing over everything in insert mode
 
 set foldopen-=block
-set foldmethod=indent
+" disabled to favor LSP for folding (see LSP Options)
+"set foldmethod=indent
 set foldlevelstart=0
 set nofoldenable
 
 set timeout timeoutlen=1000
 
-"Disable mouse
+" DISABLE MOUSE
 set mouse=
 
+" SHOW COLUMN LIMIT AT 80 CHARS
 if exists('+colorcolumn')
   set colorcolumn=80
 endif
 syntax on
 
 set t_Co=256
+
+" ============================================================================
+
+" COLORSCHEME
 
 "set bg=dark
 " colorscheme Tomorrow-Night
@@ -104,21 +116,28 @@ set t_Co=256
 " colorscheme badwolf
 " colorscheme 1989
 " colorscheme neonwave
-" colorscheme gruvbox
+colorscheme gruvbox
 " colorscheme Chasing_Logic
 " colorscheme ayu
 " colorscheme apprentice
 " colorscheme sonokai
-colorscheme termschool
+" colorscheme termschool
 " colorscheme wal
 
 :hi Normal guibg=NONE ctermbg=NONE
 
-set completeopt-=preview
+" ============================================================================
+"
+" COMMANDS, MAPS, AND IMAPS
 
+" ---------------------------
 :command Bclose bp|bd#
-:command YcmStop call youcompleteme#DisableCursorMovedAutocommands()
-:command YcmResume call youcompleteme#EnableCursorMovedAutocommands()
+":command YcmStop call youcompleteme#DisableCursorMovedAutocommands()
+":command YcmResume call youcompleteme#EnableCursorMovedAutocommands()
+
+noremap <C-n> :NERDTreeToggle <CR>
+noremap <F5>  :!make -j4      <CR>
+noremap <F6>  :!make -j4 run  <CR>
 
 :imap ;guard <C-O>mz#ifndef %%%<CR>#define %%%<CR>#endif  // %%%<C-O>'z;;
 :imap ;struct <C-O>mzstruct %%% {<CR>%%%<CR><BS><BS>};<C-O>'z;;
@@ -134,8 +153,14 @@ map <C-t><down> :tabl<cr>
 map <C-t><left> :tabp<cr>
 map <C-t><right> :tabn<cr>
 
+" ============================================================================
+"
+" PLUGINS CONFIGURATIONS
+
+" Use python venv if available
 let g:virtualenv_auto_activate = 1
 
+" Configure powerline status bar
 let g:airline_powerline_fonts            = 1
 let g:airline_theme                      = 'gotham256'
 let g:Powerline_symbols                  = 'fancy'
@@ -143,27 +168,32 @@ let g:airline#extensions#tabline#enabled = 1
 
 let g:SuperTabClosePreviewOnPopupClose = 1
 
-let g:ycm_add_preview_to_completeopt                = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_collect_identifiers_from_tags_files       = 1
-let g:ycm_complete_in_comments                      = 1
-let g:ycm_complete_in_strings                       = 1
-let g:ycm_min_num_of_chars_for_completion           = 0
-let g:ycm_disable_for_files_larger_than_kb          = 30000
-let g:ycm_key_invoke_completion                     = '<C-Space>'
-let g:ycm_path_to_python_interpreter                = 'python3'
-let g:ycm_python_binary_path                        = 'python3'
-let g:ycm_server_python_interpreter                 = 'python3'
-let g:ycm_auto_trigger                              = 1
-let g:ycm_global_ycm_extra_conf                     = '~/.vim/bundle/youcompleteme/.ycm_extra_conf.py'
+"----------------------------------------
+" YOUCOMPLETEME PLUGIN CONFIGS
+"set completeopt-=preview
+"let g:ycm_add_preview_to_completeopt                = 1
+"let g:ycm_autoclose_preview_window_after_completion = 1
+"let g:ycm_collect_identifiers_from_tags_files       = 1
+"let g:ycm_complete_in_comments                      = 1
+"let g:ycm_complete_in_strings                       = 1
+"let g:ycm_min_num_of_chars_for_completion           = 0
+"let g:ycm_disable_for_files_larger_than_kb          = 30000
+"let g:ycm_key_invoke_completion                     = '<C-Space>'
+"let g:ycm_path_to_python_interpreter                = 'python3'
+"let g:ycm_python_binary_path                        = 'python3'
+"let g:ycm_server_python_interpreter                 = 'python3'
+"let g:ycm_auto_trigger                              = 1
+"let g:ycm_global_ycm_extra_conf                     = '~/.vim/bundle/youcompleteme/.ycm_extra_conf.py'
+"set omnifunc=syntaxcomplete#Complete
 
-set omnifunc=syntaxcomplete#Complete
-
+"----------------------------------------
 let g:molokai_original        = 1
 let g:javascript_plugin_jsoc  = 1
 let g:javascript_plugin_ngdoc = 1
 let g:javascript_plugin_flow  = 1
 
+"----------------------------------------
+" JEDI CONFIGS
 let g:jedi#auto_initialization    = 1
 let g:jedi#use_splits_not_buffers = "left"
 let g:jedi#popup_on_dot           = 1
@@ -178,52 +208,107 @@ let g:jedi#usages_command           = "<leader>n"
 let g:jedi#completions_command      = "<C-K>"
 let g:jedi#rename_command           = "<leader>r"
 
+"----------------------------------------
+" CLOSETAGS FILETYPES
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php'
 
+"----------------------------------------
 let g:go_version_warning = 0
 
-let g:cpp_function_highlight   = 1
-let g:cpp_attributes_highlight = 1
-let g:cpp_member_highlight     = 1
-let g:cpp_simple_highlight     = 0
+"----------------------------------------
+"let g:cpp_function_highlight   = 1
+"let g:cpp_attributes_highlight = 1
+"let g:cpp_member_highlight     = 1
+"let g:cpp_simple_highlight     = 0
 
-set cinoptions=:0,t0
+set cinoptions=g0,:0,t0,N-s,E-s,(0,ks,(s,m1
 
-" Fix up indent issues - I can't stand wasting an indent because
-" I'm in a namespace. If you don't like this then just comment
-" this line out.
-setlocal indentexpr=GetCppIndentNoNamespace(v:lnum)
+" ============================================================================
+"
+" LSP Options
 
-"
-" GetCppIndentNoNamespace()
-"
-" This little function calculates the indent level for C++ and
-" treats the namespace differently than usual - we ignore it. The
-" indent level is the for a given line is the same as it would
-" be were the namespace not event there.
-"
-" This function is rather crude but it works.
-"
-function! GetCppIndentNoNamespace(lnum)
-	let nsLineNum = search('^\s*\\s\+\S\+', 'bnW')
-	if nsLineNum == 0
-		return cindent(a:lnum)
-	else
-		let incomment = 0
-		for n in range(nsLineNum + 1, a:lnum - 1)
-			let cline = getline(n)
-			if cline =~ '^\s*/\*'
-				let incomment = 1
-			elseif cline =~ '^.*\*/'
-				let incomment = 0
-			elseif incomment == 0
-				if cline =~ '^\s*\S\+'
-					return cindent(a:lnum)
-				endif
-			endif
-		endfor
-		return
-		cindent(nsLineNum)
-	endif
+set foldmethod=expr
+  \ foldexpr=lsp#ui#vim#folding#foldexpr()
+  \ foldtext=lsp#ui#vim#folding#foldtext()
+
+" Registering LSP Servers
+" see also: https://github.com/prabirshrestha/vim-lsp
+if executable('pylsp')
+    " pip install python-lsp-server
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pylsp',
+        \ 'cmd': {server_info->['pylsp']},
+        \ 'allowlist': ['python'],
+        \ })
+endif
+
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+    nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> gs <plug>(lsp-document-symbol-search)
+    nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+    nmap <buffer> gr <plug>(lsp-references)
+    nmap <buffer> gi <plug>(lsp-implementation)
+    nmap <buffer> gt <plug>(lsp-type-definition)
+    nmap <buffer> <leader>rn <plug>(lsp-rename)
+    nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+    nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+    nmap <buffer> K <plug>(lsp-hover)
+    "nnoremap <buffer> <expr><c-f> lsp#scroll(+4)
+    "nnoremap <buffer> <expr><c-d> lsp#scroll(-4)
+
+    let g:lsp_format_sync_timeout = 1000
+    autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
+    
+    " refer to doc to add more commands
 endfunction
+
+augroup lsp_install
+    au!
+    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
+
+" ---------------------------
+" Lsp Set Debug
+"
+"let g:lsp_log_verbose = 1
+"let g:lsp_log_file = expand('~/vim-lsp.log')
+
+" ============================================================================
+
+" Asyncomplete Options
+
+" allow modifying the completeopt variable, or it will
+" be overridden all the time
+let g:asyncomplete_auto_completeopt = 0
+
+set completeopt=menuone,noinsert,noselect,preview
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" Asymcomplete TAB completion
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+
+imap <c-space> <Plug>(asyncomplete_force_refresh)
+imap <Nul> <Plug>(asyncomplete_force_refresh)
+
+" ---------------------------
+" Asyncomplete Tmux
+
+let g:tmuxcomplete#asyncomplete_source_options = {
+            \ 'name':      'tmuxcomplete',
+            \ 'whitelist': ['*'],
+            \ 'config': {
+            \     'splitmode':      'words',
+            \     'filter_prefix':   1,
+            \     'show_incomplete': 1,
+            \     'sort_candidates': 0,
+            \     'scrollback':      0,
+            \     'truncate':        0
+            \     }
+            \ }
 

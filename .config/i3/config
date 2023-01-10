@@ -42,7 +42,7 @@ exec_always redshift -l 41.809578:-6.7573428 -b 1.0:0.8 &
 exec_always --no-startup-id bash ~/.config/i3/element
 exec_always bash ~/.fehbg
 
-exec --no-startup-id i3-msg 'workspace 4:IV; exec /usr/bin/thunderbird-bin'
+exec --no-startup-id bash -c "sleep 1 && i3-msg 'workspace 4:IV; exec /usr/bin/thunderbird-bin'"
 
 
 
