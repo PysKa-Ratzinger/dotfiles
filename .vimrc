@@ -47,13 +47,14 @@ Plug 'dylanaraps/wal.vim'
 "Plug 'shawncplus/phpcomplete.vim'
 
 Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
-Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 "Plug 'keremc/asyncomplete-clang.vim'
 "Plug 'laixintao/asyncomplete-gitcommit'
 Plug 'wellle/tmux-complete.vim'
+Plug 'mustache/vim-mustache-handlebars'
 
 " Snippets plugin
 "Plug 'SirVer/ultisnips'
@@ -71,40 +72,12 @@ call plug#end()
 
 " ============================================================================
 
-" CUSTOM OPTIONS
-set tabstop=4
-set shiftwidth=4
-set hidden
-set number
-set backspace=indent,eol,start " Allow backspacing over everything in insert mode
-
-set foldopen-=block
-" disabled to favor LSP for folding (see LSP Options)
-"set foldmethod=indent
-set foldlevelstart=0
-set nofoldenable
-
-set timeout timeoutlen=1000
-
-" DISABLE MOUSE
-set mouse=
-
-" SHOW COLUMN LIMIT AT 80 CHARS
-if exists('+colorcolumn')
-  set colorcolumn=80
-endif
-syntax on
-
-set t_Co=256
-
-" ============================================================================
-
 " COLORSCHEME
 
 "set bg=dark
 " colorscheme Tomorrow-Night
 " colorscheme tokyo-metro
-" colorscheme SerialExperimentsLain
+colorscheme SerialExperimentsLain
 " colorscheme monokai-phoenix
 " colorscheme Benokai
 " colorscheme brogrammer
@@ -116,7 +89,7 @@ set t_Co=256
 " colorscheme badwolf
 " colorscheme 1989
 " colorscheme neonwave
-colorscheme gruvbox
+" colorscheme gruvbox
 " colorscheme Chasing_Logic
 " colorscheme ayu
 " colorscheme apprentice
@@ -210,7 +183,7 @@ let g:jedi#rename_command           = "<leader>r"
 
 "----------------------------------------
 " CLOSETAGS FILETYPES
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php,*.hbs'
 
 "----------------------------------------
 let g:go_version_warning = 0
@@ -233,11 +206,20 @@ set foldmethod=expr
 
 " Registering LSP Servers
 " see also: https://github.com/prabirshrestha/vim-lsp
-if executable('pylsp')
-    " pip install python-lsp-server
+"if executable('pylsp')
+"    " pip install python-lsp-server
+"    au User lsp_setup call lsp#register_server({
+"        \ 'name': 'pylsp',
+"        \ 'cmd': {server_info->['pylsp']},
+"        \ 'allowlist': ['python'],
+"        \ })
+"endif
+
+if executable('jedi-language-server')
+    " pip install jedi-language-server
     au User lsp_setup call lsp#register_server({
-        \ 'name': 'pylsp',
-        \ 'cmd': {server_info->['pylsp']},
+        \ 'name': 'jedi-language-server',
+        \ 'cmd': {server_info->['jedi-language-server']},
         \ 'allowlist': ['python'],
         \ })
 endif
@@ -311,4 +293,37 @@ let g:tmuxcomplete#asyncomplete_source_options = {
             \     'truncate':        0
             \     }
             \ }
+
+" ============================================================================
+"
+" Mustache options
+let g:mustache_abbreviations = 1
+
+" ============================================================================
+
+" CUSTOM OPTIONS
+set tabstop=4
+set shiftwidth=4
+set hidden
+set number
+set backspace=indent,eol,start " Allow backspacing over everything in insert mode
+
+set foldopen-=block
+" disabled to favor LSP for folding (see LSP Options)
+"set foldmethod=indent
+set foldlevelstart=0
+set nofoldenable
+
+set timeout timeoutlen=1000
+
+" DISABLE MOUSE
+set mouse=
+
+" SHOW COLUMN LIMIT AT 80 CHARS
+if exists('+colorcolumn')
+  set colorcolumn=80
+endif
+syntax on
+
+set t_Co=256
 

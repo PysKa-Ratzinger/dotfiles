@@ -3,12 +3,12 @@
 configuration {
 /*	modes: "window,drun,run,ssh";*/
 	font: "Bm437 CompaqThin 8x16 Regular 12";
-	location: 2;
+	location: 0;
 /*	yoffset: 0;*/
 /*	xoffset: 0;*/
 /*	fixed-num-lines: true;*/
 	show-icons: true;
-	terminal: "xfce4-terminal";
+	terminal: "kitty";
 /*	ssh-client: "ssh";*/
 	ssh-command: "{terminal} -e \"{ssh-client} {host} [-p {port}]\"";
 /*	run-command: "{cmd}";*/
