@@ -17,51 +17,40 @@ call plug#begin()
 " Make sure you use single quotes
 
 Plug 'TroyFletcher/vim-colors-synthwave'
-"Plug 'agude/vim-eldar'
 Plug 'alvan/vim-closetag'
-Plug 'davidhalter/jedi-vim'
 Plug 'embear/vim-localvimrc'
 Plug 'enricobacis/vim-airline-clock'
-Plug 'fatih/vim-go'
-Plug 'jelera/vim-javascript-syntax'
 Plug 'koirand/tokyo-metro.vim'
-"Plug 'leafgarland/typescript-vim'
-Plug 'moll/vim-node'
-Plug 'pangloss/vim-javascript'
-"Plug 'rdnetto/YCM-Generator'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-fugitive'
-"Plug 'valloric/youcompleteme'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'rafi/awesome-vim-colorschemes'
-Plug 'tikhomirov/vim-glsl'
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'huyvohcmc/atlas.vim'
 Plug 'iamcco/markdown-preview.nvim'
 Plug 'ryanoasis/vim-devicons'
-"Plug 'bfrg/vim-cpp-modern'
 Plug 'dylanaraps/wal.vim'
-"Plug 'shawncplus/phpcomplete.vim'
 
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
-"Plug 'keremc/asyncomplete-clang.vim'
-"Plug 'laixintao/asyncomplete-gitcommit'
 Plug 'wellle/tmux-complete.vim'
-Plug 'mustache/vim-mustache-handlebars'
 
-" Snippets plugin
-"Plug 'SirVer/ultisnips'
-
-" Plugins added for work with PHP (still ended up using phpstorm :P )
 Plug 'mhinz/vim-startify'
-"Plug 'tobyS/vmustache'
+Plug 'voldikss/vim-translator'
+Plug 'folke/todo-comments.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.3' }
+" or                                , { 'branch': '0.1.x' }
+
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'tpope/vim-markdown'
 
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
@@ -74,10 +63,10 @@ call plug#end()
 
 " COLORSCHEME
 
-"set bg=dark
+set bg=dark
 " colorscheme Tomorrow-Night
 " colorscheme tokyo-metro
-colorscheme SerialExperimentsLain
+" colorscheme SerialExperimentsLain
 " colorscheme monokai-phoenix
 " colorscheme Benokai
 " colorscheme brogrammer
@@ -87,7 +76,7 @@ colorscheme SerialExperimentsLain
 " colorscheme nefertiti
 " colorscheme eva01-LCL
 " colorscheme badwolf
-" colorscheme 1989
+colorscheme 1989
 " colorscheme neonwave
 " colorscheme gruvbox
 " colorscheme Chasing_Logic
@@ -96,6 +85,11 @@ colorscheme SerialExperimentsLain
 " colorscheme sonokai
 " colorscheme termschool
 " colorscheme wal
+" colorscheme matrix
+" colorscheme cyberpunk
+" colorscheme zazen
+" colorscheme tigrana-256-dark
+" colorscheme 256-grayvim
 
 :hi Normal guibg=NONE ctermbg=NONE
 
@@ -105,13 +99,13 @@ colorscheme SerialExperimentsLain
 
 " ---------------------------
 :command Bclose bp|bd#
-":command YcmStop call youcompleteme#DisableCursorMovedAutocommands()
-":command YcmResume call youcompleteme#EnableCursorMovedAutocommands()
 
+let mapleader=","
 noremap <C-n> :NERDTreeToggle <CR>
 noremap <F5>  :!make -j4      <CR>
 noremap <F6>  :!make -j4 run  <CR>
 
+:imap ;hash <C-R>=system('head -c 16 /dev/urandom \| xxd -p')<cr><BS>
 :imap ;guard <C-O>mz#ifndef %%%<CR>#define %%%<CR>#endif  // %%%<C-O>'z;;
 :imap ;struct <C-O>mzstruct %%% {<CR>%%%<CR><BS><BS>};<C-O>'z;;
 :imap ;main <C-O>mzint main (int argc, char* argv[]) {<CR>%%%<CR><BS><BS>}<C-O>'z;;
@@ -126,6 +120,8 @@ map <C-t><down> :tabl<cr>
 map <C-t><left> :tabp<cr>
 map <C-t><right> :tabn<cr>
 
+map <M-t> :TranslateW<cr>
+
 " ============================================================================
 "
 " PLUGINS CONFIGURATIONS
@@ -135,29 +131,11 @@ let g:virtualenv_auto_activate = 1
 
 " Configure powerline status bar
 let g:airline_powerline_fonts            = 1
-let g:airline_theme                      = 'gotham256'
+let g:airline_theme                      = 'deus'
 let g:Powerline_symbols                  = 'fancy'
 let g:airline#extensions#tabline#enabled = 1
 
 let g:SuperTabClosePreviewOnPopupClose = 1
-
-"----------------------------------------
-" YOUCOMPLETEME PLUGIN CONFIGS
-"set completeopt-=preview
-"let g:ycm_add_preview_to_completeopt                = 1
-"let g:ycm_autoclose_preview_window_after_completion = 1
-"let g:ycm_collect_identifiers_from_tags_files       = 1
-"let g:ycm_complete_in_comments                      = 1
-"let g:ycm_complete_in_strings                       = 1
-"let g:ycm_min_num_of_chars_for_completion           = 0
-"let g:ycm_disable_for_files_larger_than_kb          = 30000
-"let g:ycm_key_invoke_completion                     = '<C-Space>'
-"let g:ycm_path_to_python_interpreter                = 'python3'
-"let g:ycm_python_binary_path                        = 'python3'
-"let g:ycm_server_python_interpreter                 = 'python3'
-"let g:ycm_auto_trigger                              = 1
-"let g:ycm_global_ycm_extra_conf                     = '~/.vim/bundle/youcompleteme/.ycm_extra_conf.py'
-"set omnifunc=syntaxcomplete#Complete
 
 "----------------------------------------
 let g:molokai_original        = 1
@@ -166,63 +144,59 @@ let g:javascript_plugin_ngdoc = 1
 let g:javascript_plugin_flow  = 1
 
 "----------------------------------------
-" JEDI CONFIGS
-let g:jedi#auto_initialization    = 1
-let g:jedi#use_splits_not_buffers = "left"
-let g:jedi#popup_on_dot           = 1
-let g:jedi#popup_select_first     = 1
-let g:jedi#show_call_signatures   = "1"
-
-let g:jedi#goto_command             = "<leader>d"
-let g:jedi#goto_assignments_command = "<leader>g"
-let g:jedi#goto_definitions_command = ""
-let g:jedi#documentation_command    = "K"
-let g:jedi#usages_command           = "<leader>n"
-let g:jedi#completions_command      = "<C-K>"
-let g:jedi#rename_command           = "<leader>r"
-
-"----------------------------------------
 " CLOSETAGS FILETYPES
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php,*.hbs'
 
 "----------------------------------------
 let g:go_version_warning = 0
 
-"----------------------------------------
-"let g:cpp_function_highlight   = 1
-"let g:cpp_attributes_highlight = 1
-"let g:cpp_member_highlight     = 1
-"let g:cpp_simple_highlight     = 0
-
 set cinoptions=g0,:0,t0,N-s,E-s,(0,ks,(s,m1
+
+"----------------------------------------
+" TRANSLATOR OPTIONS 前の人
+let g:translator_target_lang = 'en'
+let g:translator_source_lang = 'auto'
+
+
+" ============================================================================
+"
+" Performance options
+
+"let g:LargeFile = 1024 * 10  " 10K
+"let g:HeavyFeaturesDisabled = 0
+"
+"function! EnableHeavyFeatures(afile) abort
+"	if g:HeavyFeaturesDisabled == 0
+"		if getfsize(a:afile) < g:LargeFile
+"			" let g:lsp_auto_enable = 1
+"			call lsp#enable()
+"			echo "Heavy Features enabled."
+"		else
+"			let g:HeavyFeaturesDisabled = 1
+"			call lsp#disable()
+"			echo "Heavy Features disabled."
+"		endif
+"	endif
+"endfunction
+"
+"if !exists("my_auto_commands_loaded")
+"	let my_auto_commands_loaded = 1
+"	augroup LargeFile
+"		autocmd BufReadPre * let f=expand("<afile>") | call EnableHeavyFeatures(f)
+"	augroup END
+"endif
+
 
 " ============================================================================
 "
 " LSP Options
 
-set foldmethod=expr
-  \ foldexpr=lsp#ui#vim#folding#foldexpr()
-  \ foldtext=lsp#ui#vim#folding#foldtext()
+let g:lsp_auto_enable = 1
 
-" Registering LSP Servers
-" see also: https://github.com/prabirshrestha/vim-lsp
-"if executable('pylsp')
-"    " pip install python-lsp-server
-"    au User lsp_setup call lsp#register_server({
-"        \ 'name': 'pylsp',
-"        \ 'cmd': {server_info->['pylsp']},
-"        \ 'allowlist': ['python'],
-"        \ })
-"endif
-
-if executable('jedi-language-server')
-    " pip install jedi-language-server
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'jedi-language-server',
-        \ 'cmd': {server_info->['jedi-language-server']},
-        \ 'allowlist': ['python'],
-        \ })
-endif
+" Disabled due to how slow it is
+" set foldmethod=expr
+"   \ foldexpr=lsp#ui#vim#folding#foldexpr()
+"   \ foldtext=lsp#ui#vim#folding#foldtext()
 
 function! s:on_lsp_buffer_enabled() abort
     setlocal omnifunc=lsp#complete
@@ -241,7 +215,7 @@ function! s:on_lsp_buffer_enabled() abort
     "nnoremap <buffer> <expr><c-f> lsp#scroll(+4)
     "nnoremap <buffer> <expr><c-d> lsp#scroll(-4)
 
-    let g:lsp_format_sync_timeout = 1000
+    let g:lsp_format_sync_timeout = 50
     autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
     
     " refer to doc to add more commands
@@ -300,6 +274,21 @@ let g:tmuxcomplete#asyncomplete_source_options = {
 let g:mustache_abbreviations = 1
 
 " ============================================================================
+"
+" Telescope options
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" Using Lua functions
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+
+" ============================================================================
 
 " CUSTOM OPTIONS
 set tabstop=4
@@ -310,7 +299,7 @@ set backspace=indent,eol,start " Allow backspacing over everything in insert mod
 
 set foldopen-=block
 " disabled to favor LSP for folding (see LSP Options)
-"set foldmethod=indent
+set foldmethod=indent
 set foldlevelstart=0
 set nofoldenable
 

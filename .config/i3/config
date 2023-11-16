@@ -35,8 +35,7 @@ floating_modifier $mod
 # AUTOSTART
 ###########################################################
 
-# Start pulseaudio daemon
-exec pulseaudio -D
+exec ibus-daemon -drx
 exec redshift -P &
 exec "xautolock -corners 0-0- -detectsleep -time 3 -locker /home/pyska/scripts/lock.sh"
 
@@ -52,7 +51,7 @@ exec --no-startup-id bash -c "sleep 1 && i3-msg 'workspace 4:IV; exec /usr/bin/t
 ###########################################################
 
 #font pango:Cascadia Mono PL Regular 10
-font pango:Bm437 IBM DOS ISO9 Regular 8
+font pango:Bm437 IBM DOS ISO9 Regular 11
 #font pango:DejaVu Sans Mono Regular 12
 #font pango:Victor Mono SemiBold 13
 #font pango:Fantasque Sans Mono SemiBold 11
@@ -76,9 +75,9 @@ client.urgent				$red		$red		$black		$red
 for_window [class="^.*"] border pixel 2
 
 ## i3-gaps
-smart_borders on
-gaps outer 10
-gaps inner 0
+#smart_borders on
+#gaps outer 15
+#gaps inner 0
 
 
 
@@ -190,8 +189,8 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 # APP KEYBINDINGS
 ###########################################################
 
-bindsym $mod+Return exec optirun kitty || kitty &
-#bindsym $mod+Return exec xfce4-terminal
+#bindsym $mod+Return exec kitty &
+bindsym $mod+Return exec xfce4-terminal
 #bindsym $mod+Return exec terminology
 #bindsym $mod+Return exec st -t "Simple Terminal" -f "Fantasque Sans Mono:size=14"
 #bindsym $mod+Return exec st -t "Simple Terminal" -f "Source Code Variable:size=14"
@@ -208,9 +207,9 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 bindsym Ctrl+$mod+l exec "/home/pyska/scripts/lock.sh &"
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset 'Master' 2%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset 'Master' 2%-
-bindsym XF86AudioMute exec --no-startup-id        amixer sset 'Master' toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id /home/pyska/scripts/change_volume.sh 2%+
+bindsym XF86AudioLowerVolume exec --no-startup-id /home/pyska/scripts/change_volume.sh 2%-
+bindsym XF86AudioMute exec --no-startup-id        /home/pyska/scripts/change_volume.sh toggle
 
 bindsym XF86MonBrightnessUp exec --no-startup-id "light -A 5"
 bindsym XF86MonBrightnessDown exec --no-startup-id "light -U 5"

@@ -20,9 +20,9 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=100000
+HISTSIZE=100000
+HISTFILESIZE=400000
 HISTFILE=~/.histfile
 
 # check the window size after each command and, if necessary,
@@ -45,7 +45,7 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 #export TERM=xterm-256color
-export TERM=xterm-kitty
+#export TERM=xterm-kitty
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
@@ -136,11 +136,11 @@ if ! shopt -oq posix; then
 	fi
 fi
 
-export LESS="-R"
+export LESS="-LR"
 
 [[ -f ~/.LESS_TERMCAP ]] && . ~/.LESS_TERMCAP
 
-export EDITOR=vim
+export EDITOR=nvim
 export LANG="en_US.UTF-8"
 export PATH="$HOME/.local/bin/:$PATH"
 
@@ -148,8 +148,9 @@ export PATH="$HOME/.local/bin/:$PATH"
 
 export GPG_TTY="$(tty)"
 
-echo -e "${C2_CYAN}$(date)${C2_RST}\n"
+printf "${C2_RED}おかえり、先生。今は${C2_RST} "
+printf "${C2_CYAN}$(date)${C2_RST}\n\n"
 
-cat ~/.cache/wal/sequences || true
-source ~/.cache/wal/colors-tty.sh || true
+#cat ~/.cache/wal/sequences || true
+#source ~/.cache/wal/colors-tty.sh || true
 

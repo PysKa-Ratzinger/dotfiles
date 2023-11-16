@@ -4,7 +4,7 @@ monitor1=eDP-1
 #monitor2=DP-1
 
 
-#POLYBAR
+# POLYBAR
 sleep 0.5
 killall -q polybar
 while pgrep -x polybar >/dev/null; do sleep 0.5; done
@@ -15,14 +15,19 @@ while pgrep -x polybar >/dev/null; do sleep 0.5; done
 MONITOR=$monitor1 polybar &
 #MONITOR=$monitor1 /home/pyska/.config/polybar/launch.sh --hack
 
-
-#COMPTON
+# COMPTON
 killall -q picom
 while pgrep -x picom >/dev/null; do sleep 1; done
-picom --config ~/.config/picom.conf -b
+picom --config ~/.config/picom/picom.conf -b &
 
-#DUNST
+# DUNST
 killall -q dunst
 while pgrep -x dunst >/dev/null; do sleep 1; done
-dunst -config /home/pyska/.config/dunst/dunstrc
+dunst -config /home/pyska/.config/dunst/dunstrc &
+
+# PIPEWIRE
+killall -q pipewire; killall -q wireplumber
+while pgrep -x pipewire >/dev/null; do sleep 1; done
+while pgrep -x wireplumber >/dev/null; do sleep 1; done
+gentoo-pipewire-launcher &
 
