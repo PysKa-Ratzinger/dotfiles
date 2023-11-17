@@ -16,13 +16,24 @@ MONITOR=$monitor1 polybar &
 #MONITOR=$monitor1 /home/pyska/.config/polybar/launch.sh --hack
 
 
+#REDSHIFT
+killall -q redshift;
+while pgrep -x redshift >/dev/null; do sleep 1; done
+redshift -P &
+
 #COMPTON
 killall -q picom
-while pgrep -x picom >/dev/null; do sleep 1; done
+while pgrep -x picom >/dev/null; do sleep 0.6; done
 picom --config ~/.config/picom.conf -b
 
 #DUNST
 killall -q dunst
-while pgrep -x dunst >/dev/null; do sleep 1; done
-dunst -config /home/pyska/.config/dunst/dunstrc
+while pgrep -x dunst >/dev/null; do sleep 0.7; done
+dunst -config /home/pyska/.config/dunst/dunstrc &
+
+#PIPEWIRE
+killall -q pipewire; killall -q wireplumber
+while pgrep -x pipewire >/dev/null; do sleep 0.8; done
+while pgrep -x wireplumber >/dev/null; do sleep 0.9; done
+gentoo-pipewire-launcher &
 

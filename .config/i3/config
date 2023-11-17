@@ -36,10 +36,10 @@ floating_modifier $mod
 ###########################################################
 
 # Start pulseaudio daemon
-exec pulseaudio -D
+#exec redshift -P &
+#exec "xautolock -corners 0-0- -detectsleep -time 3 -locker /home/pyska/scripts/lock.sh"
 
-exec_always redshift -l 41.809578:-6.7573428 -b 1.0:0.8 &
-exec_always --no-startup-id bash ~/.config/i3/element
+exec_always --no-startup-id bash ~/.config/i3/element &
 exec_always bash ~/.fehbg
 
 exec --no-startup-id bash -c "sleep 1 && i3-msg 'workspace 4:IV; exec /usr/bin/thunderbird-bin'"
@@ -51,11 +51,11 @@ exec --no-startup-id bash -c "sleep 1 && i3-msg 'workspace 4:IV; exec /usr/bin/t
 ###########################################################
 
 #font pango:Cascadia Mono PL Regular 10
-#font pango:Mx437 IBM DOS ISO9 Regular 12
+font pango:Bm437 IBM DOS ISO9 Regular 8
 #font pango:DejaVu Sans Mono Regular 12
 #font pango:Victor Mono SemiBold 13
 #font pango:Fantasque Sans Mono SemiBold 11
-font pango:Bm437 CompaqThin 8x16 Regular 8
+#font pango:Bm437 CompaqThin 8x16 Regular 8
 
 set $black				#1e1e1e
 set $dgrey				#282828
@@ -75,9 +75,9 @@ client.urgent				$red		$red		$black		$red
 for_window [class="^.*"] border pixel 2
 
 ## i3-gaps
-smart_borders on
-gaps outer 5
-gaps inner 10
+#smart_borders on
+#gaps outer 10
+#gaps inner 0
 
 
 
@@ -189,21 +189,23 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 # APP KEYBINDINGS
 ###########################################################
 
-bindsym $mod+Return exec optirun kitty || kitty
-#bindsym $mod+Return exec xfce4-terminal
+#bindsym $mod+Return exec optirun kitty || kitty &
+bindsym $mod+Return exec xfce4-terminal
 #bindsym $mod+Return exec terminology
 #bindsym $mod+Return exec st -t "Simple Terminal" -f "Fantasque Sans Mono:size=14"
 #bindsym $mod+Return exec st -t "Simple Terminal" -f "Source Code Variable:size=14"
 #bindsym $mod+Return exec st -t "Simple Terminal" -f "Bedstead Extended:size=10"
-bindsym $mod+d exec rofi -show run
+bindsym $mod+d exec rofi -show run &
 bindsym $mod+a focus parent
 
 
 #bindsym $mod+Shift+s exec "DISPLAY=:0 mate-screenshot -a"
-bindsym $mod+Shift+s exec "bash -c 'sleep 0.1 && DISPLAY=:0 mate-screenshot -a'"
+bindsym $mod+Shift+s exec "sleep 0.1 && DISPLAY=:0 mate-screenshot -a &"
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+bindsym Ctrl+$mod+l exec "/home/pyska/scripts/lock.sh &"
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset 'Master' 2%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset 'Master' 2%-

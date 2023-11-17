@@ -19,7 +19,7 @@ call plug#begin()
 Plug 'TroyFletcher/vim-colors-synthwave'
 "Plug 'agude/vim-eldar'
 Plug 'alvan/vim-closetag'
-Plug 'davidhalter/jedi-vim'
+"Plug 'davidhalter/jedi-vim'
 Plug 'embear/vim-localvimrc'
 Plug 'enricobacis/vim-airline-clock'
 Plug 'fatih/vim-go'
@@ -47,13 +47,14 @@ Plug 'dylanaraps/wal.vim'
 "Plug 'shawncplus/phpcomplete.vim'
 
 Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
-Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 "Plug 'keremc/asyncomplete-clang.vim'
 "Plug 'laixintao/asyncomplete-gitcommit'
 Plug 'wellle/tmux-complete.vim'
+Plug 'mustache/vim-mustache-handlebars'
 
 " Snippets plugin
 "Plug 'SirVer/ultisnips'
@@ -61,6 +62,10 @@ Plug 'wellle/tmux-complete.vim'
 " Plugins added for work with PHP (still ended up using phpstorm :P )
 Plug 'mhinz/vim-startify'
 "Plug 'tobyS/vmustache'
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.3' }
+" or                                , { 'branch': '0.1.x' }
 
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
@@ -71,39 +76,11 @@ call plug#end()
 
 " ============================================================================
 
-" CUSTOM OPTIONS
-set tabstop=4
-set shiftwidth=4
-set hidden
-set number
-set backspace=indent,eol,start " Allow backspacing over everything in insert mode
-
-set foldopen-=block
-" disabled to favor LSP for folding (see LSP Options)
-"set foldmethod=indent
-set foldlevelstart=0
-set nofoldenable
-
-set timeout timeoutlen=1000
-
-" DISABLE MOUSE
-set mouse=
-
-" SHOW COLUMN LIMIT AT 80 CHARS
-if exists('+colorcolumn')
-  set colorcolumn=80
-endif
-syntax on
-
-set t_Co=256
-
-" ============================================================================
-
 " COLORSCHEME
 
 "set bg=dark
 " colorscheme Tomorrow-Night
-" colorscheme tokyo-metro
+colorscheme tokyo-metro
 " colorscheme SerialExperimentsLain
 " colorscheme monokai-phoenix
 " colorscheme Benokai
@@ -116,7 +93,7 @@ set t_Co=256
 " colorscheme badwolf
 " colorscheme 1989
 " colorscheme neonwave
-colorscheme gruvbox
+" colorscheme gruvbox
 " colorscheme Chasing_Logic
 " colorscheme ayu
 " colorscheme apprentice
@@ -138,6 +115,8 @@ colorscheme gruvbox
 noremap <C-n> :NERDTreeToggle <CR>
 noremap <F5>  :!make -j4      <CR>
 noremap <F6>  :!make -j4 run  <CR>
+
+let mapleader = ","
 
 :imap ;guard <C-O>mz#ifndef %%%<CR>#define %%%<CR>#endif  // %%%<C-O>'z;;
 :imap ;struct <C-O>mzstruct %%% {<CR>%%%<CR><BS><BS>};<C-O>'z;;
@@ -210,7 +189,7 @@ let g:jedi#rename_command           = "<leader>r"
 
 "----------------------------------------
 " CLOSETAGS FILETYPES
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php,*.hbs'
 
 "----------------------------------------
 let g:go_version_warning = 0
@@ -233,11 +212,20 @@ set foldmethod=expr
 
 " Registering LSP Servers
 " see also: https://github.com/prabirshrestha/vim-lsp
-if executable('pylsp')
-    " pip install python-lsp-server
+"if executable('pylsp')
+"    " pip install python-lsp-server
+"    au User lsp_setup call lsp#register_server({
+"        \ 'name': 'pylsp',
+"        \ 'cmd': {server_info->['pylsp']},
+"        \ 'allowlist': ['python'],
+"        \ })
+"endif
+
+if executable('jedi-language-server')
+    " pip install jedi-language-server
     au User lsp_setup call lsp#register_server({
-        \ 'name': 'pylsp',
-        \ 'cmd': {server_info->['pylsp']},
+        \ 'name': 'jedi-language-server',
+        \ 'cmd': {server_info->['jedi-language-server']},
         \ 'allowlist': ['python'],
         \ })
 endif
@@ -311,4 +299,53 @@ let g:tmuxcomplete#asyncomplete_source_options = {
             \     'truncate':        0
             \     }
             \ }
+
+" ============================================================================
+"
+" Mustache options
+let g:mustache_abbreviations = 1
+
+" ============================================================================
+"
+" Telescope options
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
+" Using Lua functions
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+
+" ============================================================================
+
+" CUSTOM OPTIONS
+set tabstop=4
+set shiftwidth=4
+set hidden
+set number
+set backspace=indent,eol,start " Allow backspacing over everything in insert mode
+
+set foldopen-=block
+" disabled to favor LSP for folding (see LSP Options)
+"set foldmethod=indent
+set foldlevelstart=0
+set nofoldenable
+
+set timeout timeoutlen=1000
+
+" DISABLE MOUSE
+set mouse=
+
+" SHOW COLUMN LIMIT AT 80 CHARS
+if exists('+colorcolumn')
+  set colorcolumn=80
+endif
+syntax on
+
+set t_Co=256
 

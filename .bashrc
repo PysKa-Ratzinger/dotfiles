@@ -45,7 +45,7 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 #export TERM=xterm-256color
-export TERM=kitty
+#export TERM=xterm-kitty
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
@@ -137,8 +137,20 @@ if ! shopt -oq posix; then
 fi
 
 export LESS="-R"
+export LESSOPEN=
+export LESSCLOSE=
 
 [[ -f ~/.LESS_TERMCAP ]] && . ~/.LESS_TERMCAP
+
+export XMODIFIERS=@im=ibus
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+
+# Use `xim` in case some Electron apps (like Chromium) refuse to work with IBus
+# export GTK_IM_MODULE=xim
+# export QT_IM_MODULE=xim
+
+ibus-daemon -drx
 
 export EDITOR=vim
 export LANG="en_US.UTF-8"
@@ -147,9 +159,7 @@ export PATH="$HOME/.local/bin/:$PATH"
 # source ~/.lscolors.sh
 
 export GPG_TTY="$(tty)"
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/local/lib:/usr/local/lib64"
 
 echo -e "${C2_CYAN}$(date)${C2_RST}\n"
-
-cat ~/.cache/wal/sequences || true
-source ~/.cache/wal/colors-tty.sh || true
 
