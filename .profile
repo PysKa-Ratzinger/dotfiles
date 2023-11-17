@@ -21,6 +21,14 @@ export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
+export XMODIFIERS=@im=ibus
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+export GLFW_IM_MODULE=ibus   # Needed for kitty terminal
+
+export GDK_DPI_SCALE=1.5
+
+# pgrep -x ibus-daemon || doas -u pyska ibus-daemon -drx
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"

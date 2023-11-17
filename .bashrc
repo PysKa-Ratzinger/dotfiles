@@ -20,9 +20,9 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=100000
+HISTSIZE=100000
+HISTFILESIZE=400000
 HISTFILE=~/.histfile
 
 # check the window size after each command and, if necessary,
@@ -136,23 +136,17 @@ if ! shopt -oq posix; then
 	fi
 fi
 
-export LESS="-R"
+export XMODIFIERS=@im=ibus
+export GTK_IM_MODULE=ibus
+export QT_IM_MODULE=ibus
+
+export LESS="-LR"
 export LESSOPEN=
 export LESSCLOSE=
 
 [[ -f ~/.LESS_TERMCAP ]] && . ~/.LESS_TERMCAP
 
-export XMODIFIERS=@im=ibus
-export GTK_IM_MODULE=ibus
-export QT_IM_MODULE=ibus
-
-# Use `xim` in case some Electron apps (like Chromium) refuse to work with IBus
-# export GTK_IM_MODULE=xim
-# export QT_IM_MODULE=xim
-
-ibus-daemon -drx
-
-export EDITOR=vim
+export EDITOR=nvim
 export LANG="en_US.UTF-8"
 export PATH="$HOME/.local/bin/:$PATH"
 
@@ -161,5 +155,6 @@ export PATH="$HOME/.local/bin/:$PATH"
 export GPG_TTY="$(tty)"
 export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/local/lib:/usr/local/lib64"
 
-echo -e "${C2_CYAN}$(date)${C2_RST}\n"
+printf "${C2_RED}おかえり、先生。今は${C2_RST} "
+printf "${C2_CYAN}$(date)${C2_RST}\n\n"
 
