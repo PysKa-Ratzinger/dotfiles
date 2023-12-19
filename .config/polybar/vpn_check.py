@@ -6,6 +6,7 @@ import fcntl
 import struct
 import os
 
+
 def get_ip_address(ifname):
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     return socket.inet_ntoa(fcntl.ioctl(
@@ -14,14 +15,16 @@ def get_ip_address(ifname):
         struct.pack('256s', ifname[:15])
     )[20:24])
 
-def get_if_addr(ifname):
+
+def get_if_addr(ifname: str):
     """
     Given an interface name, get it's ip address
     """
     try:
-        return get_ip_address(ifname)
-    except:
+        return get_ip_address(ifname.encode("utf8"))
+    except Exception:
         return "no ip"
+
 
 def get_vpn_names(folder):
     """
@@ -43,26 +46,35 @@ def get_vpn_names(folder):
                 vpn_pid_file = None
 
             vpn_name = None
+            tun_iface = None
+
             if os.path.isfile(vpn_name_file):
-                with open(vpn_name_file, "r") as f:
-                    vpn_name = f.readlines()[0].split("\n")[0]
+                with open(vpn_name_file, "rb") as f:
+                    content = f.readlines()
+                    vpn_name = content[0].decode().split("\n")[0]
+                    if len(content) >= 2:
+                        tun_iface = content[1].split(b"\n")[0].decode("utf8")
+                    else:
+                        tun_iface = "tun0"
             else:
                 vpn_name_file = None
+                tun_iface = "tun0"
                 vpn_name = ".".join(file.split(".")[1:-1])
-            yield vpn_name_file, vpn_name, vpn_pid_file
+            yield vpn_name, tun_iface, vpn_pid_file
 
-    except:
+    except Exception:
         pass
+
 
 def main():
     vpns = get_vpn_names("/var/run/")
-    for vpn_name_file, vpn_name, vpn_pid_file in vpns:
+    for vpn_name, tun_iface, vpn_pid_file in vpns:
         if vpn_pid_file:
-            print("VPN: %{F-}" + f"{vpn_name} {get_if_addr(b'tun0')}")
+            print("VPN: %{F-}" + f"{vpn_name} {tun_iface} {get_if_addr(tun_iface)}")
             sys.exit(0)
         break
     sys.exit(1)
 
+
 if __name__ == '__main__':
     main()
-
