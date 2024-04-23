@@ -187,7 +187,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 # APP KEYBINDINGS
 ###########################################################
 
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec urxvt
 #bindsym $mod+Return exec terminology
 #bindsym $mod+Return exec st -t "Simple Terminal" -f "Fantasque Sans Mono:size=14"
 #bindsym $mod+Return exec st -t "Simple Terminal" -f "Source Code Variable:size=14"

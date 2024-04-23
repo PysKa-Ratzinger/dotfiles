@@ -26,13 +26,17 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/DoxygenToolkit.vim'
-Plug 'flazz/vim-colorschemes'
-Plug 'rafi/awesome-vim-colorschemes'
 Plug 'jmcantrell/vim-virtualenv'
 Plug 'huyvohcmc/atlas.vim'
 Plug 'iamcco/markdown-preview.nvim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'dylanaraps/wal.vim'
+Plug 'tikhomirov/vim-glsl'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
+
+Plug 'flazz/vim-colorschemes'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'rebelot/kanagawa.nvim'
 
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
@@ -69,18 +73,17 @@ call plug#end()
 
 set bg=dark
 " colorscheme Tomorrow-Night
-colorscheme tokyo-metro
+" colorscheme tokyo-metro
 " colorscheme SerialExperimentsLain
 " colorscheme monokai-phoenix
 " colorscheme Benokai
 " colorscheme brogrammer
 " colorscheme wombat256dave
-" colorscheme solarized8_high
 " colorscheme eva01
 " colorscheme nefertiti
 " colorscheme eva01-LCL
 " colorscheme badwolf
-colorscheme 1989
+" colorscheme 1989
 " colorscheme neonwave
 " colorscheme gruvbox
 " colorscheme Chasing_Logic
@@ -94,6 +97,10 @@ colorscheme 1989
 " colorscheme zazen
 " colorscheme tigrana-256-dark
 " colorscheme 256-grayvim
+" colorscheme kanagawa
+colorscheme kanagawa-dragon
+" colorscheme kanagawa-lotus
+" colorscheme kanagawa-wave
 
 :hi Normal guibg=NONE ctermbg=NONE
 
