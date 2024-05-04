@@ -26,7 +26,7 @@ export GTK_IM_MODULE=ibus
 export QT_IM_MODULE=ibus
 export GLFW_IM_MODULE=ibus   # Needed for kitty terminal
 
-export GDK_DPI_SCALE=1.5
+export GDK_DPI_SCALE=1
 
 # pgrep -x ibus-daemon || doas -u pyska ibus-daemon -drx
 

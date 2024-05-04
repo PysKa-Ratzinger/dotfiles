@@ -16,31 +16,44 @@ call plug#begin()
 
 " Make sure you use single quotes
 
-Plug 'TroyFletcher/vim-colors-synthwave'
+" Plug 'TroyFletcher/vim-colors-synthwave'
 Plug 'alvan/vim-closetag'
 Plug 'embear/vim-localvimrc'
 Plug 'enricobacis/vim-airline-clock'
-Plug 'koirand/tokyo-metro.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-scripts/DoxygenToolkit.vim'
+Plug 'jmcantrell/vim-virtualenv'
+
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+
+Plug 'ryanoasis/vim-devicons'
+
+Plug 'koirand/tokyo-metro.vim'
+Plug 'dylanaraps/wal.vim'
+Plug 'mbbill/undotree'
+Plug 'huyvohcmc/atlas.vim'
+Plug 'axvr/photon.vim'
+Plug 'widatama/vim-phoenix'
+Plug 'jaredgorski/Mies.vim'
+Plug 'ntk148v/komau.vim'
+Plug 'folke/tokyonight.nvim'
+Plug 'rebelot/kanagawa.nvim'
+Plug 'tikhomirov/vim-glsl'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'flazz/vim-colorschemes'
 Plug 'rafi/awesome-vim-colorschemes'
-Plug 'jmcantrell/vim-virtualenv'
-Plug 'huyvohcmc/atlas.vim'
-Plug 'iamcco/markdown-preview.nvim'
-Plug 'ryanoasis/vim-devicons'
-Plug 'dylanaraps/wal.vim'
+Plug 'mustache/vim-mustache-handlebars'
 
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
+Plug 'neovim/nvim-lspconfig'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
 Plug 'wellle/tmux-complete.vim'
-Plug 'mustache/vim-mustache-handlebars'
 
 Plug 'mhinz/vim-startify'
 Plug 'voldikss/vim-translator'
@@ -51,10 +64,6 @@ Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.3' }
 
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'tpope/vim-markdown'
-
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.3' }
-" or                                , { 'branch': '0.1.x' }
 
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
@@ -68,8 +77,12 @@ call plug#end()
 " COLORSCHEME
 
 set bg=dark
+" colorscheme photon
+" colorscheme 256_noir
+" colorscheme komau
+" colorscheme mies
 " colorscheme Tomorrow-Night
-colorscheme tokyo-metro
+" colorscheme tokyo-metro
 " colorscheme SerialExperimentsLain
 " colorscheme monokai-phoenix
 " colorscheme Benokai
@@ -79,9 +92,13 @@ colorscheme tokyo-metro
 " colorscheme eva01
 " colorscheme nefertiti
 " colorscheme eva01-LCL
+" colorscheme alduin
+" colorscheme seoul256
+" colorscheme moonshine
 " colorscheme badwolf
-colorscheme 1989
+" colorscheme 1989
 " colorscheme neonwave
+" colorscheme behelit
 " colorscheme gruvbox
 " colorscheme Chasing_Logic
 " colorscheme ayu
@@ -94,6 +111,38 @@ colorscheme 1989
 " colorscheme zazen
 " colorscheme tigrana-256-dark
 " colorscheme 256-grayvim
+" colorscheme tokyonight-moon
+" colorscheme kanagawa
+" colorscheme kanagawa-dragon
+" colorscheme kanagawa-lotus
+" colorscheme kanagawa-wave
+" colorscheme atlas
+" colorscheme elflord
+" colorscheme redblack
+" colorscheme default
+" colorscheme icansee
+
+function! SetPhoenixColorscheme()
+	let day = strftime("%w")
+
+	colorscheme phoenix
+
+	if day == 1
+		:PhoenixBlue
+	elseif day == 2
+		:PhoenixGreen
+	elseif day == 3
+		:PhoenixYellow
+	elseif day == 4
+		:PhoenixPurple
+	elseif day == 5
+		:PhoenixOrange
+	else
+		:PhoenixRed
+	endif
+endfunction
+
+call SetPhoenixColorscheme()
 
 :hi Normal guibg=NONE ctermbg=NONE
 
@@ -135,7 +184,7 @@ let g:virtualenv_auto_activate = 1
 
 " Configure powerline status bar
 let g:airline_powerline_fonts            = 1
-let g:airline_theme                      = 'deus'
+let g:airline_theme                      = 'monochrome'
 let g:Powerline_symbols                  = 'fancy'
 let g:airline#extensions#tabline#enabled = 1
 
@@ -172,16 +221,16 @@ function! s:on_lsp_buffer_enabled() abort
     setlocal omnifunc=lsp#complete
     setlocal signcolumn=yes
     if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
-    nmap <buffer> gd <plug>(lsp-definition)
-    nmap <buffer> gs <plug>(lsp-document-symbol-search)
-    nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
-    nmap <buffer> gr <plug>(lsp-references)
-    nmap <buffer> gi <plug>(lsp-implementation)
-    nmap <buffer> gt <plug>(lsp-type-definition)
+    nmap <buffer> <leader>gd <plug>(lsp-definition)
+    nmap <buffer> <leader>gs <plug>(lsp-document-symbol-search)
+    nmap <buffer> <leader>gS <plug>(lsp-workspace-symbol-search)
+    nmap <buffer> <leader>gr <plug>(lsp-references)
+    nmap <buffer> <leader>gi <plug>(lsp-implementation)
+    nmap <buffer> <leader>gt <plug>(lsp-type-definition)
     nmap <buffer> <leader>rn <plug>(lsp-rename)
-    nmap <buffer> [g <plug>(lsp-previous-diagnostic)
-    nmap <buffer> ]g <plug>(lsp-next-diagnostic)
-    nmap <buffer> K <plug>(lsp-hover)
+    nmap <buffer> <leader>[g <plug>(lsp-previous-diagnostic)
+    nmap <buffer> <leader>]g <plug>(lsp-next-diagnostic)
+    nmap <buffer> <leader>K <plug>(lsp-hover)
     "nnoremap <buffer> <expr><c-f> lsp#scroll(+4)
     "nnoremap <buffer> <expr><c-d> lsp#scroll(-4)
 
@@ -246,12 +295,13 @@ nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>un <cmd>UndotreeToggle<cr>
 
 " Using Lua functions
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
-nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
-nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
-nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+"nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+"nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
+"nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+"nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 " ============================================================================
 
