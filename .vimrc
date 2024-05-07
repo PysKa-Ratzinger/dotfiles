@@ -108,7 +108,7 @@ set bg=dark
 " colorscheme wal
 " colorscheme matrix
 " colorscheme cyberpunk
-" colorscheme zazen
+" colorscheme zenburn
 " colorscheme tigrana-256-dark
 " colorscheme 256-grayvim
 " colorscheme tokyonight-moon
@@ -144,7 +144,7 @@ endfunction
 
 call SetPhoenixColorscheme()
 
-:hi Normal guibg=NONE ctermbg=NONE
+":hi Normal guibg=NONE ctermbg=NONE
 
 " ============================================================================
 "
