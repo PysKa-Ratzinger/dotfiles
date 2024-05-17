@@ -168,18 +168,16 @@ export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/local/lib:/usr/local/lib64"
 #
 # Add to you ~/.bashrc file with: 'source ~/.themes/95/bashrc'
 
-function msdos_pwd
-{
-    local dir="`pwd`"
-
-    echo $dir | tr '/' '\\'
-}
-
-export PS1='C:`msdos_pwd`> '
-
-echo
-echo
-echo "Microsoft(R) Windows 95"
-echo "   (C)Copyright Microsoft Corp 1981-1996."
-echo
+#function msdos_pwd
+#{
+#    pwd | sed 's|\\|\\\\|g; s|/|\\|g;'
+#}
+#
+#export PS1='C:`msdos_pwd`> '
+#
+#echo
+#echo
+#echo "Microsoft(R) Windows 95"
+#echo "   (C)Copyright Microsoft Corp 1981-1996."
+#echo
 

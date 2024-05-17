@@ -113,7 +113,7 @@ set bg=dark
 " colorscheme 256-grayvim
 " colorscheme tokyonight-moon
 " colorscheme kanagawa
-" colorscheme kanagawa-dragon
+colorscheme kanagawa-dragon
 " colorscheme kanagawa-lotus
 " colorscheme kanagawa-wave
 " colorscheme atlas

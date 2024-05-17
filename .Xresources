@@ -1,6 +1,6 @@
 
-Xft.rgba: none
-Xft.hintstyle: hintfull
+! URxvt*rgba: none
+! URxvt*hintstyle: hintnone
 
 URxvt*scrollBar:         false
 URxvt*scrollBar_right:   false
@@ -11,26 +11,26 @@ URxvt.depth: 32
 ! URxvt.background:  [90]#000000
 URxvt.background:  #000000
 
-URxvt.letterSpace: -1
-URxvt.lineSpace: -1
+URxvt.letterSpace: 0
+URxvt.lineSpace: 0
 
-URxvt.font: xft:More Perfect DOS VGA:style=Regular:size=11, \
-            xft:Monaspace Neon:style=ExtraBold:size=11, \
+URxvt.font: xft:More Perfect DOS VGA:style=Regular:size=12, \
+            xft:Monaspace Neon:style=ExtraBold:size=12, \
 			xft:CaskaydiaCove Nerd Font:style=Regular, \
 			xft:PowerlineSymbols:style=Bold
 
-URxvt.italicFont: xft:More Perfect DOS VGA:style=Regular:size=11, \
-                  xft:Monaspace Radon:style=ExtraBold:size=11, \
+URxvt.italicFont: xft:More Perfect DOS VGA:style=Regular:size=12, \
+                  xft:Monaspace Radon:style=ExtraBold:size=12, \
 					xft:CaskaydiaCove Nerd Font:style=Italic, \
 					xft:PowerlineSymbols:style=Bold
 
-URxvt.boldFont: xft:More Perfect DOS VGA:style=Bold:size=11, \
-                xft:Monaspace Krypton:style=ExtraBold:size=11, \
+URxvt.boldFont: xft:More Perfect DOS VGA:style=Bold:size=12, \
+                xft:Monaspace Krypton:style=ExtraBold:size=12, \
 				xft:CaskaydiaCove Nerd Font:style=Bold, \
 				xft:PowerlineSymbols:style=Bold
 
-URxvt.boldItalicFont: xft:More Perfect DOS VGA:style=Bold:size=11, \
-                      xft:Monaspace Krypton:style=ExtraBold Italic:size=11, \
+URxvt.boldItalicFont: xft:More Perfect DOS VGA:style=Bold:size=12, \
+                      xft:Monaspace Krypton:style=ExtraBold Italic:size=12, \
 					  xft:CaskaydiaCove Nerd Font:style=Bold Italic, \
 					  xft:PowerlineSymbols:style=Bold
 
@@ -50,6 +50,14 @@ URxvt.boldItalicFont: xft:More Perfect DOS VGA:style=Bold:size=11, \
 ! 					  xft:CaskaydiaCove Nerd Font:style=Bold Italic, \
 ! 					  xft:PowerlineSymbols:style=Bold
 
-*antialias: true
-*autohint:  true
+*antialias: false
+*autohint:  false
+
+URxvt*dpi: 140
+URxvt*antialias: false
+URxvt*hinting: true
+URxvt*rgba: rgb
+URxvt*autohint: false
+URxvt*hintstyle: hintfull
+URxvt*lcdfilter: lcddefault
 
