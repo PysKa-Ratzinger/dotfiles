@@ -5,17 +5,16 @@ vim.o.packpath = vim.o.runtimepath
 vim.g.mapleader = "<space>"
 vim.g.maplocalleader = "<space>"
 
-vim.opt.termguicolors = true
-
 require("config.lazy")({
 	debug = false,
 	profiling = {
 		loader = false,
 		require = false,
 	},
+	"plugins",
 })
 
-require("lazy").setup("plugins")
+-- require("lazy").setup("plugins")
 
 local lspconfig = require("lspconfig")
 local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -66,7 +65,7 @@ lspsaga.setup({ -- defaults ...
 		exec = "<CR>",
 	},
 	definition_preview_icon = "  ",
-	border_style = "single",
+	border_style = "round",
 	rename_prompt_prefix = "➤",
 	rename_output_qflist = {
 		enable = false,
@@ -79,6 +78,8 @@ lspsaga.setup({ -- defaults ...
 })
 
 require("diffview").setup()
+
+require("neogen").setup()
 
 --
 -- COLORSCHEME CONFIG
@@ -139,27 +140,41 @@ vim.keymap.set("", "<M-t>", "<cmd>:TranslateW<CR>", opts)
 vim.cmd([[set number]])
 vim.cmd([[set nornu]])
 
-vim.keymap.set("n", "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>", {})
 vim.keymap.set("n", "<leader>gs", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", {})
 vim.keymap.set("n", "<leader>gS", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", {})
 vim.keymap.set("n", "<leader>ge", "<cmd>lua vim.lsp.buf.references()<CR>", {})
 vim.keymap.set("n", "<leader>gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", {})
-vim.keymap.set("n", "<leader>gt", "<cmd>lua vim.lsp.buf.type_definition()<CR>", {})
-vim.keymap.set("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", {})
-vim.keymap.set("n", "<leader>[g", "<cmd>lua vim.diagnostic.goto_prev()<CR>", {})
-vim.keymap.set("n", "<leader>]g", "<cmd>lua vim.diagnostic.goto_next()<CR>", {})
-vim.keymap.set("n", "<leader>K", "<cmd>lua vim.lsp.buf.hover()<CR>", {})
 
 require("lazyvim.util").lsp.on_attach(function(_, buffer)
 	--- In lsp attach function
 	local map = vim.api.nvim_buf_set_keymap
-	map(0, "n", "gr", "<cmd>Lspsaga rename<cr>", { silent = true, noremap = true })
+	map(0, "n", "rn", "<cmd>Lspsaga rename<cr>", { silent = true, noremap = true })
 	map(0, "n", "gx", "<cmd>Lspsaga code_action<cr>", { silent = true, noremap = true })
 	map(0, "x", "gx", ":<c-u>Lspsaga range_code_action<cr>", { silent = true, noremap = true })
 	map(0, "n", "K", "<cmd>Lspsaga hover_doc<cr>", { silent = true, noremap = true })
 	map(0, "n", "go", "<cmd>Lspsaga show_line_diagnostics<cr>", { silent = true, noremap = true })
 	map(0, "n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", { silent = true, noremap = true })
 	map(0, "n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", { silent = true, noremap = true })
-	map(0, "n", "gd", "<cmd>Lspsaga peek_definition<cr>", { silent = true, noremap = true })
-	map(0, "n", "gt", "<cmd>Lspsaga peek_type_definition<cr>", { silent = true, noremap = true })
+	map(0, "n", "gpd", "<cmd>Lspsaga peek_definition<cr>", { silent = true, noremap = true })
+	map(0, "n", "gpt", "<cmd>Lspsaga peek_type_definition<cr>", { silent = true, noremap = true })
+	map(0, "n", "gd", "<cmd>Lspsaga goto_definition<cr>", { silent = true, noremap = true })
+	map(0, "n", "gt", "<cmd>Lspsaga goto_type_definition<cr>", { silent = true, noremap = true })
 end)
+
+vim.opt.termguicolors = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.hidden = true
+vim.opt.number = true
+vim.opt.backspace = "indent,eol,start"
+
+vim.opt.foldopen = "block"
+vim.opt.foldmethod = "indent"
+vim.opt.foldlevelstart = 0
+vim.opt.foldenable = false
+
+vim.opt.timeout = true
+vim.opt.timeoutlen = 1000
+
+-- DISABLE MOUSE
+vim.opt.mouse = nil
