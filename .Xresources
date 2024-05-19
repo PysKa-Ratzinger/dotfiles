@@ -8,26 +8,30 @@ URxvt*scrollBar_right:   false
 URxvt*transparent:       false
 URxvt.geometry: 120x40
 URxvt.depth: 32
-! URxvt.background:  [90]#000000
-URxvt.background:  #000000
+URxvt.background:  [80]#000000
+! URxvt.background:  #000000
 
-URxvt.letterSpace: 0
-URxvt.lineSpace: 0
+URxvt.letterSpace: -1
+URxvt.lineSpace: -1
 
 URxvt.font: xft:Monaspace Neon:style=Bold:size=11, \
 			xft:CaskaydiaCove Nerd Font:style=Regular, \
+			xft:Noto Color Emoji:style=Regular, \
 			xft:PowerlineSymbols:style=Bold
 
 gRxvt.italicFont: xft:Monaspace Radon:style=Bold:size=11, \
 					xft:CaskaydiaCove Nerd Font:style=Italic, \
+                    xft:Noto Color Emoji:style=Italic, \
 					xft:PowerlineSymbols:style=Bold
 
 URxvt.boldFont: xft:Monaspace Krypton:style=ExtraBold:size=11, \
 				xft:CaskaydiaCove Nerd Font:style=Bold, \
+                xft:Noto Color Emoji:style=Bold, \
 				xft:PowerlineSymbols:style=Bold
 
 gRxvt.boldItalicFont: xft:Monaspace Krypton:style=ExtraBold Italic:size=11, \
 					  xft:CaskaydiaCove Nerd Font:style=Bold Italic, \
+                      xft:Noto Color Emoji:style=Bold Italic, \
 					  xft:PowerlineSymbols:style=Bold
 
 ! URxvt.font: xft:Monaspace Neon:style=ExtraBold:size=11, \

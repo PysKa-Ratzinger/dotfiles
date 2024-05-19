@@ -21,7 +21,7 @@ local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 lspconfig.clangd.setup({
 	capabilities = lsp_capabilities,
-	cmd = { "clangd", "--query-driver=/usr/bin/c++" },
+	cmd = { "clangd", "--background-index", "--clang-tidy", "--query-driver=/usr/bin/c++" },
 })
 
 require("mason").setup({})
@@ -144,6 +144,7 @@ vim.keymap.set("n", "<leader>gs", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", 
 vim.keymap.set("n", "<leader>gS", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", {})
 vim.keymap.set("n", "<leader>ge", "<cmd>lua vim.lsp.buf.references()<CR>", {})
 vim.keymap.set("n", "<leader>gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", {})
+vim.keymap.set("v", "<leader>=", "<cmd>lua vim.lsp.buf.format()<CR>zz")
 
 require("lazyvim.util").lsp.on_attach(function(_, buffer)
 	--- In lsp attach function
@@ -161,12 +162,13 @@ require("lazyvim.util").lsp.on_attach(function(_, buffer)
 	map(0, "n", "gt", "<cmd>Lspsaga goto_type_definition<cr>", { silent = true, noremap = true })
 end)
 
-vim.opt.termguicolors = true
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.backspace = "indent,eol,start"
+vim.opt.colorcolumn = "80"
 vim.opt.hidden = true
 vim.opt.number = true
-vim.opt.backspace = "indent,eol,start"
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.termguicolors = true
 
 vim.opt.foldopen = "block"
 vim.opt.foldmethod = "indent"

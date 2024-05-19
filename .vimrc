@@ -19,20 +19,23 @@ call plug#begin()
 " Plug 'TroyFletcher/vim-colors-synthwave'
 Plug 'alvan/vim-closetag'
 Plug 'embear/vim-localvimrc'
+
 Plug 'enricobacis/vim-airline-clock'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline'
 Plug 'vim-scripts/DoxygenToolkit.vim'
 Plug 'jmcantrell/vim-virtualenv'
 
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 
 Plug 'ryanoasis/vim-devicons'
+Plug 'mbbill/undotree'
 
 Plug 'koirand/tokyo-metro.vim'
 Plug 'dylanaraps/wal.vim'
-Plug 'mbbill/undotree'
 Plug 'huyvohcmc/atlas.vim'
 Plug 'axvr/photon.vim'
 Plug 'widatama/vim-phoenix'
@@ -41,9 +44,9 @@ Plug 'ntk148v/komau.vim'
 Plug 'folke/tokyonight.nvim'
 Plug 'rebelot/kanagawa.nvim'
 Plug 'tikhomirov/vim-glsl'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'flazz/vim-colorschemes'
 Plug 'rafi/awesome-vim-colorschemes'
+
 Plug 'mustache/vim-mustache-handlebars'
 
 Plug 'prabirshrestha/async.vim'
@@ -59,8 +62,7 @@ Plug 'mhinz/vim-startify'
 Plug 'voldikss/vim-translator'
 Plug 'folke/todo-comments.nvim'
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.3' }
-" or                                , { 'branch': '0.1.x' }
+Plug 'nvim-telescope/telescope.nvim'
 
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'tpope/vim-markdown'
@@ -182,29 +184,6 @@ map <M-t> :TranslateW<cr>
 " Use python venv if available
 let g:virtualenv_auto_activate = 1
 
-" Configure powerline status bar
-let g:airline_powerline_fonts            = 1
-let g:airline_theme                      = 'monochrome'
-let g:Powerline_symbols                  = 'fancy'
-let g:airline#extensions#tabline#enabled = 1
-
-let g:SuperTabClosePreviewOnPopupClose = 1
-
-"----------------------------------------
-let g:molokai_original        = 1
-let g:javascript_plugin_jsoc  = 1
-let g:javascript_plugin_ngdoc = 1
-let g:javascript_plugin_flow  = 1
-
-"----------------------------------------
-" CLOSETAGS FILETYPES
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.php,*.hbs'
-
-"----------------------------------------
-let g:go_version_warning = 0
-
-set cinoptions=g0,:0,t0,N-s,E-s,(0,ks,(s,m1
-
 "----------------------------------------
 " TRANSLATOR OPTIONS 前の人
 let g:translator_target_lang = 'en'
@@ -245,25 +224,6 @@ augroup lsp_install
     " call s:on_lsp_buffer_enabled only for languages that has the server registered.
     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
-
-" ============================================================================
-
-" Asyncomplete Options
-
-" allow modifying the completeopt variable, or it will
-" be overridden all the time
-let g:asyncomplete_auto_completeopt = 0
-
-set completeopt=menuone,noinsert,noselect,preview
-autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-
-" Asymcomplete TAB completion
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
-
-imap <c-space> <Plug>(asyncomplete_force_refresh)
-imap <Nul> <Plug>(asyncomplete_force_refresh)
 
 " ---------------------------
 " Asyncomplete Tmux
