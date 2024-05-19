@@ -10,6 +10,12 @@ return {
 				pathStrict = true,
 			},
 		},
+		library = {
+			plugins = {
+				"nvim-dap-ui",
+			},
+			types = true,
+		},
 	},
 
 	-- tools
@@ -42,20 +48,6 @@ return {
 		},
 	},
 
-	-- {
-	--   "jay-babu/mason-null-ls.nvim",
-	--   event = { "BufReadPre", "BufNewFile" },
-	--   dependencies = {
-	--     "williamboman/mason.nvim",
-	--     "nvimtools/none-ls.nvim",
-	--   },
-	--   opts = {
-	--     ensure_installed = {},
-	--     automatic_installation = true,
-	--   },
-	--   config = true,
-	-- },
-
 	"williamboman/mason-lspconfig.nvim",
 
 	{
@@ -85,6 +77,14 @@ return {
 			automatic_installation = true,
 		},
 		config = true,
+	},
+
+	{
+		"rcarriga/nvim-dap-ui",
+		dependencies = {
+			"mfussenegger/nvim-dap",
+			"nvim-neotest/nvim-nio",
+		},
 	},
 
 	-- {
@@ -145,13 +145,16 @@ return {
 					},
 				},
 			},
+			-- LSP Server Settings
 			---@type lspconfig.options
-			---@diagnostic disable: missing-fields
 			servers = {
 				ansiblels = {},
 				asm_lsp = {},
 				bashls = {},
 				cmake = {},
+				clangd = {
+					cmd = { "clangd", "--background-index", "--clang-tidy" },
+				},
 				cssls = {},
 				html = {},
 				lua_ls = {
@@ -275,8 +278,11 @@ return {
 				yamlls = {
 					settings = {
 						yaml = {
-							customTags = {
-								"!reference sequence", -- necessary for gitlab-ci.yaml files
+							format = {
+								enable = true,
+							},
+							schemaStore = {
+								enable = true,
 							},
 						},
 					},
@@ -284,7 +290,6 @@ return {
 			},
 			setup = {},
 		},
-		config = function() end,
 	},
 
 	{

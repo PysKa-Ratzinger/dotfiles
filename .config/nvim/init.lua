@@ -20,20 +20,11 @@ local lspconfig = require("lspconfig")
 local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 require("mason").setup({})
-require("mason-lspconfig").setup({
-	handlers = {
-		function(server)
-			lspconfig[server].setup({
-				capabilities = lsp_capabilities,
-			})
-		end,
-		["clangd"] = function()
-			lspconfig.clangd.setup({
-				capabilities = lsp_capabilities,
-				cmd = { "clangd", "--background-index", "--clang-tidy", "--query-driver=/usr/bin/c++" },
-			})
-		end,
-	},
+require("mason-lspconfig").setup({})
+
+require("mason-nvim-dap").setup({
+	ensure_installed = {},
+	automatic_installation = true,
 })
 
 local lspsaga = require("lspsaga")
@@ -189,3 +180,6 @@ vim.opt.timeoutlen = 1000
 
 -- DISABLE MOUSE
 vim.opt.mouse = nil
+
+vim.opt.listchars = "tab:> ,trail:-,space:-,eol:$"
+vim.opt.list = false
