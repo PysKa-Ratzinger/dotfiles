@@ -19,13 +19,22 @@ require("config.lazy")({
 local lspconfig = require("lspconfig")
 local lsp_capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-lspconfig.clangd.setup({
-	capabilities = lsp_capabilities,
-	cmd = { "clangd", "--background-index", "--clang-tidy", "--query-driver=/usr/bin/c++" },
-})
-
 require("mason").setup({})
-require("mason-lspconfig").setup({})
+require("mason-lspconfig").setup({
+	handlers = {
+		function(server)
+			lspconfig[server].setup({
+				capabilities = lsp_capabilities,
+			})
+		end,
+		["clangd"] = function()
+			lspconfig.clangd.setup({
+				capabilities = lsp_capabilities,
+				cmd = { "clangd", "--background-index", "--clang-tidy", "--query-driver=/usr/bin/c++" },
+			})
+		end,
+	},
+})
 
 local lspsaga = require("lspsaga")
 lspsaga.setup({ -- defaults ...
