@@ -16,6 +16,7 @@ vim.opt.shiftwidth = 8
 vim.opt.tabstop = 8
 vim.opt.wrap = true
 vim.opt.termguicolors = true
+vim.opt.ignorecase = false
 
 vim.opt.foldopen = "block"
 vim.opt.foldmethod = "indent"
