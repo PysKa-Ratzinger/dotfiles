@@ -12,8 +12,9 @@ vim.opt.backspace = "indent,eol,start"
 vim.opt.colorcolumn = "80"
 vim.opt.hidden = true
 vim.opt.number = true
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
+vim.opt.shiftwidth = 8
+vim.opt.tabstop = 8
+vim.opt.wrap = true
 vim.opt.termguicolors = true
 
 vim.opt.foldopen = "block"
