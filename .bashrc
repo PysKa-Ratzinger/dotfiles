@@ -121,7 +121,7 @@ esac
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 
 if [ -f ~/.bash_aliases ]; then
-	. ~/.bash_aliases
+	source ~/.bash_aliases
 fi
 
 # enable programmable completion features (you don't need to enable
@@ -129,9 +129,9 @@ fi
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
 	if [ -f /usr/share/bash-completion/bash_completion ]; then
-		. /usr/share/bash-completion/bash_completion
+		source /usr/share/bash-completion/bash_completion
 	elif [ -f /etc/bash_completion ]; then
-		. /etc/bash_completion
+		source /etc/bash_completion
 	fi
 fi
 
@@ -143,16 +143,16 @@ export LESS="-LR"
 export LESSOPEN=
 export LESSCLOSE=
 
-[[ -f ~/.LESS_TERMCAP ]] && . ~/.LESS_TERMCAP
+[[ -f ~/.LESS_TERMCAP ]] && source ~/.LESS_TERMCAP
 
 export EDITOR=nvim
 export LANG="en_US.UTF-8"
-export PATH="$HOME/.local/bin/:$PATH"
+export PATH="$HOME/.local/bin/${PATH:+:$PATH}"
 
 # source ~/.lscolors.sh
 
 export GPG_TTY="$(tty)"
-export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/usr/local/lib:/usr/local/lib64"
+export LD_LIBRARY_PATH="${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}/usr/local/lib:/usr/local/lib64"
 
 #printf "${C2_RED}おかえり、先生。今は${C2_RST} "
 #printf "${C2_CYAN}$(date -R)${C2_RST}\n\n"
