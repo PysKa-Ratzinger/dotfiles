@@ -1,7 +1,7 @@
 [user]
 	email = ricardojorge512@hotmail.com
 	name = Ricardo Jorge Afonso Catalão
-	signingKey = B2029F6C172FA31A
+	signingKey = 9E17DE83946E32A8088F92E43D9CCD36FAF32A1C
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f

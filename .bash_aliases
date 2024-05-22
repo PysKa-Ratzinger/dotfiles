@@ -1,11 +1,14 @@
-
 alias defcon-start='nohup mplayer -playlist http://somafm.com/defcon130.pls >/dev/null 2>&1 &'
 alias dnb-start='nohup mplayer http://source.dnbradio.com:8000/dnbradio_main.mp3 >/dev/null 2>&1 &'
 alias radio-stop='killall mplayer'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-	test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+	if test -r ~/.dircolors; then
+		eval "$(dircolors -b ~/.dircolors)"
+	else
+		eval "$(dircolors -b)"
+	fi
 	alias ls='ls --color=auto --group-directories-first'
 	#alias dir='dir --color=auto'
 	#alias vdir='vdir --color=auto'
@@ -39,4 +42,3 @@ alias exunt='exit'
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
