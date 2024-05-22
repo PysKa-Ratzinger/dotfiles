@@ -26,6 +26,7 @@ function SetPhoenixColorscheme()
 	else
 		vim.cmd([[:PhoenixRed]])
 	end
+	vim.cmd([[:hi Normal guibg=NONE ctermbg=NONE]])
 end
 
 SetPhoenixColorscheme()
