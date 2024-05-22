@@ -34,6 +34,7 @@ map("", "<M-t>", "<cmd>:TranslateW<CR>", opts)
 
 map("n", "<leader>gs", "<cmd>lua vim.lsp.buf.document_symbol()<CR>", {})
 map("n", "<leader>gS", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", {})
-map("n", "<leader>ge", "<cmd>lua vim.lsp.buf.references()<CR>", {})
+map("n", "<leader>gr", "<cmd>lua vim.lsp.buf.references()<CR>", {})
 map("n", "<leader>gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", {})
+map("v", "<leader>K", "<cmd>lua vim.lsp.buf.hover()<CR>zz")
 map("v", "<leader>=", "<cmd>lua vim.lsp.buf.format()<CR>zz")
