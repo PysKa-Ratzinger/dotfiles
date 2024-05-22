@@ -13,15 +13,15 @@ function SetPhoenixColorscheme()
 
 	vim.cmd([[colorscheme phoenix]])
 
-	if day == 1 then
+	if day == "1" then
 		vim.cmd([[:PhoenixBlue]])
-	elseif day == 2 then
+	elseif day == "2" then
 		vim.cmd([[:PhoenixGreen]])
-	elseif day == 3 then
+	elseif day == "3" then
 		vim.cmd([[:PhoenixYellow]])
-	elseif day == 4 then
+	elseif day == "4" then
 		vim.cmd([[:PhoenixPurple]])
-	elseif day == 5 then
+	elseif day == "5" then
 		vim.cmd([[:PhoenixOrange]])
 	else
 		vim.cmd([[:PhoenixRed]])

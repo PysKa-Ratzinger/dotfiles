@@ -1,7 +1,7 @@
 [user]
 	email = ricardojorge512@hotmail.com
 	name = Ricardo Jorge Afonso Catalão
-	signingkey = E84762F8B79B307E030B2DDC3A6A4C8E22759D73
+	signingKey = B2029F6C172FA31A
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
@@ -10,11 +10,11 @@
 [diff]
 	algorithm = patience
 [log]
-    showSignature = true
+        showSignature = false
 [alias]
 	logg = log --show-signature
-	lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
-	lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+	lg1 = log --graph --abbrev-commit --decorate --format=format:'%G? %C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+	lg2 = log --graph --abbrev-commit --decorate --format=format:'%G? %C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
 	lg = !"git lg1"
 [commit]
 	gpgSign = true
