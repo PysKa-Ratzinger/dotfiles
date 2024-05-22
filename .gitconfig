@@ -8,7 +8,7 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 [diff]
-	algorithm = patience
+	algorithm = minimal
 [log]
         showSignature = false
 [alias]
