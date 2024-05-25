@@ -128,7 +128,6 @@ return {
 				html = {},
 				jsonls = {},
 				solidity_ls = {},
-				pyright = {},
 				tsserver = {},
 			},
 		},

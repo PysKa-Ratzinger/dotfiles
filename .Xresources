@@ -1,9 +1,9 @@
-Xft.dpi: 140
+Xft.dpi: 130
 
 *antialias: false
 *autohint:  false
 
-URxvt*dpi: 140
+URxvt*dpi: 130
 URxvt*hinting: true
 URxvt*rgba: rgb
 URxvt*autohint: false
@@ -27,6 +27,7 @@ URxvt*font: xft:Monaspace Neon:style=Medium:size=8, \
 			xft:さざなみ明朝:style=Mincho-Regular,Regular, \
 			xft:Font Awesome 6 Free:style=Regular, \
 			xft:font-awesome-extension:style=Regular, \
+			xft:Noto Color Emoji:style=Regular, \
 			xft:PowerlineSymbols:style=Medium
 
 URxvt*italicFont: xft:Monaspace Radon:style=Medium:size=8, \
@@ -34,6 +35,7 @@ URxvt*italicFont: xft:Monaspace Radon:style=Medium:size=8, \
 			xft:さざなみ明朝:style=Mincho-Regular,Regular, \
 			xft:Font Awesome 6 Free:style=Regular, \
 			xft:font-awesome-extension:style=Regular, \
+			xft:Noto Color Emoji:style=Regular, \
 			xft:PowerlineSymbols:style=Medium
 
 URxvt*boldFont: xft:Monaspace Krypton:style=ExtraBold:size=8, \
@@ -41,6 +43,7 @@ URxvt*boldFont: xft:Monaspace Krypton:style=ExtraBold:size=8, \
 			xft:さざなみ明朝:style=Gothic-Regular,Regular, \
 			xft:Font Awesome 6 Free:style=Regular, \
 			xft:font-awesome-extension:style=Regular, \
+			xft:Noto Color Emoji:style=Regular, \
 			xft:PowerlineSymbols:style=Medium
 
 URxvt*boldItalicFont: xft:Monaspace Krypton:style=ExtraBold Italic:size=8, \
@@ -48,6 +51,7 @@ URxvt*boldItalicFont: xft:Monaspace Krypton:style=ExtraBold Italic:size=8, \
 			xft:さざなみ明朝:style=Gothic-Regular,Regular, \
 			xft:Font Awesome 6 Free:style=Regular, \
 			xft:font-awesome-extension:style=Regular, \
+			xft:Noto Color Emoji:style=Regular, \
 			xft:PowerlineSymbols:style=Medium
 
 
