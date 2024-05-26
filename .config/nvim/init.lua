@@ -29,4 +29,6 @@ function SetPhoenixColorscheme()
 	vim.cmd([[:hi Normal guibg=NONE ctermbg=NONE]])
 end
 
-SetPhoenixColorscheme()
+-- SetPhoenixColorscheme()
+vim.cmd([[colorscheme atlantic-dark]])
+vim.cmd([[:hi Normal guibg=NONE ctermbg=NONE]])

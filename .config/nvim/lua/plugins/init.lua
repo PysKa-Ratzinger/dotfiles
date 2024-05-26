@@ -2,12 +2,13 @@ return {
 	-- colorschemes
 	{ "rebelot/kanagawa.nvim" },
 	{ "widatama/vim-phoenix" },
+	{ "L-Colombo/atlantic-dark.nvim" },
 
 	-- Configure LazyVim to load gruvbox
 	{
 		"LazyVim/LazyVim",
 		opts = {
-			colorscheme = "kanagawa",
+			colorscheme = "atlantic-dark",
 		},
 	},
 

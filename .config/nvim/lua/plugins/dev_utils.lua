@@ -19,4 +19,10 @@ return {
 	},
 	{ "sindrets/diffview.nvim", enabled = false },
 	{ "tpope/vim-fugitive" },
+	{
+		"mbbill/undotree",
+		keys = {
+			{ "<leader>un", "<cmd>UndotreeToggle<CR>" },
+		},
+	},
 }

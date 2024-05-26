@@ -22,36 +22,52 @@ URxvt*background: [80]#000000
 URxvt*letterSpace: -1
 URxvt*lineSpace: 0
 
-URxvt*font: xft:Monaspace Neon:style=Medium:size=8, \
-			xft:CaskaydiaCove Nerd Font, \
-			xft:さざなみ明朝:style=Mincho-Regular,Regular, \
-			xft:Font Awesome 6 Free:style=Regular, \
-			xft:font-awesome-extension:style=Regular, \
-			xft:Noto Color Emoji:style=Regular, \
-			xft:PowerlineSymbols:style=Medium
+URxvt*font: \
+                xft:Monaspace Neon:style=Medium:size=8, \
+                xft:CaskaydiaCove Nerd Font, \
+                xft:Noto Color Emoji:style=Regular, \
+                xft:さざなみ明朝:style=Mincho-Regular,Regular, \
+                xft:GNU Unifont:style=Sans-Serif, \
+                xft:Unifont CSUR:style=Regular, \
+                xft:Font Awesome 6 Free:style=Regular, \
+                xft:font-awesome-extension:style=Regular, \
+                xft:Noto Sans Mono:style=Regular, \
+                xft:PowerlineSymbols:style=Medium
 
-URxvt*italicFont: xft:Monaspace Radon:style=Medium:size=8, \
-			xft:CaskaydiaCove Nerd Font:style=Italic, \
-			xft:さざなみ明朝:style=Mincho-Regular,Regular, \
-			xft:Font Awesome 6 Free:style=Regular, \
-			xft:font-awesome-extension:style=Regular, \
-			xft:Noto Color Emoji:style=Regular, \
-			xft:PowerlineSymbols:style=Medium
+URxvt*italicFont: \
+                xft:Monaspace Radon:style=Medium:size=8, \
+                xft:CaskaydiaCove Nerd Font:style=Italic, \
+                xft:Noto Color Emoji:style=Regular, \
+                xft:さざなみ明朝:style=Mincho-Regular,Regular, \
+                xft:GNU Unifont:style=Sans-Serif, \
+                xft:Unifont CSUR:style=Regular, \
+                xft:Font Awesome 6 Free:style=Regular, \
+                xft:font-awesome-extension:style=Regular, \
+                xft:Noto Sans Mono:style=Regular, \
+                xft:PowerlineSymbols:style=Medium
 
-URxvt*boldFont: xft:Monaspace Krypton:style=ExtraBold:size=8, \
-			xft:CaskaydiaCove Nerd Font:style=Bold, \
-			xft:さざなみ明朝:style=Gothic-Regular,Regular, \
-			xft:Font Awesome 6 Free:style=Regular, \
-			xft:font-awesome-extension:style=Regular, \
-			xft:Noto Color Emoji:style=Regular, \
-			xft:PowerlineSymbols:style=Medium
+URxvt*boldFont: \
+                xft:Monaspace Krypton:style=ExtraBold:size=8, \
+                xft:CaskaydiaCove Nerd Font:style=Bold, \
+                xft:Noto Color Emoji:style=Regular, \
+                xft:さざなみ明朝:style=Gothic-Regular,Regular, \
+                xft:GNU Unifont:style=Sans-Serif, \
+                xft:Unifont CSUR:style=Regular, \
+                xft:Font Awesome 6 Free:style=Regular, \
+                xft:font-awesome-extension:style=Regular, \
+                xft:Noto Sans Mono:style=Regular, \
+                xft:PowerlineSymbols:style=Medium
 
-URxvt*boldItalicFont: xft:Monaspace Krypton:style=ExtraBold Italic:size=8, \
-			xft:CaskaydiaCove Nerd Font:style=Bold Italic, \
-			xft:さざなみ明朝:style=Gothic-Regular,Regular, \
-			xft:Font Awesome 6 Free:style=Regular, \
-			xft:font-awesome-extension:style=Regular, \
-			xft:Noto Color Emoji:style=Regular, \
-			xft:PowerlineSymbols:style=Medium
+URxvt*boldItalicFont: \
+                xft:Monaspace Krypton:style=ExtraBold Italic:size=8, \
+                xft:CaskaydiaCove Nerd Font:style=Bold Italic, \
+                xft:Noto Color Emoji:style=Regular, \
+                xft:さざなみ明朝:style=Gothic-Regular,Regular, \
+                xft:GNU Unifont:style=Sans-Serif, \
+                xft:Unifont CSUR:style=Regular, \
+                xft:Font Awesome 6 Free:style=Regular, \
+                xft:font-awesome-extension:style=Regular, \
+                xft:Noto Sans Mono:style=Regular, \
+                xft:PowerlineSymbols:style=Medium
 
 
