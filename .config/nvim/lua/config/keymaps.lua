@@ -11,8 +11,8 @@ vim.api.nvim_create_user_command("Bclose", "bp|bd#", {})
 local map = LazyVim.safe_keymap_set
 
 local opts = { remap = false }
-map("", "<F5>", "<cmd>!make -j4<CR>", opts)
-map("", "<F6>", "<cmd>!make -j4 run<CR>", opts)
+map("", "<F3>", "<cmd>!make -j4<CR>", opts)
+map("", "<F4>", "<cmd>!make -j4 run<CR>", opts)
 
 local opts = { remap = true }
 map("i", ";hash", '<C-R>=system("head -c 16 /dev/urandom \\| xxd -p")<CR><BS>', opts)

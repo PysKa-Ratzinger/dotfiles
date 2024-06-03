@@ -146,8 +146,21 @@ return {
 				"shellcheck",
 				"shfmt",
 				"flake8",
+				"codelldb",
 			},
 			PATH = "append",
+		},
+	},
+
+	-- DAP
+	{
+		"rcarriga/nvim-dap-ui",
+		dependencies = { "nvim-neotest/nvim-nio" },
+		keys = {
+			{ "<F6>", "<cmd>DapStepOut<CR>" },
+			{ "<F7>", "<cmd>DapStepInto<CR>" },
+			{ "<F8>", "<cmd>DapStepOver<CR>" },
+			{ "<F9>", "<cmd>DapContinue<CR>" },
 		},
 	},
 }
