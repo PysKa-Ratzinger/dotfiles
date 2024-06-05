@@ -3,6 +3,7 @@ return {
 	{ "rebelot/kanagawa.nvim" },
 	{ "widatama/vim-phoenix" },
 	{ "L-Colombo/atlantic-dark.nvim" },
+	{ "andreasvc/vim-256noir" },
 
 	-- Configure LazyVim to load gruvbox
 	{
@@ -113,8 +114,15 @@ return {
 					cmd = {
 						"clangd",
 						"--background-index",
+						"--query-driver=/usr/lib/llvm/*/bin/clang*,/usr/bin/gcc,/usr/bin/g++",
 						"--suggest-missing-includes",
 						"--clang-tidy",
+						"--clang-tidy-checks=*",
+						"--all-scopes-completion",
+						"--completion-style=detailed",
+						"--header-insertion-decorators",
+						"--header-insertion=iwyu",
+						"--pch-storage=memory",
 						"--cross-file-rename",
 					},
 					filetypes = {
