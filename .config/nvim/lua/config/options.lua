@@ -31,3 +31,6 @@ vim.opt.mouse = nil
 
 vim.opt.listchars = "tab:> ,trail:-,space:-,eol:$"
 vim.opt.list = false
+
+-- Disable auto code format
+-- vim.g.autoformat = false

@@ -1,9 +1,51 @@
-Xft.dpi: 130
+Xft.dpi: 96
+
+*background:            #000000
+*fading:                40
+*fadeColor:             #000000
+*pointerColorBackground:#99FF33
+*pointerColorForeground:#000000
+
+! vim: set filetype=xdefaults :
+*foreground: #D7D0C7
+*background: #151515
+
+!black
+! *color0:     #AF875F
+! *color8:     #AF875F
+*color0:     #101010
+*color8:     #404040
+!red
+*color1:     #E84F4F
+*color9:     #D23D3D
+!green
+*color2:     #B8D68C
+*color10:    #A0CF5D
+!yellow
+*color3:     #E1AA5D
+*color11:    #F39D21
+!blue
+*color4:     #7DC1CF
+*color12:    #4E9FB1
+!magenta
+*color5:     #9B64FB
+*color13:    #8542FF
+!cyan
+*color6:     #6D878D
+*color14:    #42717B
+!white
+*color7:     #dddddd
+*color15:    #dddddd
+
+URxvt*borderColor:        #151515
+URxvt*colorBD:            #ffffff
+URxvt*cursorColor:        #ff8939
+URxvt*cursorColor2:       #151515
 
 *antialias: false
 *autohint:  false
 
-URxvt*dpi: 130
+URxvt*dpi: 96
 URxvt*hinting: true
 URxvt*rgba: rgb
 URxvt*autohint: false
@@ -16,58 +58,59 @@ URxvt*scrollBar_right: false
 URxvt*transparent: false
 URxvt*geometry:120x40
 URxvt*depth: 32
-URxvt*background: [80]#000000
-! URxvt*background: #000000
 
-URxvt*letterSpace: -1
-URxvt*lineSpace: 0
+URxvt*letterSpace: 0
+URxvt*lineSpace: 1
 
 URxvt*font: \
-                xft:Monaspace Neon:style=Medium:size=8, \
+                xft:Terminus:style=Regular:size=11, \
+                xft:Monaspace Neon:style=Medium:size=11, \
                 xft:CaskaydiaCove Nerd Font, \
-                xft:Noto Color Emoji:style=Regular, \
                 xft:さざなみ明朝:style=Mincho-Regular,Regular, \
                 xft:GNU Unifont:style=Sans-Serif, \
                 xft:Unifont CSUR:style=Regular, \
                 xft:Font Awesome 6 Free:style=Regular, \
                 xft:font-awesome-extension:style=Regular, \
                 xft:Noto Sans Mono:style=Regular, \
-                xft:PowerlineSymbols:style=Medium
+                xft:PowerlineSymbols:style=Medium, \
+                xft:Efont Fixed:style=Medium, \
 
-URxvt*italicFont: \
-                xft:Monaspace Radon:style=Medium:size=8, \
-                xft:CaskaydiaCove Nerd Font:style=Italic, \
-                xft:Noto Color Emoji:style=Regular, \
-                xft:さざなみ明朝:style=Mincho-Regular,Regular, \
-                xft:GNU Unifont:style=Sans-Serif, \
-                xft:Unifont CSUR:style=Regular, \
-                xft:Font Awesome 6 Free:style=Regular, \
-                xft:font-awesome-extension:style=Regular, \
-                xft:Noto Sans Mono:style=Regular, \
-                xft:PowerlineSymbols:style=Medium
-
-URxvt*boldFont: \
-                xft:Monaspace Krypton:style=ExtraBold:size=8, \
-                xft:CaskaydiaCove Nerd Font:style=Bold, \
-                xft:Noto Color Emoji:style=Regular, \
-                xft:さざなみ明朝:style=Gothic-Regular,Regular, \
-                xft:GNU Unifont:style=Sans-Serif, \
-                xft:Unifont CSUR:style=Regular, \
-                xft:Font Awesome 6 Free:style=Regular, \
-                xft:font-awesome-extension:style=Regular, \
-                xft:Noto Sans Mono:style=Regular, \
-                xft:PowerlineSymbols:style=Medium
-
-URxvt*boldItalicFont: \
-                xft:Monaspace Krypton:style=ExtraBold Italic:size=8, \
-                xft:CaskaydiaCove Nerd Font:style=Bold Italic, \
-                xft:Noto Color Emoji:style=Regular, \
-                xft:さざなみ明朝:style=Gothic-Regular,Regular, \
-                xft:GNU Unifont:style=Sans-Serif, \
-                xft:Unifont CSUR:style=Regular, \
-                xft:Font Awesome 6 Free:style=Regular, \
-                xft:font-awesome-extension:style=Regular, \
-                xft:Noto Sans Mono:style=Regular, \
-                xft:PowerlineSymbols:style=Medium
-
+!URxvt*italicFont: \
+!                -*-dina-medium-i-*-*-13-*-*-*-*-*-*-*, \
+!                xft:Monaspace Radon:style=Medium:size=11, \
+!                xft:CaskaydiaCove Nerd Font:style=Italic, \
+!                xft:さざなみ明朝:style=Mincho-Regular,Regular, \
+!                xft:GNU Unifont:style=Sans-Serif, \
+!                xft:Unifont CSUR:style=Regular, \
+!                xft:Font Awesome 6 Free:style=Regular, \
+!                xft:font-awesome-extension:style=Regular, \
+!                xft:Noto Sans Mono:style=Regular, \
+!                xft:PowerlineSymbols:style=Medium, \
+!                xft:Efont Fixed:style=Medium, \
+!
+!URxvt*boldFont: \
+!                -*-dina-bold-r-*-*-13-*-*-*-*-*-*-*, \
+!                xft:Monaspace Krypton:style=ExtraBold:size=11, \
+!                xft:CaskaydiaCove Nerd Font:style=Bold, \
+!                xft:さざなみ明朝:style=Gothic-Regular,Regular, \
+!                xft:GNU Unifont:style=Sans-Serif, \
+!                xft:Unifont CSUR:style=Regular, \
+!                xft:Font Awesome 6 Free:style=Regular, \
+!                xft:font-awesome-extension:style=Regular, \
+!                xft:Noto Sans Mono:style=Regular, \
+!                xft:PowerlineSymbols:style=Medium, \
+!                xft:Efont Fixed:style=Medium, \
+!
+!URxvt*boldItalicFont: \
+!                -*-dina-bold-i-*-*-13-*-*-*-*-*-*-*, \
+!                xft:Monaspace Krypton:style=ExtraBold Italic:size=11, \
+!                xft:CaskaydiaCove Nerd Font:style=Bold Italic, \
+!                xft:さざなみ明朝:style=Gothic-Regular,Regular, \
+!                xft:GNU Unifont:style=Sans-Serif, \
+!                xft:Unifont CSUR:style=Regular, \
+!                xft:Font Awesome 6 Free:style=Regular, \
+!                xft:font-awesome-extension:style=Regular, \
+!                xft:Noto Sans Mono:style=Regular, \
+!                xft:PowerlineSymbols:style=Medium, \
+!                xft:Efont Fixed:style=Medium, \
 

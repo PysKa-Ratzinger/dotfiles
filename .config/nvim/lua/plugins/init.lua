@@ -4,6 +4,12 @@ return {
 	{ "widatama/vim-phoenix" },
 	{ "L-Colombo/atlantic-dark.nvim" },
 	{ "andreasvc/vim-256noir" },
+	{ "dracula/vim" },
+	{ "AbdelrahmanDwedar/awesome-nvim-colorschemes" },
+
+	-- syntax
+	{ "tikhomirov/vim-glsl" },
+	{ "jbyuki/venn.nvim" },
 
 	-- Configure LazyVim to load gruvbox
 	{
@@ -11,6 +17,104 @@ return {
 		opts = {
 			colorscheme = "atlantic-dark",
 		},
+	},
+
+	{
+		"nvimdev/dashboard-nvim",
+		event = "VimEnter",
+		config = function()
+			local logo = [[     ▄█ ███    █▄     ▄████████     ███      
+    ███ ███    ███   ███    ███ ▀█████████▄  
+    ███ ███    ███   ███    █▀     ▀███▀▀██  
+    ███ ███    ███   ███            ███   ▀  
+    ███ ███    ███ ▀███████████     ███      
+    ███ ███    ███          ███     ███      
+    ███ ███    ███    ▄█    ███     ███      
+█▄ ▄███ ████████▀   ▄████████▀     ▄████▀    
+▀▀▀▀▀▀                                       
+ ▄████████  ▄██████▄  ████████▄     ▄████████
+███    ███ ███    ███ ███   ▀███   ███    ███
+███    █▀  ███    ███ ███    ███   ███    █▀ 
+███        ███    ███ ███    ███  ▄███▄▄▄    
+███        ███    ███ ███    ███ ▀▀███▀▀▀    
+███    █▄  ███    ███ ███    ███   ███    █▄ 
+███    ███ ███    ███ ███   ▄███   ███    ███
+████████▀   ▀██████▀  ████████▀    ██████████
+
+What are you waiting for?
+]]
+
+			require("dashboard").setup({
+				theme = "hyper",
+				config = {
+					header = vim.split(logo, "\n"),
+					shortcut = {
+						{ desc = "󰊳 Update", group = "@property", action = "Lazy update", key = "u" },
+						{
+							icon = " ",
+							icon_hl = "@variable",
+							desc = "Files",
+							group = "Label",
+							action = "Telescope find_files",
+							key = "f",
+						},
+						{
+							desc = " Apps",
+							group = "DiagnosticHint",
+							action = "Telescope app",
+							key = "a",
+						},
+						{
+							desc = " dotfiles",
+							group = "Number",
+							action = "Telescope dotfiles",
+							key = "d",
+						},
+						{
+							desc = "Quit",
+							group = "@property",
+							action = "q",
+							key = "q",
+						},
+					},
+				},
+			})
+		end,
+		dependencies = { { "nvim-tree/nvim-web-devicons" } },
+	},
+
+	{
+		"martineausimon/nvim-xresources",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			require("nvim-xresources").setup({
+				xresources_path = os.getenv("HOME") .. "/.Xresources",
+				auto_light = {
+					enable = true,
+					value = 0.5,
+					exclude = {
+						"light_green",
+						"light_blue",
+					},
+				},
+				contrast = 0.6,
+				bold = false,
+				palette_overrides = {
+					green = "#3CB371",
+				},
+			})
+
+			local C = require("nvim-xresources.colors")
+
+			require("nvim-xresources").custom_highlight_groups({
+				-- link to a existing group :
+				pythonBuiltin = "PreProc",
+				-- or define highlights :
+				pythonFunction = { guifg = C.cyan, guibg = nil, gui = C.bold, guisp = nil }, -- use "bold" if you want to bypass bold true/false option
+			})
+			vim.cmd("colorscheme xresources")
+		end,
 	},
 
 	-- change trouble config
@@ -94,7 +198,15 @@ return {
 			keys[#keys + 1] = { "K", "<cmd>Lspsaga hover_doc<cr>" }
 		end,
 		config = function()
-			require("lspsaga").setup({})
+			require("lspsaga").setup({
+				lighbulb = {
+					enable = false,
+					virtual_text = false,
+				},
+				ui = {
+					code_action = " ",
+				},
+			})
 		end,
 		dependencies = {
 			"nvim-treesitter/nvim-treesitter",
@@ -112,18 +224,16 @@ return {
 				bashls = {},
 				clangd = {
 					cmd = {
-						"clangd",
+						"/usr/lib/llvm/18/bin/clangd",
+						-- "clangd",
 						"--background-index",
 						"--query-driver=/usr/lib/llvm/*/bin/clang*,/usr/bin/gcc,/usr/bin/g++",
-						"--suggest-missing-includes",
 						"--clang-tidy",
-						"--clang-tidy-checks=*",
 						"--all-scopes-completion",
 						"--completion-style=detailed",
 						"--header-insertion-decorators",
 						"--header-insertion=iwyu",
 						"--pch-storage=memory",
-						"--cross-file-rename",
 					},
 					filetypes = {
 						"c",
