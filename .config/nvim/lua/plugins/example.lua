@@ -67,6 +67,44 @@ return {
 	-- add pyright to lspconfig
 	{
 		"neovim/nvim-lspconfig",
+		keys = {
+			{
+				"<leader>gds",
+				function()
+					vim.lsp.buf.document_symbol()
+				end,
+			},
+			{
+				"<leader>gS",
+				function()
+					vim.lsp.buf.workspace_symbol()
+				end,
+			},
+			{
+				"<leader>gr",
+				function()
+					vim.lsp.buf.references()
+				end,
+			},
+			{
+				"<leader>gi",
+				function()
+					vim.lsp.buf.implementation()
+				end,
+			},
+			{
+				"<leader>K",
+				function()
+					vim.lsp.buf.hover()
+				end,
+			},
+			{
+				"<leader>=",
+				function()
+					vim.lsp.buf.format()
+				end,
+			},
+		},
 		---@class PluginLspOpts
 		opts = {
 			---@type lspconfig.options
@@ -85,8 +123,7 @@ return {
 					on_attach = function(client, bufnr)
 						client.server_capabilities.documentFormattingProvider = client.server_capabilities.documentFormattingProvider
 							or true
-						on_attach =
-							require("navigator.lspclient.attach").on_attach
+						on_attach = require("navigator.lspclient.attach").on_attach
 					end,
 				},
 			},
@@ -103,12 +140,7 @@ return {
                     -- stylua: ignore
                     vim.keymap.set("n", "<leader>co", "TypescriptOrganizeImports",
                         { buffer = buffer, desc = "Organize Imports" })
-					vim.keymap.set(
-						"n",
-						"<leader>cR",
-						"TypescriptRenameFile",
-						{ desc = "Rename File", buffer = buffer }
-					)
+					vim.keymap.set("n", "<leader>cR", "TypescriptRenameFile", { desc = "Rename File", buffer = buffer })
 				end)
 			end,
 		},
@@ -226,11 +258,7 @@ return {
 				unpack = unpack or table.unpack
 				local line, col = unpack(vim.api.nvim_win_get_cursor(0))
 				return col ~= 0
-					and vim.api
-							.nvim_buf_get_lines(0, line - 1, line, true)[1]
-							:sub(col, col)
-							:match("%s")
-						== nil
+					and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 			end
 
 			local cmp = require("cmp")

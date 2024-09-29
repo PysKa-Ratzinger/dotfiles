@@ -6,6 +6,7 @@ return {
 	{ "andreasvc/vim-256noir" },
 	{ "dracula/vim" },
 	{ "AbdelrahmanDwedar/awesome-nvim-colorschemes" },
+	{ "EdenEast/nightfox.nvim" },
 
 	-- syntax
 	{ "tikhomirov/vim-glsl" },
@@ -156,6 +157,7 @@ What are you waiting for?
 				"typescript",
 				"vim",
 				"yaml",
+				"rust",
 			},
 		},
 	},
@@ -169,34 +171,74 @@ What are you waiting for?
 
 	{
 		"nvimdev/lspsaga.nvim",
-		init = function()
-			local keys = require("lazyvim.plugins.lsp.keymaps").get()
-			keys[#keys + 1] = { "gpd", "<cmd>Lspsaga peek_definition<cr>" }
-			keys[#keys + 1] = {
-				"gpt",
-				"<cmd>Lspsaga peek_type_definition<cr>",
-			}
-			keys[#keys + 1] = { "gd", "<cmd>Lspsaga goto_definition<cr>" }
-			keys[#keys + 1] = {
-				"gt",
-				"<cmd>Lspsaga goto_type_definition<cr>",
-			}
-			keys[#keys + 1] = {
-				"gj",
-				"<cmd>Lspsaga diagnostic_jump_next<cr>",
-			}
-			keys[#keys + 1] = {
-				"gk",
-				"<cmd>Lspsaga diagnostic_jump_prev<cr>",
-			}
-			keys[#keys + 1] = { "rn", "<cmd>Lspsaga rename<cr>" }
-			keys[#keys + 1] = { "gx", "<cmd>Lspsaga code_action<cr>" }
-			keys[#keys + 1] = {
-				"go",
-				"<cmd>Lspsaga show_line_diagnostics<cr>",
-			}
-			keys[#keys + 1] = { "K", "<cmd>Lspsaga hover_doc<cr>" }
-		end,
+		keys = {
+			{
+				"<leader>gs",
+				function()
+					vim.cmd("Lspsaga document_symbol")
+				end,
+			},
+			{
+				"<leader>gpd",
+				function()
+					vim.cmd("Lspsaga peek_definition")
+				end,
+			},
+			{
+				"<leader>gpt",
+				function()
+					vim.cmd("Lspsaga peek_type_definition")
+				end,
+			},
+			{
+				"<leader>gd",
+				function()
+					vim.cmd("Lspsaga goto_definition")
+				end,
+			},
+			{
+				"<leader>gt",
+				function()
+					vim.cmd("Lspsaga goto_type_definition")
+				end,
+			},
+			{
+				"<leader>gj",
+				function()
+					vim.cmd("Lspsaga diagnostic_jump_next")
+				end,
+			},
+			{
+				"<leader>gk",
+				function()
+					vim.cmd("Lspsaga diagnostic_jump_prev")
+				end,
+			},
+			{
+				"<leader>rn",
+				function()
+					vim.cmd("Lspsaga rename")
+				end,
+			},
+			{
+				"<leader>gx",
+				function()
+					vim.cmd("Lspsaga code_action")
+				end,
+			},
+			{
+				"<leader>go",
+				function()
+					vim.cmd("Lspsaga show_line_diagnostics")
+				end,
+			},
+			{
+				"<leader>k",
+				function()
+					vim.cmd("Lspsaga hover_doc")
+				end,
+			},
+		},
 		config = function()
 			require("lspsaga").setup({
 				lighbulb = {
