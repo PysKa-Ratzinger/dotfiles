@@ -59,17 +59,24 @@ What are you waiting for?
 							action = "Telescope find_files",
 							key = "f",
 						},
+						--[[
 						{
 							desc = " Apps",
 							group = "DiagnosticHint",
 							action = "Telescope app",
 							key = "a",
 						},
+                                                --]]
 						{
 							desc = " dotfiles",
 							group = "Number",
-							action = "Telescope dotfiles",
+							action = 'require("telescope.builtin").find_files({cwd="~/dotfiles"})',
 							key = "d",
+						},
+						{
+							desc = "New buffer",
+							action = "enew",
+							key = "n",
 						},
 						{
 							desc = "Quit",
@@ -266,7 +273,7 @@ What are you waiting for?
 				bashls = {},
 				clangd = {
 					cmd = {
-						"/usr/lib/llvm/18/bin/clangd",
+						"/usr/lib/llvm/19/bin/clangd",
 						-- "clangd",
 						"--background-index",
 						"--query-driver=/usr/lib/llvm/*/bin/clang*,/usr/bin/gcc,/usr/bin/g++",

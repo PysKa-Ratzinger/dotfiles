@@ -35,8 +35,8 @@ end
 -- vim.cmd([[colorscheme kanagawa-dragon]])
 -- vim.cmd([[colorscheme kanagawa]])
 -- vim.cmd([[colorscheme xresources]])
--- vim.cmd([[colorscheme ayu-dark]])
-vim.cmd([[colorscheme terafox]])
+vim.cmd([[colorscheme ayu-dark]])
+-- vim.cmd([[colorscheme terafox]])
 -- vim.cmd([[colorscheme nightfox]])
 vim.cmd([[:hi Normal guibg=NONE ctermbg=NONE]])
 

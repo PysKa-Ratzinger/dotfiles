@@ -45,7 +45,6 @@ URxvt*cursorColor2:       #151515
 *antialias: false
 *autohint:  false
 
-URxvt*dpi: 96
 URxvt*hinting: true
 URxvt*rgba: rgb
 URxvt*autohint: false
@@ -63,8 +62,8 @@ URxvt*letterSpace: 0
 URxvt*lineSpace: 1
 
 URxvt*font: \
-                xft:Terminus:style=Regular:size=11, \
-                xft:Monaspace Neon:style=Medium:size=11, \
+                xft:Spleen 8x16:style=Regular:size=12, \
+                xft:Monaspace Neon:style=Medium:size=12, \
                 xft:CaskaydiaCove Nerd Font, \
                 xft:さざなみ明朝:style=Mincho-Regular,Regular, \
                 xft:GNU Unifont:style=Sans-Serif, \
