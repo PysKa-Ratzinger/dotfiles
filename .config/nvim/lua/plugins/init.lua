@@ -130,6 +130,16 @@ What are you waiting for?
 		"folke/trouble.nvim",
 		opts = {
 			use_diagnostic_signs = true,
+			modes = {
+				symbols = { -- Configure symbols mode
+					win = {
+						type = "split", -- split window
+						relative = "win", -- relative to current window
+						position = "right", -- right side
+						size = 0.3, -- 30% of the window
+					},
+				},
+			},
 		},
 	},
 
