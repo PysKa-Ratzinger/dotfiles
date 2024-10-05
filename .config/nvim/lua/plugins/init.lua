@@ -1,19 +1,19 @@
 return {
-	-- Configure LazyVim to load everforest
+	-- Configure LazyVim to load kanagawa-dragon
 	{
 		"LazyVim/LazyVim",
 		opts = {
-			colorscheme = "everforest",
+			colorscheme = "kanagawa-dragon",
 		},
 	},
 
 	-- colorschemes
-	{ "rebelot/kanagawa.nvim" },
+	{ "rebelot/kanagawa.nvim", lazy = false, priority = 1000 },
 	{ "widatama/vim-phoenix" },
 	{ "L-Colombo/atlantic-dark.nvim" },
 	{ "andreasvc/vim-256noir" },
 	{ "dracula/vim" },
-	{ "neanias/everforest-nvim", lazy = false, priority = 1000 },
+	{ "neanias/everforest-nvim" },
 	{ "EdenEast/nightfox.nvim" },
 	{ "folke/tokyonight.nvim", enabled = false },
 
