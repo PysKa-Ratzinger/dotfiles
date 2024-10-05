@@ -1,24 +1,25 @@
 return {
+	-- Configure LazyVim to load everforest
+	{
+		"LazyVim/LazyVim",
+		opts = {
+			colorscheme = "everforest",
+		},
+	},
+
 	-- colorschemes
 	{ "rebelot/kanagawa.nvim" },
 	{ "widatama/vim-phoenix" },
 	{ "L-Colombo/atlantic-dark.nvim" },
 	{ "andreasvc/vim-256noir" },
 	{ "dracula/vim" },
-	{ "AbdelrahmanDwedar/awesome-nvim-colorschemes" },
+	{ "neanias/everforest-nvim", lazy = false, priority = 1000 },
 	{ "EdenEast/nightfox.nvim" },
+	{ "folke/tokyonight.nvim", enabled = false },
 
 	-- syntax
 	{ "tikhomirov/vim-glsl" },
 	{ "jbyuki/venn.nvim" },
-
-	-- Configure LazyVim to load gruvbox
-	{
-		"LazyVim/LazyVim",
-		opts = {
-			colorscheme = "atlantic-dark",
-		},
-	},
 
 	{
 		"nvimdev/dashboard-nvim",
@@ -131,6 +132,14 @@ What are you waiting for?
 		opts = {
 			use_diagnostic_signs = true,
 			modes = {
+				lsp = { -- Configure symbols mode
+					win = {
+						type = "split", -- split window
+						relative = "win", -- relative to current window
+						position = "right", -- right side
+						size = 0.3, -- 30% of the window
+					},
+				},
 				symbols = { -- Configure symbols mode
 					win = {
 						type = "split", -- split window
@@ -324,6 +333,7 @@ What are you waiting for?
 				"shfmt",
 				"flake8",
 				"codelldb",
+				"pyright",
 			},
 			PATH = "append",
 		},

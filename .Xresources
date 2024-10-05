@@ -42,8 +42,8 @@ URxvt*colorBD:            #ffffff
 URxvt*cursorColor:        #ff8939
 URxvt*cursorColor2:       #151515
 
-*antialias: false
-*autohint:  false
+*antialias: true
+*autohint:  true
 
 URxvt*hinting: true
 URxvt*rgba: rgb
