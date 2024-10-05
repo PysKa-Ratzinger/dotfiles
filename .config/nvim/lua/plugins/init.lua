@@ -274,6 +274,11 @@ What are you waiting for?
 				ui = {
 					code_action = " ",
 				},
+				finder = {
+					methods = {
+						tyd = "textDocument/typeDefinition",
+					},
+				},
 			})
 		end,
 		dependencies = {
