@@ -1,6 +1,5 @@
 Xft.dpi: 96
 
-*background:            #000000
 *fading:                40
 *fadeColor:             #000000
 *pointerColorBackground:#99FF33
@@ -74,55 +73,22 @@ URxvt*font: \
                 xft:PowerlineSymbols:style=Medium, \
                 xft:Efont Fixed:style=Medium, \
 
-xterm*font: \
-                xft:Spleen 8x16:style=Regular:size=12, \
-                xft:Monaspace Neon:style=Medium:size=12, \
-                xft:CaskaydiaCove Nerd Font, \
-                xft:さざなみ明朝:style=Mincho-Regular,Regular, \
-                xft:GNU Unifont:style=Sans-Serif, \
-                xft:Unifont CSUR:style=Regular, \
-                xft:Font Awesome 6 Free:style=Regular, \
-                xft:font-awesome-extension:style=Regular, \
-                xft:Noto Sans Mono:style=Regular, \
-                xft:PowerlineSymbols:style=Medium, \
-                xft:Efont Fixed:style=Medium, \
+xterm*hinting: true
+xterm*rgba: rgb
+xterm*autohint: false
+xterm*hintstyle: hintfull
+xterm*lcdfilter: lcddefault
 
-!URxvt*italicFont: \
-!                -*-dina-medium-i-*-*-13-*-*-*-*-*-*-*, \
-!                xft:Monaspace Radon:style=Medium:size=11, \
-!                xft:CaskaydiaCove Nerd Font:style=Italic, \
-!                xft:さざなみ明朝:style=Mincho-Regular,Regular, \
-!                xft:GNU Unifont:style=Sans-Serif, \
-!                xft:Unifont CSUR:style=Regular, \
-!                xft:Font Awesome 6 Free:style=Regular, \
-!                xft:font-awesome-extension:style=Regular, \
-!                xft:Noto Sans Mono:style=Regular, \
-!                xft:PowerlineSymbols:style=Medium, \
-!                xft:Efont Fixed:style=Medium, \
-!
-!URxvt*boldFont: \
-!                -*-dina-bold-r-*-*-13-*-*-*-*-*-*-*, \
-!                xft:Monaspace Krypton:style=ExtraBold:size=11, \
-!                xft:CaskaydiaCove Nerd Font:style=Bold, \
-!                xft:さざなみ明朝:style=Gothic-Regular,Regular, \
-!                xft:GNU Unifont:style=Sans-Serif, \
-!                xft:Unifont CSUR:style=Regular, \
-!                xft:Font Awesome 6 Free:style=Regular, \
-!                xft:font-awesome-extension:style=Regular, \
-!                xft:Noto Sans Mono:style=Regular, \
-!                xft:PowerlineSymbols:style=Medium, \
-!                xft:Efont Fixed:style=Medium, \
-!
-!URxvt*boldItalicFont: \
-!                -*-dina-bold-i-*-*-13-*-*-*-*-*-*-*, \
-!                xft:Monaspace Krypton:style=ExtraBold Italic:size=11, \
-!                xft:CaskaydiaCove Nerd Font:style=Bold Italic, \
-!                xft:さざなみ明朝:style=Gothic-Regular,Regular, \
-!                xft:GNU Unifont:style=Sans-Serif, \
-!                xft:Unifont CSUR:style=Regular, \
-!                xft:Font Awesome 6 Free:style=Regular, \
-!                xft:font-awesome-extension:style=Regular, \
-!                xft:Noto Sans Mono:style=Regular, \
-!                xft:PowerlineSymbols:style=Medium, \
-!                xft:Efont Fixed:style=Medium, \
+xterm*scrollBar: false
+xterm*scrollBar_right: false
+
+xterm*letterSpace: 0
+xterm*lineSpace: 0
+
+xterm*vt100*translations: #override \
+        Shift Ctrl <Key> C: copy-selection(CLIPBOARD) \n\
+        Shift Ctrl <Key> V: insert-selection(CLIPBOARD)
+
+xterm*faceSize: 12
+xterm*faceName: CaskaydiaCove Nerd Font
 
