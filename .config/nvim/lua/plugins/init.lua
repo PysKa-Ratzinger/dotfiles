@@ -1,21 +1,22 @@
 return {
-	-- Configure LazyVim to load kanagawa-dragon
+	-- Configure LazyVim to load everforest
 	{
 		"LazyVim/LazyVim",
 		opts = {
-			colorscheme = "kanagawa-dragon",
+			colorscheme = "everforest",
 		},
 	},
 
 	-- colorschemes
-	{ "rebelot/kanagawa.nvim", lazy = false, priority = 1000 },
+	{ "rebelot/kanagawa.nvim" },
 	{ "widatama/vim-phoenix" },
 	{ "L-Colombo/atlantic-dark.nvim" },
 	{ "andreasvc/vim-256noir" },
 	{ "dracula/vim" },
-	{ "neanias/everforest-nvim" },
+	{ "neanias/everforest-nvim", lazy = false, priority = 1000 },
 	{ "EdenEast/nightfox.nvim" },
 	{ "folke/tokyonight.nvim", enabled = false },
+	{ "projekt0n/github-nvim-theme" },
 
 	-- syntax
 	{ "tikhomirov/vim-glsl" },
@@ -322,6 +323,25 @@ What are you waiting for?
 				solidity_ls = {},
 				tsserver = {},
 				rust_analyzer = {},
+
+				pylsp = {
+					plugins = {
+						-- formatter options
+						black = { enabled = true },
+						autopep8 = { enabled = false },
+						yapf = { enabled = false },
+						-- linter options
+						pylint = { enabled = true, executable = "pylint" },
+						pyflakes = { enabled = false },
+						pycodestyle = { enabled = false },
+						-- type checker
+						pylsp_mypy = { enabled = true },
+						-- auto-completion options
+						jedi_completion = { fuzzy = true },
+						-- import sorting
+						pyls_isort = { enabled = true },
+					},
+				},
 			},
 		},
 	},
@@ -338,6 +358,7 @@ What are you waiting for?
 				"shellcheck",
 				"shfmt",
 				"flake8",
+				"black",
 				"codelldb",
 				"rust-analyzer",
 				"pyright",

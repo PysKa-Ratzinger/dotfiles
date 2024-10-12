@@ -7,7 +7,7 @@ Xft.dpi: 96
 
 ! vim: set filetype=xdefaults :
 *foreground: #D7D0C7
-*background: #151515
+*background: #000000
 
 !black
 ! *color0:     #AF875F
@@ -89,6 +89,6 @@ xterm*vt100*translations: #override \
         Shift Ctrl <Key> C: copy-selection(CLIPBOARD) \n\
         Shift Ctrl <Key> V: insert-selection(CLIPBOARD)
 
-xterm*faceSize: 12
+xterm*faceSize: 13
 xterm*faceName: CaskaydiaCove Nerd Font
 
