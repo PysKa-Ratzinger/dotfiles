@@ -7,7 +7,7 @@ Xft.dpi: 96
 
 ! vim: set filetype=xdefaults :
 *foreground: #D7D0C7
-*background: #000000
+*background: #040404
 
 !black
 ! *color0:     #AF875F
@@ -33,8 +33,8 @@ Xft.dpi: 96
 *color6:     #6D878D
 *color14:    #42717B
 !white
-*color7:     #dddddd
-*color15:    #dddddd
+*color7:     #ffffff
+*color15:    #ffffff
 
 URxvt*borderColor:        #151515
 URxvt*colorBD:            #ffffff
@@ -61,17 +61,11 @@ URxvt*letterSpace: 0
 URxvt*lineSpace: 1
 
 URxvt*font: \
-                xft:Spleen 8x16:style=Regular:size=12, \
-                xft:Monaspace Neon:style=Medium:size=12, \
-                xft:CaskaydiaCove Nerd Font, \
+                xft:CaskaydiaCove Nerd Font:size=12, \
                 xft:さざなみ明朝:style=Mincho-Regular,Regular, \
-                xft:GNU Unifont:style=Sans-Serif, \
-                xft:Unifont CSUR:style=Regular, \
                 xft:Font Awesome 6 Free:style=Regular, \
                 xft:font-awesome-extension:style=Regular, \
-                xft:Noto Sans Mono:style=Regular, \
                 xft:PowerlineSymbols:style=Medium, \
-                xft:Efont Fixed:style=Medium, \
 
 xterm*hinting: true
 xterm*rgba: rgb
