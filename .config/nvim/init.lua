@@ -1,49 +1,39 @@
--- bootstrap lazy.nvim, LazyVim and your plugins
-require("config.lazy")({
-	debug = false,
-	profiling = {
-		loader = false,
-		require = false,
-	},
-	"plugins",
-})
+require("config.lazy")
+require("config.autocmds")
 
-function SetPhoenixColorscheme()
-	local day = os.date("%w")
-
-	vim.cmd([[colorscheme phoenix]])
-
-	if day == "1" then
-		vim.cmd([[:PhoenixBlue]])
-	elseif day == "2" then
-		vim.cmd([[:PhoenixGreen]])
-	elseif day == "3" then
-		vim.cmd([[:PhoenixYellow]])
-	elseif day == "4" then
-		vim.cmd([[:PhoenixPurple]])
-	elseif day == "5" then
-		vim.cmd([[:PhoenixOrange]])
-	else
-		vim.cmd([[:PhoenixRed]])
-	end
-	vim.cmd([[:hi Normal guibg=NONE ctermbg=NONE]])
+local function augroup(name)
+  return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
 end
 
--- SetPhoenixColorscheme()
--- vim.cmd([[colorscheme atlantic-dark]])
--- vim.cmd([[colorscheme 256_noir]])
--- vim.cmd([[colorscheme kanagawa-dragon]])
--- vim.cmd([[colorscheme kanagawa]])
--- vim.cmd([[colorscheme xresources]])
--- vim.cmd([[colorscheme ayu-dark]])
--- vim.cmd([[colorscheme terafox]])
--- vim.cmd([[colorscheme nightfox]])
-vim.cmd([[colorscheme everforest]])
-vim.cmd([[:hi Normal guibg=NONE ctermbg=NONE]])
+vim.api.nvim_create_autocmd("VimEnter", {
+	group = augroup("autoupdate"),
+	callback = function()
+		vim.opt.clipboard = "unnamedplus"
 
-vim.cmd([[:hi DiagnosticError gui=bold]])
-vim.cmd([[:hi DiagnosticInfo gui=bold]])
-vim.cmd([[:hi! link FloatBorder DiagnosticInfo]])
-vim.cmd([[:hi NormalFloat guibg=black]])
+		vim.opt.number = true
 
-vim.cmd([[set mouse=]])
+		vim.cmd([[
+set nu
+
+hi Normal guibg=NONE ctermbg=NONE
+
+hi DiagnosticError gui=bold
+hi DiagnosticInfo gui=bold
+hi! link FloatBorder DiagnosticInfo
+hi NormalFloat guibg=black
+
+set mouse=
+
+set signcolumn=yes
+
+" Use persistent history
+if !isdirectory("/tmp/.vim-undo-dir")
+	call mkdir("/tmp/.vim-undo-dir", "", 0700)
+endif
+set undodir=/tmp/.vim-undo-dir
+set undofile
+
+set cc=80
+]])
+	end,
+})
