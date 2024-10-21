@@ -269,7 +269,6 @@ return {
 				'gotests',
 				'impl',
 				'json-to-struct',
-				'lua_ls',
 				'luacheck',
 				'misspell',
 				'revive',
@@ -311,26 +310,41 @@ return {
 				args = { "--interpreter=dap", "--eval-command", "set print pretty on" }
 			}
 
-			gdb_configs = {
-				{
-					name = "Launch",
-					type = "gdb",
+			dap.adapters.lldb = {
+				type = "executable",
+				command = "lldb-dap",
+				name = "lldb"
+			}
+
+			local args_askinput = function()
+				local args_string = vim.fn.input("Input arguments: ");
+				return vim.split(args_string, " ");
+			end
+
+			local program_askinput = function()
+				return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+			end
+
+			local launch_with_args_type = function(type)
+				return {
+					name = "Launch (with args) (" .. type .. ")",
+					type = type,
 					request = "launch",
-					program = function()
-						return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/',
-							'file')
-					end,
+					args = args_askinput,
+					program = program_askinput,
 					cwd = "${workspaceFolder}",
 					stopAtBeginningOfMainSubprogram = false,
-				},
+				}
+			end
+
+			local gdb_configs = {
+				launch_with_args_type("gdb"),
+				launch_with_args_type("lldb"),
 				{
 					name = "Select and attach to process",
-					type = "gdb",
+					type = "lldb",
 					request = "attach",
-					program = function()
-						return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/',
-							'file')
-					end,
+					program = program_askinput,
 					pid = function()
 						local name = vim.fn.input('Executable name (filter): ')
 						return require("dap.utils").pick_process({ filter = name })
@@ -339,13 +353,10 @@ return {
 				},
 				{
 					name = 'Attach to gdbserver :1234',
-					type = 'gdb',
+					type = 'lldb',
 					request = 'attach',
 					target = 'localhost:1234',
-					program = function()
-						return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/',
-							'file')
-					end,
+					program = program_askinput,
 					cwd = '${workspaceFolder}'
 				},
 			}
