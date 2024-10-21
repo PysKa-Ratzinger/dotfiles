@@ -379,7 +379,7 @@ return {
 			{ "<F8>", "<cmd>DapStepOver<CR>" },
 			{ "<F9>", "<cmd>DapContinue<CR>" },
 			{ "<leader>d", group = "dap", desc = "DAP" },
-			{ "<leader>dt", function() vim.cmd("DapTerminate") end, desc = "Toggle UI" },
+			{ "<leader>dt", function() vim.cmd("DapTerminate") end, desc = "Terminate DAP Session" },
 			{ "<leader>du", function() require("dapui").toggle() end, desc = "Toggle UI" },
 			{ "<leader>dn", function() vim.cmd("DapNew") end, desc = "New DAP Session" },
 			{ "<leader>db", function() vim.cmd("DapToggleBreakpoint") end, desc = "Toggle Breakpoint" },
