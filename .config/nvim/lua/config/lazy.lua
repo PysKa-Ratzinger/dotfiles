@@ -29,7 +29,17 @@ require("lazy").setup({
 	},
 	-- Configure any other settings here. See the documentation for more details.
 	-- colorscheme that will be used when installing plugins.
-	install = { colorscheme = { "github_dark_high_contrast" } },
+	install = {
+		colorscheme = { "github_dark_high_contrast" }
+	},
 	-- automatically check for plugin updates
-	checker = { enabled = true },
+	checker = {
+		enabled = true
+	},
+	ui = {
+		border = "single",
+		size = { width = 0.8, height = 0.8 },
+		title = "Plugin Manager",
+		pills = true,
+	}
 })

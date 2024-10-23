@@ -5,7 +5,13 @@ return {
 		keys = {
 			{
 				"<c-n>",
-				function() vim.cmd([[NERDTreeToggle]]) end,
+				function()
+					if vim.bo.filetype == "nerdtree" then
+						vim.cmd([[NERDTreeToggle]])
+					else
+						vim.cmd([[NERDTreeFind]])
+					end
+				end,
 				desc = "NERD Tree Toggle",
 			},
 		},

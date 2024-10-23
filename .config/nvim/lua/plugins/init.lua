@@ -17,11 +17,21 @@ return {
 
 		},
 		opts = {
+			defaults = {
+				layout_config = {
+					horizontal = {
+						prompt_position = "top",
+						preview_width = 0.55,
+					},
+					width = 0.87,
+					height = 0.86
+				},
+			},
 			pickers = {
 				colorscheme = {
 					enable_preview = true
 				}
-			}
+			},
 		}
 	},
 
