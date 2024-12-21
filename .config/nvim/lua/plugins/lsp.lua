@@ -261,6 +261,7 @@ return {
 		opts = {
 			ensure_installed = {
 				'bash-language-server',
+				'typescript-language-server',
 				'editorconfig-checker',
 				'gofumpt',
 				'golines',
