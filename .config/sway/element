@@ -19,14 +19,11 @@ while pgrep -x dunst >/dev/null; do sleep 1; done
 dunst -config /home/pyska/.config/dunst/dunstrc &
 
 # PIPEWIRE
-killall -q pipewire; killall -q wireplumber
-while pgrep -x pipewire >/dev/null; do sleep 1; done
-while pgrep -x wireplumber >/dev/null; do sleep 1; done
-gentoo-pipewire-launcher &
+gentoo-pipewire-launcher restart &
 
 # POLYBAR
 sleep 0.5
-killall -q polybar
-while pgrep -x polybar >/dev/null; do sleep 0.5; done
-MONITOR=$monitor1 polybar &
+killall -q waybar
+while pgrep -x waybar >/dev/null; do sleep 0.5; done
+MONITOR=$monitor1 waybar &
 
