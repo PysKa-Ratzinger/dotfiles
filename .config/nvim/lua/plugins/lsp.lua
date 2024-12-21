@@ -241,7 +241,7 @@ return {
 		opts = {
 			ensure_installed = {
 				'gopls',
-				'lua_ls',
+				'lua_ls'
 			}
 		},
 	},
