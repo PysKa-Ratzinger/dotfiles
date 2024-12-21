@@ -385,8 +385,16 @@ return {
 			{ "<leader>dn", function() vim.cmd("DapNew") end, desc = "New DAP Session" },
 			{ "<leader>db", function() vim.cmd("DapToggleBreakpoint") end, desc = "Toggle Breakpoint" },
 			{ "<leader>de", function() require("dapui").eval() end, desc = "DAP Eval" },
+			{ "<leader>dsp", function() require("dap").up() end, desc = "DAP Stack Up" },
+			{ "<leader>dsn", function() require("dap").down() end, desc = "DAP Stack Down" },
 		},
 		opts = {
+			element_mappings = {
+				stacks = {
+					open = "<CR>",
+					expand = "o",
+				}
+			}
 		},
 	},
 
