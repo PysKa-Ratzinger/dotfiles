@@ -23,11 +23,11 @@ gui:
 
   theme:
     # Border color of focused window
-    activeBorderColor:               [ '#2020ff', bold ]
-    inactiveBorderColor:             [ '#88a988' ]
-    searchingActiveBorderColor:      [ cyan, bold ]
+    activeBorderColor:               [ '#7bff00', bold ]
+    inactiveBorderColor:             [ '#4848a9' ]
+    searchingActiveBorderColor:      [ '#ff007b', bold ]
     optionsTextColor:                [ blue ]
-    selectedLineBgColor:             [ '#000044', bold ]
+    selectedLineBgColor:             [ '#002084', bold ]
     inactiveViewSelectedLineBgColor: [ bold ]
     cherryPickedCommitFgColor:       [ '#ff8888' ]
     cherryPickedCommitBgColor:       [ '#4400dd' ]
