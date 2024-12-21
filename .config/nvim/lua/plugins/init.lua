@@ -184,7 +184,7 @@ return {
 			-- alpha.setup(dashboard.config)
 
 			-- Set header
-			dashboard.section.header.val = logo5
+			dashboard.section.header.val = logo
 
 			-- Set menu
 			dashboard.section.buttons.val = {
