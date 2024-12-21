@@ -323,4 +323,23 @@ return {
 		build = "make install_jsregexp"
 	},
 
+	{
+		"jbyuki/nabla.nvim",
+		keys = {
+			{
+				"<leader>pp",
+				group="Nabla"
+			},
+			{
+				"<leader>pp",
+				function() require("nabla").popup() end,
+				desc = "Popup",
+			},
+			{
+				"<leader>pv",
+				function() require("nabla").toggle_virt() end,
+				desc = "toggle_virt",
+			},
+		}
+	},
 }
