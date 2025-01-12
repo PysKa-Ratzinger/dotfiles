@@ -15,7 +15,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
 		vim.cmd([[
 set nu
 
-hi Normal guibg=NONE ctermbg=NONE
+" hi Normal guibg=NONE ctermbg=NONE
 
 hi DiagnosticError gui=bold
 hi DiagnosticInfo gui=bold

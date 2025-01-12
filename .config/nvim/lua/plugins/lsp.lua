@@ -148,7 +148,11 @@ return {
 					enable = true,
 				},
 			}
-			lspconfig.html.setup {}
+			lspconfig.html.setup {
+				settings = {
+					html = { format = { wrapLineLength = '200' } }
+				}
+			}
 			lspconfig.jsonls.setup {}
 			lspconfig.solidity_ls.setup {}
 			lspconfig.ts_ls.setup {}
@@ -375,18 +379,18 @@ return {
 			"nvim-neotest/nvim-nio"
 		},
 		keys = {
-			{ "<F6>", "<cmd>DapStepOut<CR>" },
-			{ "<F7>", "<cmd>DapStepInto<CR>" },
-			{ "<F8>", "<cmd>DapStepOver<CR>" },
-			{ "<F9>", "<cmd>DapContinue<CR>" },
-			{ "<leader>d", group = "dap", desc = "DAP" },
-			{ "<leader>dt", function() vim.cmd("DapTerminate") end, desc = "Terminate DAP Session" },
-			{ "<leader>du", function() require("dapui").toggle() end, desc = "Toggle UI" },
-			{ "<leader>dn", function() vim.cmd("DapNew") end, desc = "New DAP Session" },
-			{ "<leader>db", function() vim.cmd("DapToggleBreakpoint") end, desc = "Toggle Breakpoint" },
-			{ "<leader>de", function() require("dapui").eval() end, desc = "DAP Eval" },
-			{ "<leader>dsp", function() require("dap").up() end, desc = "DAP Stack Up" },
-			{ "<leader>dsn", function() require("dap").down() end, desc = "DAP Stack Down" },
+			{ "<F6>",        "<cmd>DapStepOut<CR>" },
+			{ "<F7>",        "<cmd>DapStepInto<CR>" },
+			{ "<F8>",        "<cmd>DapStepOver<CR>" },
+			{ "<F9>",        "<cmd>DapContinue<CR>" },
+			{ "<leader>d",   group = "dap",                                 desc = "DAP" },
+			{ "<leader>dt",  function() vim.cmd("DapTerminate") end,        desc = "Terminate DAP Session" },
+			{ "<leader>du",  function() require("dapui").toggle() end,      desc = "Toggle UI" },
+			{ "<leader>dn",  function() vim.cmd("DapNew") end,              desc = "New DAP Session" },
+			{ "<leader>db",  function() vim.cmd("DapToggleBreakpoint") end, desc = "Toggle Breakpoint" },
+			{ "<leader>de",  function() require("dapui").eval() end,        desc = "DAP Eval" },
+			{ "<leader>dsp", function() require("dap").up() end,            desc = "DAP Stack Up" },
+			{ "<leader>dsn", function() require("dap").down() end,          desc = "DAP Stack Down" },
 		},
 		opts = {
 			element_mappings = {
