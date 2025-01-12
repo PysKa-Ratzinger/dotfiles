@@ -265,6 +265,24 @@ disableStartupPopups: true
 notARepository: prompt # prompt | create | skip | quit
 promptToReturnFromSubprocess: true
 
+customCommands:
+  - key: '<f1>'
+    description: 'Amend sign the selected commit'
+    subprocess: true
+    command: "git commit --amend --no-edit -S --signoff"
+    context: 'commits'
+  - key: '<f1>'
+    context: 'localBranches'
+    description: 'Amend sign all commits since'
+    subprocess: true
+    command: "git rebase --exec 'git commit --amend --no-edit -S --signoff' -i {{.Form.Branch}}"
+    prompts:
+      - type: 'input'
+        title: 'Which branch?'
+        key: 'Branch'
+        suggestions:
+          preset: 'branches'
+
 # Keybindings
 keybinding:
   universal:
