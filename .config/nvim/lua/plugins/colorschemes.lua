@@ -8,13 +8,15 @@ return {
 	{ "dracula/vim" },
 	{ "neanias/everforest-nvim" },
 	{ "EdenEast/nightfox.nvim" },
+	{ "ficcdaf/ashen.nvim" },
+	{ "projekt0n/github-nvim-theme" },
 
 	{
-		"projekt0n/github-nvim-theme",
+		"ficcdaf/ashen.nvim",
 		lazy = false,
 		priority = 1000,
 		config = function()
-			vim.cmd([[colorscheme github_dark_high_contrast]])
+			vim.cmd([[colorscheme ashen]])
 		end
 	}
 

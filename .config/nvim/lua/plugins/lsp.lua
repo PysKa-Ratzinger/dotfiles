@@ -125,6 +125,7 @@ return {
 					"--background-index",
 					"--query-driver=/usr/lib/llvm/*/bin/clang*,/usr/bin/gcc,/usr/bin/g++",
 					"--clang-tidy",
+					"--malloc-trim",
 					"--all-scopes-completion",
 					"--completion-style=detailed",
 					"--header-insertion-decorators",
