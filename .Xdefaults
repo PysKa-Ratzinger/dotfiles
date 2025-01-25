@@ -87,9 +87,10 @@ xterm*vt100*scaleHeight: 1.0
 
 !xterm*font: -*-fixed-medium-r-*-*-18-*-*-*-*-*-iso8859-*
 !xterm*faceName: xft:Terminess Nerd Font Mono:size=8
-!xterm*faceName: xft:FantasqueSansM Nerd Font:size=13
+!xterm*faceName: xft:FantasqueSansM Nerd Font:style=Bold:size=12
 !xterm*faceName: xft:Lilex Nerd Font Mono:size=12
-!xterm*faceName: xft:JuliaMono Nerd Font:style=SemiBold:size=13
+xterm*faceName: xft:JuliaMono Nerd Font:style=SemiBold:size=10
+!xterm*faceName: xft:Cozette:size=8
 !xterm*faceName: xft:MonaspiceKr Nerd Font:size=11
-xterm*faceName: xft:BigBlueTermPlus Nerd Font:size=9
+!xterm*faceName: xft:BigBlueTermPlus Nerd Font:size=9
 
