@@ -1,3 +1,4 @@
+
 # Config relating to the Lazygit UI
 gui:
   scrollHeight: 2
@@ -21,20 +22,22 @@ gui:
   timeFormat: 2006-01-02 15:04:05
   shortTimeFormat: 15:04:05
 
+  authorColors:
+    "Ricardo Jorge Afonso Catalão": "#E49A44"
+    "*": "#B14242"
   theme:
-    # Border color of focused window
-    activeBorderColor:               [ '#7bff00', bold ]
-    inactiveBorderColor:             [ '#4848a9' ]
-    searchingActiveBorderColor:      [ '#ff007b', bold ]
-    optionsTextColor:                [ blue ]
-    selectedLineBgColor:             [ '#002084', bold ]
+    activeBorderColor:               [ "#B14242" ]
+    inactiveBorderColor:             [ "#a7a7a7" ]
+    searchingActiveBorderColor:      [ "#4A8B8B" , bold ]
+    optionsTextColor:                [ "#B14242" ]
+    selectedLineBgColor:             [ "#323232" ]
     inactiveViewSelectedLineBgColor: [ bold ]
-    cherryPickedCommitFgColor:       [ '#ff8888' ]
-    cherryPickedCommitBgColor:       [ '#4400dd' ]
-    markedBaseCommitFgColor:         [ blue ]
-    markedBaseCommitBgColor:         [ yellow ]
-    unstagedChangesColor:            [ red ]
-    defaultFgColor:                  [ '#eeeeee' ]
+    cherryPickedCommitFgColor:       [ "#191919" ]
+    cherryPickedCommitBgColor:       [ "#4A8B8B" ]
+    markedBaseCommitFgColor:         [ "#d5d5d5" ]
+    markedBaseCommitBgColor:         [ "#191919" ]
+    unstagedChangesColor:            [ "#B14242" ]
+    defaultFgColor:                  [ "#d5d5d5" ]
 
   commitLength:
     show: true
@@ -271,6 +274,10 @@ customCommands:
     subprocess: true
     command: "git commit --amend --no-edit -S --signoff"
     context: 'commits'
+    prompts:
+      - type: 'confirm'
+        title: 'Sign checked out commit'
+        body: 'Are you sure you wish to sign the checked out commit?'
   - key: '<f1>'
     context: 'localBranches'
     description: 'Amend sign all commits since'
