@@ -208,9 +208,9 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 # APP KEYBINDINGS
 ###########################################################
 
-#bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec xfce4-terminal
 #bindsym $mod+Return exec urxvt
-bindsym $mod+Return exec uxterm
+#bindsym $mod+Return exec uxterm
 #bindsym $mod+Return exec terminology
 #bindsym $mod+Return exec st -t "Simple Terminal" -f "Fantasque Sans Mono:size=14"
 #bindsym $mod+Return exec st -t "Simple Terminal" -f "Source Code Variable:size=14"
@@ -258,7 +258,7 @@ input type:keyboard {
 }
 
 output HDMI-A-1 {
-	max_render_time 1
+	max_render_time 2
 	mode 1920x1080@144Hz
 }
 
