@@ -22,7 +22,7 @@ hi DiagnosticInfo gui=bold
 hi! link FloatBorder DiagnosticInfo
 hi NormalFloat guibg=black
 
-set mouse=
+set mouse=a
 
 set signcolumn=yes
 
@@ -34,6 +34,9 @@ set undodir=/tmp/.vim-undo-dir
 set undofile
 
 set cc=80
+
 ]])
 	end,
 })
+
+vim.lsp.set_log_level("off");

@@ -7,6 +7,24 @@ return {
 	},
 
 	{
+		'Bekaboo/dropbar.nvim',
+		-- optional, but required for fuzzy finder support
+		dependencies = {
+			'nvim-telescope/telescope-fzf-native.nvim',
+			build = 'make'
+		},
+		config = function()
+			local dropbar_api = require('dropbar.api')
+			vim.keymap.set('n', '<Leader>;', dropbar_api.pick, { desc = 'Pick symbols in winbar' })
+			vim.keymap.set('n', '[;', dropbar_api.goto_context_start,
+				{ desc = 'Go to start of current context' })
+			vim.keymap.set('n', '];', dropbar_api.select_next_context, { desc = 'Select next context' })
+
+			vim.ui.select = require("dropbar.utils.menu").select
+		end
+	},
+
+	{
 		"nvimdev/lspsaga.nvim",
 		lazy = false,
 		dependencies = {
@@ -17,21 +35,39 @@ return {
 		keys = {
 			{ "<leader>g",   group = "lsp",                                           desc = "LSP", },
 			{ "<leader>gf",  function() vim.lsp.buf.format() end,                     desc = "Format code", },
+			{ "<leader>gF",  function() vim.cmd("Lspsaga finder") end,                desc = "Find references and implementations", },
 			{ "<leader>gs",  function() vim.cmd("Lspsaga document_symbol") end,       desc = "Document Symbol", },
 			{ "<leader>gpd", function() vim.cmd("Lspsaga peek_definition") end,       desc = "Peek Definition", },
 			{ "<leader>gpt", function() vim.cmd("Lspsaga peek_type_definition") end,  desc = "Peek Type Definition", },
-			{ "<leader>gd",  function() vim.cmd("Lspsaga goto_definition") end,       desc = "Goto Definition", },
-			{ "<leader>gt",  function() vim.cmd("Lspsaga goto_type_definition") end,  desc = "Goto Type Definition", },
+			{ "<leader>gd",  vim.lsp.buf.definition,                                  desc = "Goto Definition", },
+			{ "<leader>gt",  vim.lsp.buf.type_definition,                             desc = "Goto Type Definition", },
 			{ "<leader>gj",  function() vim.cmd("Lspsaga diagnostic_jump_next") end,  desc = "Jump Next Diagnostic", },
 			{ "<leader>gk",  function() vim.cmd("Lspsaga diagnostic_jump_prev") end,  desc = "Jump Previous Diagnostic", },
 			{ "<leader>gr",  function() vim.cmd("Lspsaga rename") end,                desc = "Rename", },
 			{ "<leader>gx",  function() vim.cmd("Lspsaga code_action") end,           desc = "Code Action", },
 			{ "<leader>go",  function() vim.cmd("Lspsaga show_line_diagnostics") end, desc = "Show line diagnostics", },
-			{ "<leader>gh",  function() vim.cmd("ClangdSwitchSourceHeader") end,      desc = "Show line diagnostics", },
+			{ "<leader>gh",  function() vim.cmd("ClangdSwitchSourceHeader") end,      desc = "Switch source/header", },
+			{ "<leader>gi",  function() vim.cmd("Lspsaga incoming_calls") end,        desc = "Show incoming calls", },
+			{ "<leader>gu",  function() vim.cmd("Lspsaga outgoing_calls") end,        desc = "Show outgoing calls", },
+			{ "<leader>gl",  function() vim.cmd("Lspsaga outline") end,               desc = "Show outline", },
 			{ "<leader>k",   function() vim.cmd("Lspsaga hover_doc") end,             desc = "Hover doc", },
 		},
 		config = function()
 			require("lspsaga").setup({
+				callhierarchy = {
+					layout = "normal",
+				},
+				outline = {
+					win_width = 60,
+					detail = true,
+					layout = "float",
+				},
+				implement = {
+					enable = true,
+				},
+				symbol_in_winbar = {
+					enable = false,
+				},
 				lighbulb = {
 					enable = false,
 					virtual_text = false,
@@ -40,6 +76,7 @@ return {
 					code_action = " ",
 				},
 				finder = {
+					layout = "normal",
 					methods = {
 						tyd = "textDocument/typeDefinition",
 					},
@@ -158,6 +195,8 @@ return {
 			lspconfig.solidity_ls.setup {}
 			lspconfig.ts_ls.setup {}
 			lspconfig.rust_analyzer.setup {}
+			lspconfig.cssls.setup {}
+			lspconfig.css_variables.setup {}
 
 			lspconfig.lua_ls.setup {
 				settings = {

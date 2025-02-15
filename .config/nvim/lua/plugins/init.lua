@@ -13,6 +13,7 @@ return {
 			{ "<leader>/",  function() require("telescope.builtin").live_grep() end,   desc = "Live grep", },
 			{ "<leader>fb", function() require("telescope.builtin").buffers() end,     desc = "Search buffers", },
 			{ "<leader>fh", function() require("telescope.builtin").help_tags() end,   desc = "Search help tags", },
+			{ "<leader>fr", function() require("telescope.builtin").resume() end,   desc = "Search help tags", },
 			{ "<leader>uC", function() require("telescope.builtin").colorscheme() end, desc = "Live colorscheme preview", },
 
 		},
