@@ -40,6 +40,7 @@ return {
 			{ "<leader>gpd", function() vim.cmd("Lspsaga peek_definition") end,       desc = "Peek Definition", },
 			{ "<leader>gpt", function() vim.cmd("Lspsaga peek_type_definition") end,  desc = "Peek Type Definition", },
 			{ "<leader>gd",  vim.lsp.buf.definition,                                  desc = "Goto Definition", },
+			{ "<leader>gD",  vim.lsp.buf.declaration,                                 desc = "Goto Declaration", },
 			{ "<leader>gt",  vim.lsp.buf.type_definition,                             desc = "Goto Type Definition", },
 			{ "<leader>gj",  function() vim.cmd("Lspsaga diagnostic_jump_next") end,  desc = "Jump Next Diagnostic", },
 			{ "<leader>gk",  function() vim.cmd("Lspsaga diagnostic_jump_prev") end,  desc = "Jump Previous Diagnostic", },
