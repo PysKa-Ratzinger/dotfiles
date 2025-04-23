@@ -1,0 +1,3 @@
+#!/bin/sh
+#swaybg -i '/home/pyska/Pictures/Wallpapers/day/zen_garden.png' &
+swaybg -i '/home/pyska/Pictures/Wallpapers/day/lain_labyrinth.png' &
