@@ -22,6 +22,17 @@ return {
 		lazy = false,
 		opts = {
 			options = {
+				buffer_close_icon = "X",
+				modified_icon = "!",
+				close_icon = "X",
+				left_trunk_marker = ">",
+				right_trunk_marker = "<",
+				indicator = {
+					icon = "|", -- if "icon"
+					style = "underline", -- "icon" | "underline" | "none"
+				},
+				color_icons = false,
+				separator_style = { "|", "|" },
 			}
 		},
 	},
