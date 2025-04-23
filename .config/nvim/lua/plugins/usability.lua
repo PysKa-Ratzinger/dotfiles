@@ -27,12 +27,6 @@ return {
 	},
 
 	{
-		'nvim-lualine/lualine.nvim',
-		lazy = false,
-		opts = {},
-	},
-
-	{
 		"j-hui/fidget.nvim",
 		opts = {
 			-- options
