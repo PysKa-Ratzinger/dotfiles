@@ -12,7 +12,6 @@ return {
 		dependencies = {
 			"folke/which-key.nvim",
 			"nvim-treesitter/nvim-treesitter",
-			"nvim-tree/nvim-web-devicons",
 		},
 		keys = {
 			{ "<leader>g",   group = "lsp",                                           desc = "LSP", },
@@ -21,9 +20,9 @@ return {
 			{ "<leader>gs",  function() vim.cmd("Lspsaga document_symbol") end,       desc = "Document Symbol", },
 			{ "<leader>gpd", function() vim.cmd("Lspsaga peek_definition") end,       desc = "Peek Definition", },
 			{ "<leader>gpt", function() vim.cmd("Lspsaga peek_type_definition") end,  desc = "Peek Type Definition", },
-			{ "<leader>gd",  vim.lsp.buf.definition,                                  desc = "Goto Definition", },
+			{ "<leader>gd",  function() vim.cmd("Lspsaga goto_definition") end,       desc = "Goto Definition", },
 			{ "<leader>gD",  vim.lsp.buf.declaration,                                 desc = "Goto Declaration", },
-			{ "<leader>gt",  vim.lsp.buf.type_definition,                             desc = "Goto Type Definition", },
+			{ "<leader>gt",  function() vim.cmd("Lspsaga goto_type_definition") end,  desc = "Goto Type Definition", },
 			{ "<leader>gj",  function() vim.cmd("Lspsaga diagnostic_jump_next") end,  desc = "Jump Next Diagnostic", },
 			{ "<leader>gk",  function() vim.cmd("Lspsaga diagnostic_jump_prev") end,  desc = "Jump Previous Diagnostic", },
 			{ "<leader>gr",  function() vim.cmd("Lspsaga rename") end,                desc = "Rename", },
@@ -140,12 +139,14 @@ return {
 			lspconfig.clangd.setup {
 				capabilities = capabilities,
 				cmd = {
-					"/usr/lib/llvm/19/bin/clangd",
+					"/usr/lib/llvm/20/bin/clangd",
 					-- "clangd",
 					"--background-index",
-					"--query-driver=/usr/lib/llvm/*/bin/clang*,/usr/bin/gcc,/usr/bin/g++",
+					"--cross-file-rename",
+					"--pretty",
+					-- "--query-driver=/usr/lib/llvm/*/bin/clang*,/usr/bin/gcc,/usr/bin/g++",
 					"--clang-tidy",
-					"--malloc-trim",
+					-- "--malloc-trim",
 					"--all-scopes-completion",
 					"--completion-style=detailed",
 					"--header-insertion-decorators",
@@ -340,7 +341,7 @@ return {
 
 			dap.adapters.lldb = {
 				type = "executable",
-				command = "lldb-dap",
+				command = "codelldb",
 				name = "lldb"
 			}
 
@@ -397,6 +398,7 @@ return {
 
 	{
 		"rcarriga/nvim-dap-ui",
+		event = "VeryLazy",
 		dependencies = {
 			"mfussenegger/nvim-dap",
 			"nvim-neotest/nvim-nio"
