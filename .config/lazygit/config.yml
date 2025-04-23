@@ -1,4 +1,3 @@
-
 # Config relating to the Lazygit UI
 gui:
   scrollHeight: 2
@@ -16,29 +15,26 @@ gui:
   mainPanelSplitMode: flexible # horizontal | vertical | flexible
   enlargedSideViewLocation: left # left | top
   language: en
-
   # Format used when displaying time e.g. commit time.
   # Uses Go's time format syntax: https://pkg.go.dev/time#Time.Format
   timeFormat: 2006-01-02 15:04:05
   shortTimeFormat: 15:04:05
-
   authorColors:
     "Ricardo Jorge Afonso Catalão": "#E49A44"
     "*": "#B14242"
   theme:
-    activeBorderColor:               [ "#B14242" ]
-    inactiveBorderColor:             [ "#a7a7a7" ]
-    searchingActiveBorderColor:      [ "#4A8B8B" , bold ]
-    optionsTextColor:                [ "#B14242" ]
-    selectedLineBgColor:             [ "#323232" ]
-    inactiveViewSelectedLineBgColor: [ bold ]
-    cherryPickedCommitFgColor:       [ "#191919" ]
-    cherryPickedCommitBgColor:       [ "#4A8B8B" ]
-    markedBaseCommitFgColor:         [ "#d5d5d5" ]
-    markedBaseCommitBgColor:         [ "#191919" ]
-    unstagedChangesColor:            [ "#B14242" ]
-    defaultFgColor:                  [ "#d5d5d5" ]
-
+    activeBorderColor: ["#B14242"]
+    inactiveBorderColor: ["#a7a7a7"]
+    searchingActiveBorderColor: ["#4A8B8B", bold]
+    optionsTextColor: ["#B14242"]
+    selectedLineBgColor: ["#323232"]
+    inactiveViewSelectedLineBgColor: [bold]
+    cherryPickedCommitFgColor: ["#191919"]
+    cherryPickedCommitBgColor: ["#4A8B8B"]
+    markedBaseCommitFgColor: ["#d5d5d5"]
+    markedBaseCommitBgColor: ["#191919"]
+    unstagedChangesColor: ["#B14242"]
+    defaultFgColor: ["#d5d5d5"]
   commitLength:
     show: true
   showListFooter: true
@@ -47,7 +43,7 @@ gui:
   showCommandLog: true
   showBottomLine: true
   showPanelJumps: true
-  nerdFontsVersion: ""  #  "2" | "3" | ""
+  nerdFontsVersion: "3" #  "2" | "3" | ""
   showFileIcons: true # If true (default), file icons are shown in the file views. Only relevant if NerdFontsVersion is not empty.
   commitAuthorShortLength: 2 # Length of author name in (non-expanded) commits view. 2 means show initials only.
   commitAuthorLongLength: 17 # Length of author name in expanded commits view. 2 means show initials only.
@@ -56,153 +52,17 @@ gui:
   showDivergenceFromBaseBranch: arrowAndNumber # 'none' | 'onlyArrow'  | 'arrowAndNumber'
   commandLogSize: 8
   splitDiff: auto
-  windowSize: normal
+  screenMode: normal
   border: single # 'rounded' | 'single' | 'double' | 'hidden'
   animateExplosion: true
   portraitMode: auto # 'auto' | 'always' | 'never'
   filterMode: fuzzy
-
   spinner:
     rate: 60
-    frames: [
-      " ██████£££  ",
-      "☺██████£££  ",
-      "☺██████£££  ",
-      "☺▓█████£££  ",
-      "☺▓█████£££  ",
-      "☺▒█████£££  ",
-      "☺▒█████£££  ",
-      "☺░█████£££  ",
-      "☺░█████£££  ",
-      "☺ █████£££  ",
-      " ☺█████£££  ",
-      " ☺█████£££  ",
-      " ☺▓████£££  ",
-      " ☺▓████£££  ",
-      " ☺▒████£££  ",
-      " ☺▒████£££  ",
-      " ☺░████£££  ",
-      " ☺░████£££  ",
-      " ☺ ████£££  ",
-      "  ☺████£££  ",
-      "  ☺████£££  ",
-      "  ☺▓███£££  ",
-      "  ☺▓███£££  ",
-      "  ☺▒███£££  ",
-      "  ☺▒███£££  ",
-      "  ☺░███£££  ",
-      "  ☺░███£££  ",
-      "  ☺ ███£££  ",
-      "   ☺███£££  ",
-      "   ☺███£££  ",
-      "   ☺▓██£££  ",
-      "   ☺▓██£££  ",
-      "   ☺▒██£££  ",
-      "   ☺▒██£££  ",
-      "   ☺░██£££  ",
-      "   ☺░██£££  ",
-      "   ☺ ██£££  ",
-      "    ☺██£££  ",
-      "    ☺██£££  ",
-      "    ☺▓█£££  ",
-      "    ☺▓█£££  ",
-      "    ☺▒█£££  ",
-      "    ☺▒█£££  ",
-      "    ☺░█£££  ",
-      "    ☺░█£££  ",
-      "    ☺ █£££  ",
-      "     ☺█£££  ",
-      "     ☺█£££  ",
-      "     ☺▓£££  ",
-      "     ☺▓£££  ",
-      "     ☺▒£££  ",
-      "     ☺▒£££  ",
-      "     ☺░£££  ",
-      "     ☺░£££  ",
-      "     ☺ £££  ",
-      "      ☺£££  ",
-      "      ☺£££  ",
-      "      ☺▓££  ",
-      "      ☺▓££  ",
-      "      ☺▒££  ",
-      "      ☺▒££  ",
-      "      ☺░££  ",
-      "      ☺░££  ",
-      "      ☺ ££  ",
-      "       ☺££  ",
-      "       ☺££  ",
-      "       ☺▓£  ",
-      "       ☺▓£  ",
-      "       ☺▒£  ",
-      "       ☺▒£  ",
-      "       ☺░£  ",
-      "       ☺░£  ",
-      "       ☺ £  ",
-      "        ☺£  ",
-      "        ☺£  ",
-      "        ☺▓  ",
-      "        ☺▓  ",
-      "        ☺▒  ",
-      "        ☺▒  ",
-      "        ☺░  ",
-      "        ☺░  ",
-      "        ☺   ",
-      "        ☺  &",
-      "        ☺ ☼&",
-      "       ☺ ☼ &",
-      "       ☺☼  &",
-      "      ☺☼  & ",
-      "      ‼   & ",
-      "     ☺   &  ",
-      "    ‼    &  ",
-      "   ☺    &   ",
-      "  ‼     &   ",
-      " ☺     &    ",
-      "‼      &    ",
-      "      &     ",
-      "      &     ",
-      "     &   ░  ",
-      "     &   ▒  ",
-      "    &    ▓  ",
-      "    &    £  ",
-      "   &    ░£  ",
-      "   &    ▒£  ",
-      "  &     ▓£  ",
-      "  &     ££  ",
-      " &     ░££  ",
-      " &     ▒££  ",
-      "&      ▓££  ",
-      "&      £££  ",
-      "      ░£££  ",
-      "      ▒£££  ",
-      "      ▓£££  ",
-      "      █£££  ",
-      "     ░█£££  ",
-      "     ▒█£££  ",
-      "     ▓█£££  ",
-      "     ██£££  ",
-      "    ░██£££  ",
-      "    ▒██£££  ",
-      "    ▓██£££  ",
-      "    ███£££  ",
-      "   ░███£££  ",
-      "   ▒███£££  ",
-      "   ▓███£££  ",
-      "   ████£££  ",
-      "  ░████£££  ",
-      "  ▒████£££  ",
-      "  ▓████£££  ",
-      "  █████£££  ",
-      " ░█████£££  ",
-      " ▒█████£££  ",
-      " ▓█████£££  ",
-      " ██████£££  ",
-      " ██████£££  " ]
-
+    frames: [" ██████£££  ", "☺██████£££  ", "☺██████£££  ", "☺▓█████£££  ", "☺▓█████£££  ", "☺▒█████£££  ", "☺▒█████£££  ", "☺░█████£££  ", "☺░█████£££  ", "☺ █████£££  ", " ☺█████£££  ", " ☺█████£££  ", " ☺▓████£££  ", " ☺▓████£££  ", " ☺▒████£££  ", " ☺▒████£££  ", " ☺░████£££  ", " ☺░████£££  ", " ☺ ████£££  ", "  ☺████£££  ", "  ☺████£££  ", "  ☺▓███£££  ", "  ☺▓███£££  ", "  ☺▒███£££  ", "  ☺▒███£££  ", "  ☺░███£££  ", "  ☺░███£££  ", "  ☺ ███£££  ", "   ☺███£££  ", "   ☺███£££  ", "   ☺▓██£££  ", "   ☺▓██£££  ", "   ☺▒██£££  ", "   ☺▒██£££  ", "   ☺░██£££  ", "   ☺░██£££  ", "   ☺ ██£££  ", "    ☺██£££  ", "    ☺██£££  ", "    ☺▓█£££  ", "    ☺▓█£££  ", "    ☺▒█£££  ", "    ☺▒█£££  ", "    ☺░█£££  ", "    ☺░█£££  ", "    ☺ █£££  ", "     ☺█£££  ", "     ☺█£££  ", "     ☺▓£££  ", "     ☺▓£££  ", "     ☺▒£££  ", "     ☺▒£££  ", "     ☺░£££  ", "     ☺░£££  ", "     ☺ £££  ", "      ☺£££  ", "      ☺£££  ", "      ☺▓££  ", "      ☺▓££  ", "      ☺▒££  ", "      ☺▒££  ", "      ☺░££  ", "      ☺░££  ", "      ☺ ££  ", "       ☺££  ", "       ☺££  ", "       ☺▓£  ", "       ☺▓£  ", "       ☺▒£  ", "       ☺▒£  ", "       ☺░£  ", "       ☺░£  ", "       ☺ £  ", "        ☺£  ", "        ☺£  ", "        ☺▓  ", "        ☺▓  ", "        ☺▒  ", "        ☺▒  ", "        ☺░  ", "        ☺░  ", "        ☺   ", "        ☺  &", "        ☺ ☼&", "       ☺ ☼ &", "       ☺☼  &", "      ☺☼  & ", "      ‼   & ", "     ☺   &  ", "    ‼    &  ", "   ☺    &   ", "  ‼     &   ", " ☺     &    ", "‼      &    ", "      &     ", "      &     ", "     &   ░  ", "     &   ▒  ", "    &    ▓  ", "    &    £  ", "   &    ░£  ", "   &    ▒£  ", "  &     ▓£  ", "  &     ££  ", " &     ░££  ", " &     ▒££  ", "&      ▓££  ", "&      £££  ", "      ░£££  ", "      ▒£££  ", "      ▓£££  ", "      █£££  ", "     ░█£££  ", "     ▒█£££  ", "     ▓█£££  ", "     ██£££  ", "    ░██£££  ", "    ▒██£££  ", "    ▓██£££  ", "    ███£££  ", "   ░███£££  ", "   ▒███£££  ", "   ▓███£££  ", "   ████£££  ", "  ░████£££  ", "  ▒████£££  ", "  ▓████£££  ", "  █████£££  ", " ░█████£££  ", " ▒█████£££  ", " ▓█████£££  ", " ██████£££  ", " ██████£££  "]
   statusPanelView: dashboard # 'dashboard' | 'allBranchesLog'
   switchToFilesAfterStashPop: true
   switchToFilesAfterStashApply: true
-
 # Config relating to git
 git:
   # See https://github.com/jesseduffield/lazygit/blob/master/docs/Custom_Pagers.md
@@ -211,22 +71,18 @@ git:
     pager: ""
     useConfig: false
     externalDiffCommand: ""
-
   # Config relating to committing
   commit:
     signOff: false
     autoWrapCommitMessage: true
     autoWrapWidth: 72
-
   merging:
     manualCommit: false
     args: "--no-ff"
     squashMergeMessage: Squash merge {{selectedRef}} into {{currentBranch}}
-
   mainBranches:
     - master
     - main
-
   skipHookPrefix: WIP
   autoFetch: true
   autoRefresh: true
@@ -237,25 +93,21 @@ git:
   overrideGpg: false
   disableForcePushing: false
   commitPrefix:
-    pattern: ""
-    replace: ""
+    - pattern: ""
+      replace: ""
   branchPrefix: ""
   parseEmoji: false
   log:
     showWholeGraph: true
   truncateCopiedCommitHashesTo: 40
-
 update:
   method: prompt # 'prompt' | 'background' | 'never'
   days: 14 # Period in days between update checks
-
 refresher:
   refreshInterval: 10
   fetchInterval: 60
-
 confirmOnQuit: false
 quitOnTopLevelReturn: false
-
 os:
   editPreset: "nvim"
   open: ""
@@ -263,11 +115,9 @@ os:
   editCommand: ""
   copyToClipboardCmd: ""
   readFromClipboardCmd: ""
-
 disableStartupPopups: true
 notARepository: prompt # prompt | create | skip | quit
 promptToReturnFromSubprocess: true
-
 customCommands:
   - key: '<f1>'
     description: 'Amend sign the selected commit'
@@ -289,7 +139,6 @@ customCommands:
         key: 'Branch'
         suggestions:
           preset: 'branches'
-
 # Keybindings
 keybinding:
   universal:
@@ -344,10 +193,8 @@ keybinding:
     scrollDownMain-alt2: <c-d>
     executeShellCommand: ':'
     createRebaseOptionsMenu: m
-
     # 'Files' appended for legacy reasons
     pushFiles: P
-
     # 'Files' appended for legacy reasons
     pullFiles: p
     refresh: R
