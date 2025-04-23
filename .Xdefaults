@@ -1,4 +1,4 @@
-Xft.dpi: 96
+*.dpi: 90
 
 *fading:                40
 *fadeColor:             #000000
@@ -73,6 +73,10 @@ xterm*autohint: false
 xterm*hintstyle: hintfull
 xterm*lcdfilter: lcddefault
 
+xterm*decTerminalID: vt340
+xterm*numColorRegisters: 256
+xterm*disallowedWindowOps: 1,2,3,4,5,6,7,8,9,11,13,19,20,21,GetSelection,SetSelection,SetWinLines,SetXprop
+
 xterm*scrollBar: false
 xterm*scrollBar_right: false
 
@@ -85,12 +89,20 @@ xterm*vt100*translations: #override \
 
 xterm*vt100*scaleHeight: 1.0
 
-!xterm*font: -*-fixed-medium-r-*-*-18-*-*-*-*-*-iso8859-*
-!xterm*faceName: xft:Terminess Nerd Font Mono:size=8
-!xterm*faceName: xft:FantasqueSansM Nerd Font:style=Bold:size=12
+!xterm*font: -*-fixed-*-r-*-*-18-*-*-*-*-*-iso8859-*
+!xterm*faceName: xft:bitocrafull:size=12
+!xterm*faceName: xft:dina:size=12
+xterm*faceName: xft:envypn:size=12
+!xterm*faceName: xft:TamzenForPowerline:size=12
+!xterm*faceName: xft:Gohu GohuFont:size=12
+!xterm*faceName: xft:CaskaydiaCove Nerd Font:size=12
+!xterm*faceName: xft:IosevkaTerm Nerd Font:size=10
+!xterm*faceName: xft:Terminess Nerd Font Mono:style=Bold:size=13
+!xterm*faceName: xft:FantasqueSansM Nerd Font:size=13
 !xterm*faceName: xft:Lilex Nerd Font Mono:size=12
-xterm*faceName: xft:JuliaMono Nerd Font:style=SemiBold:size=10
+!xterm*faceName: xft:JuliaMono Nerd Font:style=Bold:size=13
 !xterm*faceName: xft:Cozette:size=8
+!xterm*faceName: xft:CozetteHiDpi:size=16
 !xterm*faceName: xft:MonaspiceKr Nerd Font:size=11
-!xterm*faceName: xft:BigBlueTermPlus Nerd Font:size=9
+!xterm*faceName: xft:BigBlueTermPlus Nerd Font:size=12
 
