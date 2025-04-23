@@ -90,4 +90,31 @@ return {
 			})
 		end
 	},
+
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		---@module "ibl"
+		---@type ibl.config
+		config = function()
+			local highlight = {
+				"Whitespace",
+				"NonText",
+				"Function",
+				"Label",
+			}
+			require("ibl").setup({
+				indent = {
+					highlight = highlight,
+					char = ".",
+					tab_char = "│",
+				},
+				whitespace = {
+					highlight = highlight,
+					remove_blankline_trail = false,
+				},
+				scope = { enabled = true }
+			})
+		end
+	},
 }
