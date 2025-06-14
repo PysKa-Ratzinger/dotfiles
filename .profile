@@ -21,10 +21,10 @@ export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
-export XMODIFIERS=@im=ibus
-export GTK_IM_MODULE=ibus
-export QT_IM_MODULE=ibus
-export GLFW_IM_MODULE=ibus   # Needed for kitty terminal
+export XMODIFIERS=@im=fcitx
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export GLFW_IM_MODULE=fcitx   # Needed for kitty terminal
 
 export GDK_DPI_SCALE=1
 

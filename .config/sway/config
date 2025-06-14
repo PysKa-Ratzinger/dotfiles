@@ -38,6 +38,7 @@ floating_modifier $mod
 exec ibus-daemon -drx
 exec --no-startup-id /usr/libexec/xdg-desktop-portal-wlr &
 exec --no-startup-id /usr/libexec/xdg-desktop-portal -r
+exec_always /usr/libexec/fcitx5-wayland-launcher
 exec_always --no-startup-id bash ~/.config/sway/element
 exec_always bash ~/.swaybg
 
