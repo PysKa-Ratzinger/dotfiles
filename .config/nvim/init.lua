@@ -45,4 +45,4 @@ vim.o.matchpairs = vim.o.matchpairs .. ",<:>"
 
 vim.lsp.set_log_level('off');
 
-vim.cmd([[colorscheme github_dark_high_contrast]]);
+vim.cmd([[colorscheme carbonfox]]);
