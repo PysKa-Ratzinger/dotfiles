@@ -24,3 +24,5 @@
 	program = gpg2
 [init]
 	defaultBranch = master
+[rerere]
+	enabled = true
