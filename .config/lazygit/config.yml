@@ -43,7 +43,7 @@ gui:
   showCommandLog: true
   showBottomLine: true
   showPanelJumps: true
-  nerdFontsVersion: "3" #  "2" | "3" | ""
+  nerdFontsVersion: "" #  "2" | "3" | ""
   showFileIcons: true # If true (default), file icons are shown in the file views. Only relevant if NerdFontsVersion is not empty.
   commitAuthorShortLength: 2 # Length of author name in (non-expanded) commits view. 2 means show initials only.
   commitAuthorLongLength: 17 # Length of author name in expanded commits view. 2 means show initials only.
@@ -132,7 +132,7 @@ customCommands:
     context: 'localBranches'
     description: 'Amend sign all commits since'
     subprocess: true
-    command: "git rebase --exec 'git commit --amend --no-edit -S --signoff' -i {{.Form.Branch}}"
+    command: "git rebase --committer-date-is-author-date --exec 'git commit --amend --no-edit -S --signoff' -i {{.Form.Branch}}"
     prompts:
       - type: 'input'
         title: 'Which branch?'
