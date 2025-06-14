@@ -219,7 +219,8 @@ bindsym $mod+Return exec foot
 #bindsym $mod+Return exec st -t "Simple Terminal" -f "Fantasque Sans Mono:size=14"
 #bindsym $mod+Return exec st -t "Simple Terminal" -f "Source Code Variable:size=14"
 #bindsym $mod+Return exec st -t "Simple Terminal" -f "Bedstead Extended:size=10"
-bindsym $mod+d exec rofi -show run &
+#bindsym $mod+d exec rofi -show run &
+bindsym $mod+d exec sh -c "tofi-run | xargs swaymsg exec --" &
 bindsym $mod+a focus parent
 
 
