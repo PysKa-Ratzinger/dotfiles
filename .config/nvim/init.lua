@@ -35,6 +35,7 @@ set undodir=/tmp/.vim-undo-dir
 set undofile
 
 set cc=80
+set scrolloff=999 " Always center cursor
 
 ]])
 	end,
