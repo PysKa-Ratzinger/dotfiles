@@ -41,6 +41,7 @@ return {
 			-- Config
 			local config = {
 				options = {
+					icons_enabled = true,
 					-- Disable sections and component separators
 					component_separators = '',
 					section_separators = '',
@@ -50,6 +51,11 @@ return {
 						-- are just setting default looks o statusline
 						normal = { c = { fg = colors.fg, bg = colors.bg } },
 						inactive = { c = { fg = colors.fg, bg = colors.bg } },
+					},
+					refresh = {
+						statusline = 10,
+						tabline = 10,
+						winbar = 10,
 					},
 				},
 				sections = {
