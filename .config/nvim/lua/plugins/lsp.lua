@@ -354,8 +354,30 @@ return {
 				return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
 			end
 
+			local check_file_exists = function(name)
+				local f = io.open(name, "r")
+				if f ~= nil then
+					io.close(f)
+					return true
+				else return false end
+			end
+
+			local cwd = vim.loop.cwd()
+			local lldb_init_file = nil
+			if check_file_exists(cwd .. "/lldb_commands.lldb") then
+				lldb_init_file = cwd .. "/lldb_commands.lldb"
+			end
+
+			local initCommands = {}
+
+			if lldb_init_file ~= nil then
+				initCommands = {
+					([[command source '%s']]):format(lldb_init_file),
+				}
+			end
+
 			local launch_with_args_type = function(type)
-				return {
+				res = {
 					name = "Launch (with args) (" .. type .. ")",
 					type = type,
 					request = "launch",
@@ -363,7 +385,9 @@ return {
 					program = program_askinput,
 					cwd = "${workspaceFolder}",
 					stopAtBeginningOfMainSubprogram = false,
+					initCommands = initCommands,
 				}
+				return res
 			end
 
 			local gdb_configs = {
@@ -378,7 +402,8 @@ return {
 						local name = vim.fn.input('Executable name (filter): ')
 						return require("dap.utils").pick_process({ filter = name })
 					end,
-					cwd = '${workspaceFolder}'
+					cwd = '${workspaceFolder}',
+					initCommands = initCommands,
 				},
 				{
 					name = 'Attach to gdbserver :1234',
@@ -386,7 +411,8 @@ return {
 					request = 'attach',
 					target = 'localhost:1234',
 					program = program_askinput,
-					cwd = '${workspaceFolder}'
+					cwd = '${workspaceFolder}',
+					initCommands = initCommands,
 				},
 			}
 
