@@ -26,6 +26,7 @@ set mouse=a
 
 set signcolumn=yes
 set termguicolors
+set background=dark
 
 " Use persistent history
 if !isdirectory("/tmp/.vim-undo-dir")
@@ -35,7 +36,7 @@ set undodir=/tmp/.vim-undo-dir
 set undofile
 
 set cc=80
-set scrolloff=20 " Always center cursor
+"  set scrolloff=40 " Always center cursor
 
 ]])
 	end,
@@ -45,4 +46,7 @@ vim.o.matchpairs = vim.o.matchpairs .. ",<:>"
 
 vim.lsp.set_log_level('off');
 
-vim.cmd([[colorscheme carbonfox]]);
+-- vim.cmd([[colorscheme carbonfox]]);
+-- vim.cmd([[colorscheme nordic]]);
+vim.cmd([[colorscheme tender]]);
+-- vim.cmd([[colorscheme ayu]]);
