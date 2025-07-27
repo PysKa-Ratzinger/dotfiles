@@ -1,6 +1,6 @@
 [user]
 	email = ricardojorge512@hotmail.com
-	name = Ricardo Jorge Afonso Catalão
+	name = Ricardo Catalão
 	signingKey = A1893C164506036B5D571A5277733B46893E489C
 [filter "lfs"]
 	required = true
