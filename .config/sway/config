@@ -41,6 +41,7 @@ exec --no-startup-id /usr/libexec/xdg-desktop-portal -r
 exec_always /usr/libexec/fcitx5-wayland-launcher
 exec_always --no-startup-id bash ~/.config/sway/element
 exec_always bash ~/.swaybg
+exec_always wlsunset -l 50.036 -L 19.173 -t 2000
 
 # exec --no-startup-id bash -c "sleep 1 && i3-msg 'workspace "4:IV"; exec /usr/bin/thunderbird-bin'"
 
@@ -99,7 +100,7 @@ for_window [class="^.*"] border pixel 2
 
 ## i3-gaps
 smart_borders on
-gaps outer 10
+gaps outer 0
 gaps inner 10
 
 
@@ -212,8 +213,8 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 # APP KEYBINDINGS
 ###########################################################
 
-bindsym $mod+Return exec foot
-#bindsym $mod+Return exec xfce4-terminal
+#bindsym $mod+Return exec foot
+bindsym $mod+Return exec xfce4-terminal
 #bindsym $mod+Return exec urxvt
 #bindsym $mod+Return exec uxterm
 #bindsym $mod+Return exec terminology
@@ -265,6 +266,7 @@ input type:keyboard {
 
 output HDMI-A-1 {
 	max_render_time 2
+	scale 1
 	mode 1920x1080@144Hz
 }
 
