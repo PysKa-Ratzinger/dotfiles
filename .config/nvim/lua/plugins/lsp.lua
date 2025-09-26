@@ -370,7 +370,9 @@ return {
 				if f ~= nil then
 					io.close(f)
 					return true
-				else return false end
+				else
+					return false
+				end
 			end
 
 			local cwd = vim.loop.cwd()
