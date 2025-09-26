@@ -44,6 +44,20 @@ return {
 		priority = 1000,
 	},
 
+	{
+		"ring0-rootkit/ring0-dark.nvim",
+		priority = 1000, -- Make sure to load this before all the other start plugins.
+		init = function()
+			vim.cmd.colorscheme("ring0dark")
+		end,
+	},
+
+	{
+		"four-symbols/four-symbols.nvim",
+		lazy = false,
+		priority = 1000
+	},
+
 	--{
 	--	"rebelot/kanagawa.nvim",
 	--	lazy = false,
