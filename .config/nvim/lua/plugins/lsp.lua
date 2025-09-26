@@ -48,7 +48,7 @@ return {
 					enable = true,
 				},
 				symbol_in_winbar = {
-					enable = false,
+					enable = true,
 				},
 				lighbulb = {
 					enable = false,
