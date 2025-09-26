@@ -48,5 +48,10 @@ vim.lsp.set_log_level('off');
 
 -- vim.cmd([[colorscheme carbonfox]]);
 -- vim.cmd([[colorscheme nordic]]);
-vim.cmd([[colorscheme tender]]);
--- vim.cmd([[colorscheme ayu]]);
+-- vim.cmd([[colorscheme tender]]);
+vim.cmd([[colorscheme ayu]]);
+-- vim.cmd([[colorscheme ashen]]);
+-- vim.cmd([[colorscheme cyberdream]]);
+-- vim.cmd([[colorscheme ring0dark]]);
+-- vim.cmd([[colorscheme four-symbols-azure-dragon]]);
+-- vim.cmd([[colorscheme phoenix]]);
