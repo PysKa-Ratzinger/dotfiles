@@ -1,2 +1,3 @@
 e asm.nbytes = 15
-eco ayu
+e cfg.fortunes.type = tips
+eco darkda
