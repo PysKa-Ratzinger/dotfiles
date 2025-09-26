@@ -31,7 +31,7 @@ return {
 			{ "<leader>gh",  function() vim.cmd("ClangdSwitchSourceHeader") end,      desc = "Switch source/header", },
 			{ "<leader>gi",  function() vim.cmd("Lspsaga incoming_calls") end,        desc = "Show incoming calls", },
 			{ "<leader>gu",  function() vim.cmd("Lspsaga outgoing_calls") end,        desc = "Show outgoing calls", },
-			{ "<leader>gl",  function() vim.cmd("Lspsaga outline") end,               desc = "Show outline", },
+			{ "<leader>gl",  function() vim.cmd("Trouble symbols") end,               desc = "Show outline", },
 			{ "<leader>k",   function() vim.cmd("Lspsaga hover_doc") end,             desc = "Hover doc", },
 		},
 		config = function()
