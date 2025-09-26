@@ -214,7 +214,8 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 ###########################################################
 
 #bindsym $mod+Return exec foot
-bindsym $mod+Return exec xfce4-terminal
+#bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec st
 #bindsym $mod+Return exec urxvt
 #bindsym $mod+Return exec uxterm
 #bindsym $mod+Return exec terminology
