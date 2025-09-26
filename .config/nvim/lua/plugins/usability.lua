@@ -49,6 +49,10 @@ return {
 	},
 
 	{
+		"will133/vim-dirdiff"
+	},
+
+	{
 		"jiaoshijie/undotree",
 		keys = {
 			{
