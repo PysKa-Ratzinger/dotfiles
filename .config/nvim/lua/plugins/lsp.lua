@@ -28,7 +28,7 @@ return {
 			{ "<leader>gr",  function() vim.cmd("Lspsaga rename") end,                desc = "Rename", },
 			{ "<leader>gx",  function() vim.cmd("Lspsaga code_action") end,           desc = "Code Action", },
 			{ "<leader>go",  function() vim.cmd("Lspsaga show_line_diagnostics") end, desc = "Show line diagnostics", },
-			{ "<leader>gh",  function() vim.cmd("ClangdSwitchSourceHeader") end,      desc = "Switch source/header", },
+			{ "<leader>gh",  function() vim.cmd("LspClangdSwitchSourceHeader") end,   desc = "Switch source/header", },
 			{ "<leader>gi",  function() vim.cmd("Lspsaga incoming_calls") end,        desc = "Show incoming calls", },
 			{ "<leader>gu",  function() vim.cmd("Lspsaga outgoing_calls") end,        desc = "Show outgoing calls", },
 			{ "<leader>gl",  function() vim.cmd("Trouble symbols") end,               desc = "Show outline", },
@@ -131,15 +131,16 @@ return {
 		},
 		---@class PluginLspOpts
 		config = function()
-			local lspconfig = require("lspconfig")
 			local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-			lspconfig.bashls.setup {}
-			lspconfig.pyright.setup {}
-			lspconfig.clangd.setup {
+			vim.lsp.config('bashls', {})
+			vim.lsp.enable('bashls')
+			vim.lsp.config('pyright', {})
+			vim.lsp.enable('pyright')
+			vim.lsp.config('clangd', {
 				capabilities = capabilities,
 				cmd = {
-					"/usr/lib/llvm/20/bin/clangd",
+					"/usr/lib/llvm/22/bin/clangd",
 					-- "clangd",
 					"--background-index",
 					"--cross-file-rename",
@@ -169,20 +170,28 @@ return {
 				inlay_hints = {
 					enable = true,
 				},
-			}
-			lspconfig.html.setup {
+			})
+			vim.lsp.enable('clangd')
+			vim.lsp.config('html', {
 				settings = {
 					html = { format = { wrapLineLength = '200' } }
 				}
-			}
-			lspconfig.jsonls.setup {}
-			lspconfig.solidity_ls.setup {}
-			lspconfig.ts_ls.setup {}
-			lspconfig.rust_analyzer.setup {}
-			lspconfig.cssls.setup {}
-			lspconfig.css_variables.setup {}
+			})
+			vim.lsp.enable('html')
+			vim.lsp.config('jsonls', {})
+			vim.lsp.enable('jsonls')
+			vim.lsp.config('solidity_ls', {})
+			vim.lsp.enable('solidity_ls')
+			vim.lsp.config('ts_ls', {})
+			vim.lsp.enable('ts_ls')
+			vim.lsp.config('rust_analyzer', {})
+			vim.lsp.enable('rust_analyzer')
+			vim.lsp.config('cssls', {})
+			vim.lsp.enable('cssls')
+			vim.lsp.config('css_variables', {})
+			vim.lsp.enable('css_variables')
 
-			lspconfig.lua_ls.setup {
+			vim.lsp.config('lua_ls', {
 				settings = {
 					Lua = {
 						diagnostics = {
@@ -190,9 +199,10 @@ return {
 						}
 					}
 				}
-			}
+			})
+			vim.lsp.enable('lua_ls')
 
-			lspconfig.pylsp.setup {
+			vim.lsp.config('pylsp', {
 				plugins = {
 					-- formatter options
 					black = { enabled = true },
@@ -209,7 +219,8 @@ return {
 					-- import sorting
 					pyls_isort = { enabled = true },
 				},
-			}
+			})
+			vim.lsp.enable('pylsp')
 		end
 	},
 
